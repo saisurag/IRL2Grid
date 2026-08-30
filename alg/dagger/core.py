@@ -99,6 +99,7 @@ class DAGGER:
                     dataset_size -= D_obs[0].shape[0]
                     D_obs.pop(0)
                     D_act.pop(0)
+
                 next_obs, rew, term, trunc, infos = envs.step(a_exec.cpu().numpy())
                 obs = next_obs
 
