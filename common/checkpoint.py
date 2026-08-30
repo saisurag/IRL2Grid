@@ -22,7 +22,7 @@ class CheckpointSaver(ABC):
         self.loaded_run, self.record = {}, {}
         if self.args.resume_run_name:
             checkpoint_name = 'checkpoint/' + self.args.resume_run_name + '.tar'
-            self.loaded_run = th.load(checkpoint_name)
+            self.loaded_run = th.load(checkpoint_name, weights_only=False)
             os.remove(checkpoint_name)
     
     @property
@@ -172,3 +172,44 @@ class DQNCheckpoint(CheckpointSaver):
         self.record['qnet_optim'] = qnet_optim.state_dict()
         self.record['wb_run_name'] = wb_run_name
         self.record['last_step'] = last_step
+
+class DAGGERCheckpoint(CheckpointSaver):
+    def set_record(
+        self,
+        args: Dict[str, Any],
+        actor: nn.Sequential,
+        global_step: int,
+        actor_optim: optim,
+        last_iter: int = 0,
+        dataset_size: int = 0,
+    ) -> None:
+        if global_step >= (args.dagger_iters * args.rollout_steps * args.n_envs) - args.n_envs:
+            self.run_name = 'final_' + self.run_name
+        self._get_base_record(global_step)
+        self.record['args'] = args
+        self.record['actor'] = actor.state_dict()
+        self.record['actor_optim'] = actor_optim.state_dict()
+        self.record['last_iter'] = last_iter
+        self.record['dataset_size'] = dataset_size
+
+class VIPERCheckpoint(CheckpointSaver):
+    def set_record(
+        self,
+        args: Dict[str, Any],
+        tree,
+        global_step: int,
+        oracle_run_name: str,
+        wb_run_name: str,
+        last_iter: int = 0,
+        best_score: float = None,
+    ) -> None:
+        if global_step > 0:
+            self.run_name = 'final_' + self.run_name
+
+        self._get_base_record(global_step)
+        self.record['args'] = args
+        self.record['tree'] = tree
+        self.record['oracle_run_name'] = oracle_run_name
+        self.record['wb_run_name'] = wb_run_name
+        self.record['last_iter'] = last_iter
+        self.record['best_score'] = best_score

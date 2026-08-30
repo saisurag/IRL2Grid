@@ -55,7 +55,7 @@ class Evaluator:
         if self.use_heuristic: ep_rewards += list(info['rewards'].values())
 
         while len(ep_survivals) < eval_ep:
-            action = model.get_eval_action(th.tensor(obs, dtype=th.float).to(self.device)).detach().numpy()
+            action = model.get_eval_action(th.tensor(obs, dtype=th.float).to(self.device)).detach().cpu().numpy()
             next_obs, _, _, _, info = self.env.step(action)
 
             obs = next_obs

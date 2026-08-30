@@ -8,14 +8,19 @@ from alg.lagr_ppo.core import LagrPPO
 from alg.ppo.core import PPO
 from alg.sac.core import SAC
 from alg.td3.core import TD3
-from common.checkpoint import DQNCheckpoint, LagrPPOCheckpoint, PPOCheckpoint, SACCheckpoint, TD3Checkpoint
+from alg.dagger.core import DAGGER
+from alg.viper.core import VIPER
+from common.checkpoint import DQNCheckpoint, LagrPPOCheckpoint, PPOCheckpoint, SACCheckpoint, TD3Checkpoint, DAGGERCheckpoint, VIPERCheckpoint
 from common.imports import *
 from common.utils import set_random_seed, set_torch, str2bool
 from env.config import get_env_args
 from env.utils import auxiliary_make_env
 
+import os
+import gymnasium as gym
+
 # Dictionary mapping algorithm names to their corresponding classes
-ALGORITHMS: Dict[str, Type[Any]] = {'DQN': DQN, 'PPO': PPO, 'SAC': SAC, 'TD3': TD3, 'LAGRPPO': LagrPPO}
+ALGORITHMS: Dict[str, Type[Any]] = {'DQN': DQN, 'PPO': PPO, 'SAC': SAC, 'TD3': TD3, 'LAGRPPO': LagrPPO, 'DAGGER': DAGGER, 'VIPER': VIPER}
 
 def main(args: Namespace) -> None:
     """
@@ -49,6 +54,8 @@ def main(args: Namespace) -> None:
     elif alg == 'PPO' : checkpoint = PPOCheckpoint(run_name, args)
     elif alg == 'SAC': checkpoint = SACCheckpoint(run_name, args)
     elif alg == 'TD3': checkpoint = TD3Checkpoint(run_name, args)
+    elif alg == 'DAGGER': checkpoint = DAGGERCheckpoint(run_name, args)
+    elif alg == 'VIPER': checkpoint = VIPERCheckpoint(run_name, args)
     else:
         pass  # This case should not occur due to earlier assertion
 
@@ -74,8 +81,13 @@ def main(args: Namespace) -> None:
                 return auxiliary_make_env(args, resume_run=checkpoint.resumed, idx=idx, action_space=action_space)[0]
             
             return auxiliary_make_env(args, resume_run=checkpoint.resumed, idx=idx)[0]
-            
-        envs = gym.vector.AsyncVectorEnv([lambda i=i: make_vec_subprocess(i) for i in range(args.n_envs)])
+        
+        env_fns = [lambda i=i: make_vec_subprocess(i) for i in range(args.n_envs)]
+
+        if os.name == "nt" or args.n_envs == 1:
+            envs = gym.vector.SyncVectorEnv(env_fns)
+        else:
+            envs = gym.vector.AsyncVectorEnv(env_fns)
 
         # Run the specified algorithm
         ALGORITHMS[alg](envs, run_name, start_time, args, checkpoint)
