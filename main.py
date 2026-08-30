@@ -10,6 +10,7 @@ from alg.sac.core import SAC
 from alg.td3.core import TD3
 from alg.dagger.core import DAGGER
 from alg.viper.core import VIPER
+from alg.s_reinforce.core import SReinforce
 from common.checkpoint import DQNCheckpoint, LagrPPOCheckpoint, PPOCheckpoint, SACCheckpoint, TD3Checkpoint, DAGGERCheckpoint, VIPERCheckpoint
 from common.imports import *
 from common.utils import set_random_seed, set_torch, str2bool
@@ -20,7 +21,7 @@ import os
 import gymnasium as gym
 
 # Dictionary mapping algorithm names to their corresponding classes
-ALGORITHMS: Dict[str, Type[Any]] = {'DQN': DQN, 'PPO': PPO, 'SAC': SAC, 'TD3': TD3, 'LAGRPPO': LagrPPO, 'DAGGER': DAGGER, 'VIPER': VIPER}
+ALGORITHMS: Dict[str, Type[Any]] = {'DQN': DQN, 'PPO': PPO, 'SAC': SAC, 'TD3': TD3, 'LAGRPPO': LagrPPO, 'DAGGER': DAGGER, 'VIPER': VIPER, 'SREINFORCE': SReinforce}
 
 def main(args: Namespace) -> None:
     """
@@ -56,6 +57,7 @@ def main(args: Namespace) -> None:
     elif alg == 'TD3': checkpoint = TD3Checkpoint(run_name, args)
     elif alg == 'DAGGER': checkpoint = DAGGERCheckpoint(run_name, args)
     elif alg == 'VIPER': checkpoint = VIPERCheckpoint(run_name, args)
+    elif alg == 'SREINFORCE': checkpoint = PPOCheckpoint(run_name, args)
     else:
         pass  # This case should not occur due to earlier assertion
 

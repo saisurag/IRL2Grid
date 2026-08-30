@@ -1,0 +1,5 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /home/sai/RL2Grid/wandb/offline-run-20260521_195238-DAGGER_bus14_T_1_0__I__1779389555_10762[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260521_195238-DAGGER_bus14_T_1_0__I__1779389555_10762/logs[0m

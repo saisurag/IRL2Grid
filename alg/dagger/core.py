@@ -1,5 +1,4 @@
 from time import time
-import numpy as np
 import torch as th
 import torch.nn.functional as F
 import torch.optim as optim
@@ -10,7 +9,6 @@ from common.checkpoint import CheckpointSaver
 from common.logger import Logger
 from env.eval import Evaluator
 from common.imports import *
-from common.utils import set_torch
 
 class DAGGER:
     """
@@ -56,16 +54,16 @@ class DAGGER:
         else:
             init_iter = 0
 
-        # Dataset buffers (store on CPU to avoid GPU memory blowup)
         D_obs = []
         D_act = []
+        dataset_size = 0
 
         # Reset envs
         obs, _ = envs.reset()
         global_step = 0
 
-        # Helper: deterministic expert action = argmax logits (PPOAgent's eval uses sampling)
-        # PPOAgent.get_eval_discrete_action calls sampling, so we do argmax here. :contentReference[oaicite:3]{index=3}
+        # Helper: deterministic expert action = argmax logits.
+        # We use argmax (greedy) rather than the stochastic policy so the expert labels are deterministic, as DAgger assumes.
         def expert_label(obs_t: th.Tensor) -> th.Tensor:
             logits = expert.actor(obs_t)
             return th.argmax(logits, dim=1)
@@ -93,22 +91,18 @@ class DAGGER:
                 # store (s, a*)
                 D_obs.append(obs_t.detach().cpu())
                 D_act.append(a_star.detach().cpu())
+                dataset_size += args.n_envs
 
-                # cap dataset
-                if len(D_obs) > args.dataset_max:
-                    D_obs = D_obs[-args.dataset_max:]
-                    D_act = D_act[-args.dataset_max:]
-
-                # step env
+                # cap dataset by number of stored transitions (FIFO), always
+                # keeping at least one chunk
+                while dataset_size > args.dataset_max and len(D_obs) > 1:
+                    dataset_size -= D_obs[0].shape[0]
+                    D_obs.pop(0)
+                    D_act.pop(0)
                 next_obs, rew, term, trunc, infos = envs.step(a_exec.cpu().numpy())
-                done = np.logical_or(term, trunc)
                 obs = next_obs
 
                 global_step += args.n_envs
-
-                # if any env finished, just reset all (simple + robust for AsyncVectorEnv)
-                if np.any(done):
-                    obs, _ = envs.reset()
 
             # -------------------------
             # Behaviour Cloning update on aggregated dataset
@@ -119,9 +113,9 @@ class DAGGER:
             Y = th.cat(D_act, dim=0).long()  # [N]
 
             N = X.shape[0]
-            idx = th.randperm(N)
 
             for epoch in range(args.bc_epochs):
+                idx = th.randperm(N)  # reshuffle each epoch
                 for start in range(0, N, args.bc_batch_size):
                     batch_idx = idx[start:start + args.bc_batch_size]
                     xb = X[batch_idx].to(device)
@@ -147,12 +141,12 @@ class DAGGER:
                     global_step=global_step,
                     actor_optim=actor_optim,
                     last_iter=it,
-                    dataset_size=len(D_obs),
+                    dataset_size=dataset_size,
                 )
                 ckpt.save()
 
             if args.verbose:
-                print(f"[DAgger] iter={it} beta={beta:.3f} dataset={len(D_obs)} global_step={global_step}")
+                print(f"[DAgger] iter={it} beta={beta:.3f} dataset={dataset_size} global_step={global_step}")
 
         # final save
         if args.checkpoint:
@@ -162,6 +156,6 @@ class DAGGER:
                 global_step=global_step,
                 actor_optim=actor_optim,
                 last_iter=args.dagger_iters - 1,
-                dataset_size=len(D_obs),
+                dataset_size=dataset_size,
             )
             ckpt.save()

@@ -37,7 +37,7 @@ class Evaluator:
         self.use_heuristic = args.use_heuristic
         if self.use_heuristic: self.env.set_n_rewards(len(self.reward_tags))
             
-    def evaluate(self, glob_step: int, model: object, eval_ep: int = 3) -> None:
+    def evaluate(self, glob_step: int, model: object, eval_ep: int = 3) -> dict:
         """Evaluate the model over a specified number of episodes.
 
         Args:
@@ -77,6 +77,11 @@ class Evaluator:
 
         print(f"Eval at step {glob_step}, survival={avg_survival*100:.3f}%, return={avg_return}")
 
+        return {
+            "survival": avg_survival,
+            "return": avg_return,
+        }
+
 class CMDPEvaluator(Evaluator):
     """Evaluator class for evaluating a constrained reinforcement learning model deterministically.
 
@@ -90,7 +95,7 @@ class CMDPEvaluator(Evaluator):
     def __init__(self, args: Dict[str, Any], logger: Logger, device: th.device) -> None:
         super().__init__(args, logger, device)
 
-    def evaluate(self, glob_step: int, model: object, eval_ep: int = 3) -> None:
+    def evaluate(self, glob_step: int, model: object, eval_ep: int = 3) -> dict:
         """Evaluate the model over a specified number of episodes.
 
         Args:
@@ -136,3 +141,9 @@ class CMDPEvaluator(Evaluator):
         if self.logger: self.logger.store_metrics(glob_step, avg_survival, avg_return, avg_cost_return, self.reward_tags)
 
         print(f"Eval at step {glob_step}, survival={avg_survival*100:.3f}%, return={avg_return}, cost_return={avg_cost_return}")
+
+        return {
+            "survival": avg_survival,
+            "return": avg_return,
+            "cost_return": avg_cost_return,
+        }
