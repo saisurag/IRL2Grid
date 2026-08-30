@@ -1,0 +1,19 @@
+/vol/bitbucket/ssl125/miniconda/envs/rl2grid/lib/python3.12/site-packages/grid2op/MakeEnv/Make.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Traceback (most recent call last):
+  File "/vol/bitbucket/ssl125/RL2Grid/main.py", line 120, in <module>
+    main(parser.parse_known_args()[0])
+  File "/vol/bitbucket/ssl125/RL2Grid/main.py", line 70, in main
+    main_gym_env, main_g2o_env = auxiliary_make_env(args, checkpoint.resumed)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vol/bitbucket/ssl125/RL2Grid/env/utils.py", line 111, in auxiliary_make_env
+    g2op_env = grid2op.make(
+               ^^^^^^^^^^^^^
+  File "/vol/bitbucket/ssl125/miniconda/envs/rl2grid/lib/python3.12/site-packages/grid2op/MakeEnv/Make.py", line 526, in make
+    return make_from_path_fn(
+           ^^^^^^^^^^^^^^^^^^
+  File "/vol/bitbucket/ssl125/miniconda/envs/rl2grid/lib/python3.12/site-packages/grid2op/MakeEnv/MakeFromPath.py", line 429, in make_from_dataset_path
+    _check_path(grid_path_abs, "Dataset power flow solver configuration")
+  File "/vol/bitbucket/ssl125/miniconda/envs/rl2grid/lib/python3.12/site-packages/grid2op/MakeEnv/MakeFromPath.py", line 127, in _check_path
+    raise EnvError("Cannot find {}. {}".format(path, info))
+grid2op.Exceptions.envExceptions.EnvError: Grid2OpException EnvError "Cannot find /homes/ssl125/data_grid2op/l2rpn_wcci_2020/grid.json. Dataset power flow solver configuration"

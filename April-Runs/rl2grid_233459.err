@@ -1,0 +1,9 @@
+/vol/bitbucket/ssl125/miniconda/envs/rl2grid/lib/python3.12/site-packages/grid2op/MakeEnv/Make.py:13: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+usage: main.py [-h] [--env-id ENV_ID] [--n-envs N_ENVS]
+               [--action-type {topology,redispatch}] [--difficulty DIFFICULTY]
+               [--n1-reward N1_REWARD] [--env-config-path ENV_CONFIG_PATH]
+               [--norm-obs NORM_OBS] [--use-heuristic USE_HEURISTIC]
+               [--heuristic-type {idle,reconnect}]
+               [--optimize-mem OPTIMIZE_MEM] [--constraints-type {0,1,2}]
+main.py: error: argument --heuristic-type: invalid choice: 'recovery' (choose from 'idle', 'reconnect')
