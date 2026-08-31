@@ -1,8 +1,6 @@
 #!/usr/bin/env python
-"""Export a trained DTPO tree to a clean Graphviz .dot / .svg.
-  --> decision node : "obs_i <= thr"
-  --> leaf          : "-> a=<argmax action>  p=<prob mass>"
-Leaves are coloured by their chosen action so repeated actions are easy to spot.
+"""
+Export a trained DTPO tree to a clean Graphviz .dot / .svg.
 """
 import argparse, os, shutil, subprocess, colorsys
 import numpy as np
@@ -49,11 +47,15 @@ def emit(n, depth):
         env_a = int(amap[a]) if amap is not None else a
         prob = val[a] / (val.sum() + 1e-12)
         lbl = f"action {env_a}\\np={prob:.2f}"
-        lines.append(f'  {n} [label="{lbl}", shape=box, style="filled,rounded", 'f'fillcolor="{colour(env_a)}"];')
+        lines.append(f'  {n} [label="{lbl}", shape=box, style="filled,rounded", '
+                     f'fillcolor="{colour(env_a)}"];')
         return
     f = fnames[t.feature[n]]
     thr = t.threshold[n]
-    lines.append(f'  {n} [label="{f} \\u2264 {thr:.3g}", shape=oval, 'f'style=filled, fillcolor="#eef3fb"];')
+    # NB: write the literal character — Graphviz does NOT interpret \uXXXX
+    # escapes in labels, it printed them verbatim as "u2264".
+    lines.append(f'  {n} [label="{f} ≤ {thr:.3g}", shape=oval, '
+                 f'style=filled, fillcolor="#eef3fb"];')
     l, r = t.children_left[n], t.children_right[n]
     lines.append(f'  {n} -> {l} [label="yes"];')
     lines.append(f'  {n} -> {r} [label="no"];')
@@ -66,7 +68,8 @@ base = args.out or os.path.splitext(os.path.basename(args.ckpt))[0] + "_tree"
 dot_path = base + ".dot"
 with open(dot_path, "w") as fh:
     fh.write("\n".join(lines))
-print(f"[viz] {dot_path}  (depth={tree.get_depth()} leaves={tree.get_n_leaves()} "f"actions={tree.n_outputs_}{' landscape' if args.landscape else ''})")
+print(f"[viz] {dot_path}  (depth={tree.get_depth()} leaves={tree.get_n_leaves()} "
+      f"actions={tree.n_outputs_}{' landscape' if args.landscape else ''})")
 
 dot_bin = shutil.which("dot")
 if dot_bin:

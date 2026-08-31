@@ -1,0 +1,18 @@
+=== 3465156[87].pbs-7 [87] bus36-M_distill_L64_s103 on cx3-2-25 | Mon 27 Jul 17:40:17 BST 2026 ===
+=== distill_only.py --env-id bus36-M --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 103 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 19424, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 17, 'fidelity': 0.981414744645799, 'weighted_fidelity': 0.9989598235224172, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus36-M_T_103_0_L64_1785170571_24339.tar (leaves=64, curated=no)
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus36-M seed=103 difficulty=0 leaves=64 depth=17 select=38.99 report=40.44 report_min=4.75 report_max=83.13 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus36-M_distill_L64_s103 finished Mon 27 Jul 17:52:09 BST 2026 ===
+
+====================================
+CPU Time used: 00:07:46
+CPU Percent: 98%
+Memory usage: 606056kb
+Approx Power usage: 0.0014
+Walltime usage: 00:12:33
+
+====================================

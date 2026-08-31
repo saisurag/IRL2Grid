@@ -1,0 +1,21 @@
+=== 3465156[110].pbs-7 [110] bus36-M_dtpo-full_L32_s104 on cx3-5-8 | Mon 27 Jul 18:03:57 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus36-M --difficulty 0 --seed 104 --dtpo-eval-total 40 --tree-max-leaf-nodes 32 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0004 kept mode=leaf gate=revert(11) cand=50.10% leaves=32 survival=69.13% best=69.13% std=29.4%
+[DTPO] it=148/150 step=1479852 J_new=0.0005 kept mode=leaf gate=revert(12) cand=59.25% leaves=32 survival=69.13% best=69.13% std=29.4%
+[DTPO] it=149/150 step=1489851 J_new=0.0005 kept mode=leaf gate=revert(13) cand=53.34% leaves=32 survival=69.13% best=69.13% std=29.4%
+[DTPO] it=150/150 step=1499850 J_new=0.0001 kept mode=leaf gate=revert(14) cand=51.80% leaves=32 survival=69.13% best=69.13% std=29.4%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['69.1%', '66.6%', '65.6%', '62.7%', '62.5%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus36-M seed=104 difficulty=0 leaves=32 depth=18 select=69.36 report=50.20 report_min=4.99 report_max=100.00 frac100=17.5 n_report=40
+JUMPS bigjumps=0 candjumps=4
+=== bus36-M_dtpo-full_L32_s104 finished Tue 28 Jul 07:46:53 BST 2026 ===
+
+====================================
+CPU Time used: 16:48:24
+CPU Percent: 312%
+Memory usage: 2324128kb
+Approx Power usage: 0.20160000000000003
+Walltime usage: 13:43:38
+
+====================================

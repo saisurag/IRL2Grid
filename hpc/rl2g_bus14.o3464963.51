@@ -1,0 +1,21 @@
+=== 3464963[51].pbs-7 [51] bus14_dtpo-full_L16_s102 on cx3-5-6 | Mon 27 Jul 16:09:28 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 102 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0020 kept mode=leaf gate=revert(28) cand=92.84% leaves=16 survival=97.84% best=97.84% std=13.5%
+[DTPO] it=148/150 step=1479852 J_new=0.0018 kept mode=leaf gate=accept cand=97.84% leaves=16 survival=97.84% best=97.84% std=13.5%
+[DTPO] it=149/150 step=1489851 J_new=0.0029 kept mode=leaf gate=revert(1) cand=0.57% leaves=16 survival=97.84% best=97.84% std=13.5%
+[DTPO] it=150/150 step=1499850 J_new=0.0026 kept mode=leaf gate=revert(2) cand=0.57% leaves=16 survival=97.84% best=97.84% std=13.5%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['97.8%', '97.8%', '97.8%', '97.8%', '97.8%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=102 difficulty=0 leaves=16 depth=9 select=97.84 report=97.84 report_min=13.57 report_max=100.00 frac100=97.5 n_report=40
+JUMPS bigjumps=2 candjumps=25
+=== bus14_dtpo-full_L16_s102 finished Tue 28 Jul 06:46:27 BST 2026 ===
+
+====================================
+CPU Time used: 17:12:02
+CPU Percent: 228%
+Memory usage: 1719260kb
+Approx Power usage: 0.20639999999999997
+Walltime usage: 14:37:24
+
+====================================

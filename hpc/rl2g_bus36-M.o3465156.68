@@ -1,0 +1,21 @@
+=== 3465156[68].pbs-7 [68] bus36-M_dtpo-full-pat3_L16_s102 on cx3-12-5 | Mon 27 Jul 17:10:30 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus36-M --difficulty 0 --seed 102 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --dtpo-gate-patience 3 --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0002 kept mode=leaf gate=accept(forced) cand=51.91% leaves=16 survival=51.91% best=60.64% std=35.8%
+[DTPO] it=148/150 step=1479852 J_new=0.0002 revert mode=leaf gate=hold cand=51.91% leaves=16 survival=51.91% best=60.64% std=35.8%
+[DTPO] it=149/150 step=1489851 J_new=0.0001 revert mode=leaf gate=hold cand=51.91% leaves=16 survival=51.91% best=60.64% std=35.8%
+[DTPO] it=150/150 step=1499850 J_new=-0.0002 revert mode=leaf gate=hold cand=51.91% leaves=16 survival=51.91% best=60.64% std=35.8%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['60.6%', '58.4%', '58.3%', '58.2%', '58.0%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus36-M seed=102 difficulty=0 leaves=16 depth=6 select=54.36 report=56.99 report_min=4.99 report_max=100.00 frac100=27.5 n_report=40
+JUMPS bigjumps=0 candjumps=2
+=== bus36-M_dtpo-full-pat3_L16_s102 finished Tue 28 Jul 01:08:50 BST 2026 ===
+
+====================================
+CPU Time used: 11:09:21
+CPU Percent: 402%
+Memory usage: 1773308kb
+Approx Power usage: 0.1338
+Walltime usage: 07:59:00
+
+====================================

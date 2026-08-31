@@ -1,0 +1,8 @@
+[honest-any] ckpt=checkpoint/DISTILL_bus36-M_T_103_0_L16_1785169215_24339.tar
+[honest-any] alg=DTPO env=bus36-M difficulty=0 n_chronics=2880 using=80 (select=40 / report=40)
+[honest-any] cand iter=0 cheap=  0.00% -> SELECT= 41.79%
+
+[honest-any] WINNER iter=0 leaves=16 depth=8
+[honest-any]   select-set survival = 41.79%  (40 chronics)
+[honest-any]   HELD-OUT REPORT survival = 43.48%  (40 chronics)  [min 5% / max 100% / frac@100% 18%]
+RESULT alg=DTPO run=checkpoint env=bus36-M seed=103 difficulty=0 leaves=16 depth=8 select=41.79 report=43.48 report_min=4.99 report_max=100.00 frac100=17.5 n_report=40

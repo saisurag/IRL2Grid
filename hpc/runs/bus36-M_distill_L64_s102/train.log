@@ -1,0 +1,2 @@
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 14255, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 19, 'fidelity': 0.9922132585057875, 'weighted_fidelity': 0.9996799746468892, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus36-M_T_102_0_L64_1785168254_43264.tar (leaves=64, curated=no)

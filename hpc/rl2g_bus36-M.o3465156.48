@@ -1,0 +1,18 @@
+=== 3465156[48].pbs-7 [48] bus36-M_daggertree_L64_s101 on cx3-12-5 | Mon 27 Jul 16:47:46 BST 2026 ===
+=== distill_only.py --env-id bus36-M --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 101 --dagger-rounds 5 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 95758, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 19, 'fidelity': 0.9980889325173876, 'weighted_fidelity': 0.9999105600989583, 'curated': False, 'dagger_rounds': 5, 'dagger_dataset_sizes': [14254, 22236, 42236, 61137, 81137, 95758]}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus36-M_T_101_0_L64_1785168134_45919.tar (leaves=64, curated=no)
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus36-M seed=101 difficulty=0 leaves=64 depth=19 select=48.83 report=48.41 report_min=4.99 report_max=83.60 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus36-M_daggertree_L64_s101 finished Mon 27 Jul 17:13:57 BST 2026 ===
+
+====================================
+CPU Time used: 00:22:57
+CPU Percent: 98%
+Memory usage: 972264kb
+Approx Power usage: 0.004399999999999999
+Walltime usage: 00:26:55
+
+====================================
