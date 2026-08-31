@@ -12,3 +12,9 @@ __pycache__/
 # Exclude the action spaces folder
 env/action_spaces/
 discovery/
+*.tar
+*.tar.bak
+wandb/
+build/
+*.egg-info/
+*:Zone.Identifier
