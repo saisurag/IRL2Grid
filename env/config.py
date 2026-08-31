@@ -28,6 +28,20 @@ def get_env_args() -> Namespace:
     parser.add_argument("--heuristic-type", type=str, default="idle", choices=["idle", "reconnect"], help="Select the type of heuristic to use: idle or reconnect")
 
     parser.add_argument("--optimize-mem", type=str2bool, default=False, help="Whether to load data chunks upon resets (True), or the whole dataset once (False)")
+
+    parser.add_argument("--chronics-mode", type=str, default="multifolder",
+                        choices=["multifolder", "cache"],
+                        help="multifolder: set_id works, chunked reads (correct). "
+                             "cache: legacy MultifolderWithCache -- ONLY the first scenario is ever used.")
+    parser.add_argument("--chronic-holdout", type=int, default=4,
+                        help="Reserve every K-th chronic for eval and hide it from training. 0 = no split.")
+    parser.add_argument("--eval-seed", type=int, default=12345,
+                        help="Base seed for exogenous events during evaluation; episode seed = "
+                             "eval_seed + chronic_id. Shared by all methods, so comparisons stay paired.")
+    parser.add_argument("--eval-norm-reset", type=str, default="per-chronic",
+                        choices=["per-chronic", "once"],
+                        help="per-chronic: reset obs-normaliser before every eval episode (order-independent). "
+                             "once: legacy, reset once per eval pass (scores depend on episode order).")
     parser.add_argument("--constraints-type", type=int, default=0, choices=[0, 1, 2], help="Select the type of constraints to use: no constraints (0), failure constraints (1), overloads constraints (2)")
 
     # Parse the arguments

@@ -15,6 +15,8 @@ def get_alg_args() -> Namespace:
     parser.add_argument("--dtpo-eval-every", type=int, default=10, help="Evaluate the deterministic policy every N iterations")
     parser.add_argument("--dtpo-eval-ep", type=int, default=3, help="[legacy random-chronic eval] Episodes per in-training eval. Only used if --dtpo-eval-total <= 0. Default 3 is noisy.")
     parser.add_argument("--dtpo-eval-total", type=int, default=20, help="Deterministic in-loop eval: evaluate on this many FIXED, evenly-spaced chronics (capped at n_chronics) with cold-reset normalization each pass. Makes the in-training survival reproducible and consistent with honest_eval, so the running-best curve is monotone. <=0 falls back to the legacy random-chronic eval.")
+
+    parser.add_argument("--dtpo-select-by", type=str, default="survival", choices=["survival","return"], help="Criterion for ranking stored candidate trees. 'survival' (default) uses deterministic survival on C_gate; 'return' uses the discounted TRAINING-composite return, the criterion the reference DTPO implementation uses.")
     parser.add_argument("--dtpo-rerank-topk", type=int, default=5, help="How many top candidate trees (by cheap in-training eval) to re-rank at the end. 0 disables re-ranking.")
     parser.add_argument("--dtpo-rerank-ep", type=int, default=50, help="Episodes used to honestly re-rank candidate trees at the end of training.")
 
@@ -40,7 +42,6 @@ def get_alg_args() -> Namespace:
     parser.add_argument("--warmstart-dagger-steps-cap", type=int, default=10000,
                         help="Cap on states collected per DAgger round.")
 
-
     parser.add_argument("--dtpo-ppo-clip", type=float, default=0.0,
                         help="PPO clip epsilon for the target update. 0 = legacy unclipped single-step.")
     parser.add_argument("--dtpo-policy-updates", type=int, default=1,
@@ -49,29 +50,36 @@ def get_alg_args() -> Namespace:
                         help="Linearly anneal eta -> 0 over iterations (reference behavior).")
 
     # Structure-preserving updates (extension to reduce iteration-to-iteration instability). 
-    # The paper's Algorithm 1 refits a brand-new regression tree from scratch every iteration: since CART's
+    # The paper's Algorithm 1 refits a brand-new regression tree from scratch every iteration.
     # A small shift in targets can flip which feature/threshold a node splits on, producing a structurally different tree (and a big jump in behavior/survival)
-    # When --dtpo-structure-refit-every K is > 1, only every Kth iteration does a full CART refit; on the other iterations we keep the CURRENT tree's split structure fixed and only overwrite each visited leaf's value with this batch's target mean
-
+    # When --dtpo-structure-refit-every K is > 1, only every Kth iteration does a full CART refit; on the other iterations we keep the CURRENT tree's split structure fixed and only overwrite each visited leaf's value with this batch's target mean.
     parser.add_argument("--dtpo-structure-refit-every", type=int, default=1,
                         help="Full CART structural refit every K iterations (1 = every iteration, "
                              "the paper-faithful default). K>1 does leaf-value-only updates on the "
                              "other iterations, keeping the tree's splits fixed.")
 
-    # Survival-gated acceptance (extension). The paper's
+    # Survival-gated acceptance (extension). 
     # A candidate is deployed only if its fixed-chronic survival >= current candidate's, otherwise we revert back to original/current.
 
     parser.add_argument("--dtpo-survival-gate", type=str2bool, default=False,
                         help="Gate rollout-policy acceptance on the deterministic eval survival "
-                             "(revert to the incumbent tree if the candidate scores lower). "
+                             "(revert to the previous (current) tree if the candidate scores lower). "
                              "Use with --dtpo-eval-every 1.")
     parser.add_argument("--dtpo-gate-patience", type=int, default=0,
-                        help="If >0: after this many consecutive gate rejections, force-accept the "
-                             "next candidate anyway (escape hatch against freezing). 0 = strict gate.")
+                        help="If >0: after this many consecutive gate rejections, swap the rollout policy to the current candidate to escape a stall. " \
+                             "The acceptance bar is NOT lowered. 0 = strict gate.")
+
+    parser.add_argument("--dtpo-gate-tol", type=float, default=0.0,
+                        help="accept a candidate whose survival is >= incumbent - tolerance.")
+    parser.add_argument("--dtpo-flush-replay-on-revert", type=str2bool, default=True,
+                        help="clear the replay buffer when the gate reverts, so the rejected branch's off-policy transitions do not drive the next fit.")
+    parser.add_argument("--dtpo-replay-weight-fit", type=str2bool, default=True,
+                        help="pass the clipped importance ratio to CART as sample_weight, so stale replayed samples influence SPLIT SELECTION less, not just the leaf targets. No effect when M=1.")
 
     # Replay aggregation (extension).
     # Aggregating the last M batches (with clipped importance ratios pi_cur/pi_behavior correcting for the older batches' off-policy data) gives the tree fit M-times the data.
     # Stabilises split choices. M=1 reproduces the legacy on-policy behavior exactly. Only wired into the unclipped (--dtpo-ppo-clip 0) branch.
+
     parser.add_argument("--dtpo-replay-iters", type=int, default=1,
                         help="Fit the tree on the last M batches of experience (importance-weighted). "
                              "1 = current batch only (paper-faithful).")

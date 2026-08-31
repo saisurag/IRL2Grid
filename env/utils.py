@@ -106,23 +106,22 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
         rewards['n1ContingencyReward'] = N1ContingencyRewardv1(l_ids=list(range(env_config[env_id]['n_line'])), normalize=True)
     
     # With vec envs, infos return an array of dicts (one for each env) containing the rewards
+    _use_cache = (getattr(args, "chronics_mode", "multifolder") == "cache")
     g2op_env = grid2op.make(
-        env_config[env_id]['grid2op_id'], 
-        reward_class=CombinedReward, 
+        env_config[env_id]['grid2op_id'],
+        reward_class=CombinedReward,
         experimental_read_from_local_dir=True if async_vec_env else False,
         backend=LightSimBackend(),
         other_rewards=rewards,
-        chronics_class=Multifolder if args.optimize_mem else MultifolderWithCache,
+        chronics_class=MultifolderWithCache if _use_cache else Multifolder,
         test=True if env_id=='bus5' else False
         #class_in_file=True
-    ) 
-    
-    if args.optimize_mem: g2op_env.chronics_handler.set_chunk_size(100)    # Instead of loading all episode data, get chunks of 100
-    else:
-        # Assign a filter (e.g., use only chronics that have "december" in their name) to reduce memory footprint
-        #env.chronics_handler.real_data.set_filter(lambda x: re.match(".*december.*", x) is not None)
-        # Create the cache; otherwise it'll only load the first scenario
+    )
+
+    if _use_cache:
         g2op_env.chronics_handler.reset()
+    else:
+        g2op_env.chronics_handler.set_chunk_size(100)
     
     cr = g2op_env.get_reward_instance()  # Initialize the combined reward instance
     # Per step (cumulative) positive reward for staying alive; reaches 1 at the end of the episode
@@ -143,8 +142,20 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
         print("Class generated offline for AsyncVecEnv execution")
         quit()
     
-    gym_env = GymEnv(g2op_env, shuffle_chronics=True)  # Wrap the grid2op environment in a GymEnv
+    gym_env = GymEnv(g2op_env, shuffle_chronics=not eval_env)  # Wrap the grid2op environment in a GymEnv
     gym_env.action_space.close()
+
+    holdout = int(getattr(args, "chronic_holdout", 0) or 0)
+    if holdout > 1 and not eval_env:
+        _n = len(gym_env.init_env.chronics_handler.real_data.subpaths)
+        _train_names = {os.path.basename(p)
+                        for i, p in enumerate(gym_env.init_env.chronics_handler.real_data.subpaths)
+                        if i % holdout != holdout - 1}
+        gym_env.init_env.chronics_handler.real_data.set_filter(
+            lambda path, _keep=_train_names: os.path.basename(path) in _keep)
+        gym_env.init_env.chronics_handler.reset()
+        print(f"[F2] training env filtered to {len(_train_names)}/{_n} chronics "
+              f"(every {holdout}th id held out for evaluation)")
     
     # Making sure we can act on 1 sub / line status at the same step
     p = gym_env.init_env.parameters

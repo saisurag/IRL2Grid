@@ -12,18 +12,18 @@ from common.checkpoint import CheckpointSaver
 from common.imports import *
 from common.logger import Logger
 from env.eval import Evaluator
+from env.utils import load_config
 
 
 class DTPO:
     """
     Decision Tree Policy Optimization (Vos & Verwer, 2024, https://arxiv.org/abs/2408.11632).
-
     Optimizes a single hard regression-tree policy with policy gradients. Each iteration:
         (1) roll the (stochastic) tree policy out in the vectorized env
         (2) estimate GAE advantages with an NN critic
         (3) shift each visited state's action-probability target along the policy gradient
         (4) refit a freshmulti-output regression tree to those targets, keeping it only if it improves the DTPO objective
-        (5) update the critic. 
+        (5) update the critic.
     The returned policy is the best deterministic (argmax-leaf) tree by evaluated survival.
     """
 
@@ -84,20 +84,32 @@ class DTPO:
         # survival-gated acceptance state (extension, --dtpo-survival-gate)
         gate_on = bool(getattr(args, "dtpo_survival_gate", False))
         gate_patience = int(getattr(args, "dtpo_gate_patience", 0))
+        gate_tol = float(getattr(args, "dtpo_gate_tol", 0.0))   # A3a: accept within tol of the incumbent
         deployed_policy, deployed_surv, deployed_std = None, -np.inf, 0.0
         gate_rejects = 0
+        _sc = load_config(getattr(args, "env_config_path", "scenario.json"))["environments"]
+        _stochastic_env = bool(_sc.get(args.env_id, {}).get("maintenance", False) or
+                               _sc.get(args.env_id, {}).get("opponent", False))
+        gate_reuse_ok = not _stochastic_env
+        if gate_on and not gate_reuse_ok:
+            print(f"[A5] {args.env_id} has stochastic exogenous events -> gate evaluation is NOT "
+                  f"a deterministic function of the tree; disabling the cached-incumbent shortcut "
+                  f"and re-evaluating each time.")
 
-        # replay aggregation state (extension, --dtpo-replay-iters)
         replay_M = max(1, int(getattr(args, "dtpo_replay_iters", 1)))
         replay_clip = float(getattr(args, "dtpo_replay_ratio_clip", 2.0))
         replay_buf = deque(maxlen=replay_M)             # (obs, act, adv, behavior action-probs)
 
-        # Deterministic, reproducible in-loop eval
         eval_total = int(getattr(args, "dtpo_eval_total", 0))
-        eval_ids = evaluator.fixed_chronic_ids(eval_total) if eval_total > 0 else None
+        eval_ids = evaluator.gate_chronic_ids(eval_total) if eval_total > 0 else None
         if eval_ids is not None:
-            print(f"[DTPO] deterministic eval on {len(eval_ids)} fixed chronics "
-                  f"(of {evaluator.n_chronics()}): ids={eval_ids.tolist()}")
+            _held = set(evaluator.held_out_ids().tolist())
+            _ov = len(_held.intersection(eval_ids.tolist()))
+            print(f"[DTPO] gate eval on {len(eval_ids)} training-side chronics "
+                  f"(of {evaluator.n_chronics()}); overlap with the held-out pool = {_ov} "
+                  f"(must be 0): ids={eval_ids.tolist()[:12]}{'...' if len(eval_ids) > 12 else ''}")
+            assert _ov == 0 or int(getattr(args, "chronic_holdout", 0) or 0) <= 1, \
+                "gate chronics overlap the held-out evaluation pool"
 
         tree_kwargs = dict(max_leaf_nodes=args.tree_max_leaf_nodes, max_depth=args.tree_max_depth,
                            min_samples_leaf=args.tree_min_samples_leaf, random_state=args.seed)
@@ -152,12 +164,12 @@ class DTPO:
                 b_act = act_buf.reshape(-1)
                 b_adv = adv.reshape(-1).astype(np.float64)
                 b_ret = ret.reshape(-1)
-                if args.dtpo_norm_adv:
-                    b_adv = (b_adv - b_adv.mean()) / (b_adv.std() + 1e-8)
 
-                # policy-gradient probability targets (gradient of Eq. 4 wrt logits)
-                # grad_l [ sigma(l)_a / pi_old * A ] = A * (onehot(a) - pi),  with l = log pi.
-                # eta optionally annealed to 0 over training (reference behavior).
+                def _norm_adv(x):
+                    if not args.dtpo_norm_adv:
+                        return x
+                    return (x - x.mean()) / (x.std() + 1e-8)
+
                 eta_t = (args.dtpo_eta * (1.0 - (it - 1) / max(1, args.dtpo_iters))
                          if getattr(args, "dtpo_anneal_lr", False) else args.dtpo_eta)
                 P = policy.proba(b_obs)                                # pi_old(.|s)
@@ -167,20 +179,22 @@ class DTPO:
                 clip_eps = float(getattr(args, "dtpo_ppo_clip", 0.0))
 
                 if clip_eps > 0.0:
+
                     def _ppo_loss(Pp):
                         r = Pp[np.arange(len(Pp)), b_act] / (old_p + 1e-12)
                         return float(np.minimum(r * b_adv,
                                                 np.clip(r, 1 - clip_eps, 1 + clip_eps) * b_adv).sum())
-                    loss_before = _ppo_loss(P)                         # ratio==1 -> sum(b_adv)
+                    b_adv = _norm_adv(b_adv)
+                    loss_before = _ppo_loss(P)
                     run_policy = policy
                     best_tree, best_loss = None, loss_before
                     for _u in range(max(1, int(getattr(args, "dtpo_policy_updates", 1)))):
                         Pr = run_policy.proba(b_obs)
                         r = Pr[np.arange(len(Pr)), b_act] / (old_p + 1e-12)
-                        # PPO min: gradient is zeroed where the clipped branch is active
+
                         clipped = (((b_adv > 0) & (r > 1 + clip_eps)) |
                                    ((b_adv < 0) & (r < 1 - clip_eps)))
-                        coef = np.where(clipped, 0.0, b_adv * r)       # per-sample scalar
+                        coef = np.where(clipped, 0.0, b_adv * r) 
                         logits = np.log(Pr + 1e-8) + eta_t * (coef[:, None] * (onehot - Pr))
                         logits -= logits.max(axis=1, keepdims=True)
                         Y = np.exp(logits); Y /= Y.sum(axis=1, keepdims=True)
@@ -200,12 +214,13 @@ class DTPO:
                     if len(replay_buf) > 1:
                         r_obs = np.concatenate([b[0] for b in replay_buf])
                         r_act = np.concatenate([b[1] for b in replay_buf])
-                        r_adv = np.concatenate([b[2] for b in replay_buf])
+                        r_adv = _norm_adv(np.concatenate([b[2] for b in replay_buf]))
                         r_beh = np.concatenate([b[3] for b in replay_buf])
-                        Pr = policy.proba(r_obs)
+                        Pr = policy.proba(r_obs)                       # pi_cur on aggregate
                         clip_hi = replay_clip
                     else:
-                        r_obs, r_act, r_adv, r_beh, Pr = b_obs, b_act, b_adv, old_p, P
+                        r_obs, r_act, r_beh, Pr = b_obs, b_act, old_p, P
+                        r_adv = _norm_adv(b_adv)
                         clip_hi = np.inf
                     r_onehot = np.zeros_like(Pr)
                     r_onehot[np.arange(len(Pr)), r_act] = 1.0
@@ -217,15 +232,17 @@ class DTPO:
                     Y = np.exp(logits)
                     Y /= Y.sum(axis=1, keepdims=True)
 
+                    fit_w = ratio if (len(replay_buf) > 1 and bool(
+                        getattr(args, "dtpo_replay_weight_fit", True))) else None
                     refit_every = max(1, int(getattr(args, "dtpo_structure_refit_every", 1)))
                     do_full_refit = (policy.tree is None) or ((it - 1) % refit_every == 0)
                     if do_full_refit:
                         new_tree = DecisionTreeRegressor(**tree_kwargs)
-                        new_tree.fit(r_obs, Y)
+                        new_tree.fit(r_obs, Y, sample_weight=fit_w)
                     else:
-                        new_tree = self._leaf_value_refit(policy.tree, r_obs, Y)
+                        new_tree = self._leaf_value_refit(policy.tree, r_obs, Y, sample_weight=fit_w)
                     new_policy = make_policy(new_tree)
-                    # keep only if it improves the DTPO objective J = E[ pi(a|s)/beta * A ]
+
                     J_old = float(np.mean(ratio * r_adv))
                     new_p = new_policy.action_proba(r_obs, r_act)
                     J_new = float(np.mean(np.clip(new_p / (r_beh + 1e-12), 0.0, clip_hi) * r_adv))
@@ -238,7 +255,8 @@ class DTPO:
 
                 # periodic deterministic evaluation + best-tree tracking
                 if it % args.dtpo_eval_every == 0:
-                    reuse = gate_on and (policy is deployed_policy)
+
+                    reuse = gate_on and gate_reuse_ok and (policy is deployed_policy)
                     if reuse:
                         surv, surv_std = deployed_surv, deployed_std
                     elif eval_ids is not None:
@@ -260,18 +278,25 @@ class DTPO:
                         cand_tag = f" cand={surv*100:.2f}%"
                         if reuse:
                             gate_tag = " gate=hold"
-                        elif deployed_policy is None or surv >= deployed_surv:
-                            deployed_policy, deployed_surv, deployed_std = policy, surv, surv_std
+                        elif deployed_policy is None or surv >= deployed_surv - gate_tol:
+
+                            deployed_policy = policy
+                            deployed_surv = max(deployed_surv, surv)
+                            deployed_std = surv_std
                             gate_rejects = 0
                             gate_tag = " gate=accept"
-                        elif gate_patience > 0 and gate_rejects >= gate_patience:
-                            deployed_policy, deployed_surv, deployed_std = policy, surv, surv_std
-                            gate_rejects = 0
-                            gate_tag = " gate=accept(forced)"
                         else:
                             gate_rejects += 1
-                            policy = deployed_policy                    # revert the rollout policy
-                            gate_tag = f" gate=revert({gate_rejects})"
+                            if gate_patience > 0 and gate_rejects >= gate_patience:
+
+                                deployed_policy = policy
+                                gate_rejects = 0
+                                gate_tag = " gate=accept(forced,bar-held)"
+                            else:
+                                policy = deployed_policy
+                                if bool(getattr(args, "dtpo_flush_replay_on_revert", True)):
+                                    replay_buf.clear()
+                                gate_tag = f" gate=revert({gate_rejects})"
                         log_surv, log_std = deployed_surv, deployed_std
                     else:
                         log_surv, log_std = surv, surv_std
@@ -289,8 +314,7 @@ class DTPO:
                     break
 
         finally:
-            # Store top-K candidate trees for final selection, as in-training best is unreliable, the real best chosen later  
-            topk = max(1, int(getattr(args, "dtpo_rerank_topk", 5)))
+            # Store top-K candidate trees for final selection, as in-training best is unreliable, the real best chosen latertopk = max(1, int(getattr(args, "dtpo_rerank_topk", 5)))
             ranked = sorted(candidates, key=lambda c: c[0], reverse=True)[:topk]
             cand_records = [{"tree": t, "iter": cit, "step": gstep, "cheap_survival": float(s)}
                             for (s, gstep, cit, t) in ranked]
@@ -315,12 +339,16 @@ class DTPO:
             envs.close()
 
     @staticmethod
-    def _leaf_value_refit(tree, X, Y):
+    def _leaf_value_refit(tree, X, Y, sample_weight=None):
         new_tree = copy.deepcopy(tree)
         leaf_ids = new_tree.apply(X)
+        w = None if sample_weight is None else np.asarray(sample_weight, dtype=np.float64)
         for lid in np.unique(leaf_ids):
             mask = leaf_ids == lid
-            new_tree.tree_.value[lid, :, 0] = Y[mask].mean(axis=0)
+            if w is None or w[mask].sum() <= 0:
+                new_tree.tree_.value[lid, :, 0] = Y[mask].mean(axis=0)
+            else:
+                new_tree.tree_.value[lid, :, 0] = np.average(Y[mask], axis=0, weights=w[mask])
         return new_tree
 
     @staticmethod

@@ -23,6 +23,7 @@ class Evaluator:
             device: Device to run the model on.
         """
  
+        self.args = args
         self.env = auxiliary_make_env(args, eval_env=True)[0]  # Initialize synchronized vector environment
         self.max_steps = self.env.init_env.chronics_handler.max_episode_duration()  # Get max episode duration
 
@@ -82,6 +83,7 @@ class Evaluator:
             "return": avg_return,
         }
 
+
     def _norm_wrapper(self):
         """Return the NormalizeObservation wrapper on the eval env (or None)."""
         e = self.env
@@ -97,42 +99,81 @@ class Evaluator:
         except Exception:
             return 0
 
-    def fixed_chronic_ids(self, total: int) -> np.ndarray:
-        """Evenly-spaced, deterministic subset of all chronics (capped at total)."""
+    def held_out_ids(self) -> np.ndarray:
         n = self.n_chronics()
+        k = int(getattr(self.args, "chronic_holdout", 0) or 0)
+        if n <= 0:
+            return np.arange(0)
+        ids = np.arange(n)
+        return ids[ids % k == k - 1] if k > 1 else ids
+
+    def gate_chronic_ids(self, total: int) -> np.ndarray:
+        n = self.n_chronics()
+        k = int(getattr(self.args, "chronic_holdout", 0) or 0)
         if n <= 0:
             return np.arange(max(1, total))
-        total = min(total, n)
-        return np.unique(np.linspace(0, n - 1, total).astype(int))
+        ids = np.arange(n)
+        pool = ids[ids % k != k - 1] if k > 1 else ids
+        total = min(total, len(pool))
+        return np.unique(pool[np.unique(np.linspace(0, len(pool) - 1, total).astype(int))])
 
-    def evaluate_fixed(self, model: object, chronic_ids, reset_norm: bool = True) -> dict:
-        """
-        Roll the deterministic policy over EXACTLY the given chronic ids, in order. 
-        With reset_norm=True the observation-normalisation stats are cold-reset first
-        Result is a deterministic function of the policy, reproducible across iterations and consistent with honest_eval.py.
-        Returns survival mean/std and the per-chronic vector.
-        """
+    def fixed_chronic_ids(self, total: int) -> np.ndarray:
+        pool = self.held_out_ids()
+        if len(pool) == 0:
+            return np.arange(max(1, total))
+        total = min(total, len(pool))
+        return np.unique(pool[np.unique(np.linspace(0, len(pool) - 1, total).astype(int))])
+
+    def evaluate_fixed(self, model: object, chronic_ids, reset_norm: bool = True, disc_gamma: float = None) -> dict:
+
         nw = self._norm_wrapper()
-        if nw is not None and reset_norm:
+        per_chronic_reset = (getattr(self.args, "eval_norm_reset", "per-chronic") == "per-chronic")
+        if nw is not None and reset_norm and not per_chronic_reset:
             nw.reset_stats()
 
         survs = []
+        disc_returns = []
         for cid in np.asarray(chronic_ids).tolist():
+            if nw is not None and reset_norm and per_chronic_reset:
+                nw.reset_stats()
+            _es = int(getattr(self.args, "eval_seed", 12345))
+            try:
+                self.env.init_env.seed(_es + int(cid))
+            except Exception:
+                pass
+
             self.env.init_env.set_id(int(cid))
-            obs, info = self.env.reset()
+            try:
+                obs, info = self.env.reset(options={"time serie id": int(cid)})
+            except TypeError:
+                obs, info = self.env.reset()
+
+            g, disc, t = (disc_gamma or 0.0), 0.0, 0
             while True:
                 action = model.get_eval_action(
                     th.tensor(obs, dtype=th.float).to(self.device)).detach().cpu().numpy()
-                obs, _, _, _, info = self.env.step(action)
+                obs, rew, _, _, info = self.env.step(action)
+                if disc_gamma is not None:
+                    comp = float(rew)
+                    rw = info.get("rewards") or {}
+                    comp += 0.5 * float(rw.get("redispatchReward", 0.0))
+                    comp += 1.0 * float(rw.get("overloadReward", 0.0))
+                    disc += (g ** t) * comp; t += 1
                 if "episode" in info:
                     survs.append(self.env.init_env.nb_time_step / self.max_steps)
+                    if disc_gamma is not None: disc_returns.append(disc)
                     break
         survs = np.asarray(survs, dtype=np.float64)
-        return {
+        out = {
             "survival": float(survs.mean()) if len(survs) else 0.0,
             "survival_std": float(survs.std()) if len(survs) else 0.0,
             "per_chronic": survs.tolist(),
         }
+        if disc_gamma is not None:
+            dr = np.asarray(disc_returns, dtype=np.float64)
+            out["disc_return"] = float(dr.mean()) if len(dr) else 0.0
+            out["disc_return_per_chronic"] = dr.tolist()
+        return out
 
 
 class CMDPEvaluator(Evaluator):
