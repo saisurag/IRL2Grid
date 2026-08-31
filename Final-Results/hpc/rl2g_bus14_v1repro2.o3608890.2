@@ -1,0 +1,23 @@
+=== 3608890[2].pbs-7 [2] bus14_dtpo-v1repro_L16_s101 on cx3-4-6 | Fri  7 Aug 00:57:52 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 101 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 1 --dtpo-replay-iters 1 --dtpo-survival-gate False --chronics-mode cache --chronic-holdout 0 --eval-norm-reset once --dtpo-replay-weight-fit False --dtpo-flush-replay-on-revert False ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0078 kept mode=full leaves=16 survival=13.53% best=14.78% std=0.0%
+[DTPO] it=148/150 step=1479852 J_new=0.0063 kept mode=full leaves=16 survival=13.53% best=14.78% std=0.0%
+[DTPO] it=149/150 step=1489851 J_new=0.0062 kept mode=full leaves=16 survival=13.53% best=14.78% std=0.0%
+[DTPO] it=150/150 step=1499850 J_new=0.0047 kept mode=full leaves=16 survival=13.53% best=14.78% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['14.8%', '14.8%', '14.8%', '14.7%', '13.6%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_dtpo-v1repro_L16_s101 env=bus14 seed=101 difficulty=0 leaves=16 depth=11 select=14.78 report=14.78 report_min=13.53 report_max=63.64 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_dtpo-v1repro_L16_s101 env=bus14 seed=101 difficulty=0 leaves=16 depth=11 select=14.78 report=14.78 report_min=13.53 report_max=63.64 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_dtpo-v1repro_L16_s101 finished Fri  7 Aug 05:48:20 BST 2026 ===
+
+====================================
+CPU Time used: 08:17:27
+CPU Percent: 237%
+Memory usage: 1501672kb
+Approx Power usage: 0.0994
+Walltime usage: 04:50:46
+
+====================================

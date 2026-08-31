@@ -1,0 +1,1 @@
+JUMPS bigjumps=30 candjumps=0

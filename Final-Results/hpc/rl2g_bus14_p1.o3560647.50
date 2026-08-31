@@ -1,0 +1,23 @@
+=== 3560647[50].pbs-7 [50] bus14_dtpo_L16_s104 on cx3-4-29 | Wed  5 Aug 01:47:00 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 104 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 1 --dtpo-replay-iters 1 --dtpo-survival-gate False ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0083 kept mode=full leaves=16 survival=20.83% best=28.02% std=17.9%
+[DTPO] it=148/150 step=1479852 J_new=0.0038 kept mode=full leaves=16 survival=19.74% best=28.02% std=17.4%
+[DTPO] it=149/150 step=1489851 J_new=0.0070 kept mode=full leaves=16 survival=19.74% best=28.02% std=17.4%
+[DTPO] it=150/150 step=1499850 J_new=0.0075 kept mode=full leaves=16 survival=20.83% best=28.02% std=17.9%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['28.0%', '20.8%', '20.8%', '20.8%', '20.6%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=104 difficulty=0 leaves=16 depth=6 select=22.56 report=21.96 report_min=5.38 report_max=84.72 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=checkpoint env=bus14 seed=104 difficulty=0 leaves=16 depth=6 select=31.56 report=26.25 report_min=0.04 report_max=69.17 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_dtpo_L16_s104 finished Wed  5 Aug 12:14:04 BST 2026 ===
+
+====================================
+CPU Time used: 15:10:25
+CPU Percent: 234%
+Memory usage: 2355376kb
+Approx Power usage: 0.182
+Walltime usage: 10:27:07
+
+====================================

@@ -1,0 +1,23 @@
+=== 3560648[24].pbs-7 [24] bus5_dagger_s102 on cx3-5-18 | Wed  5 Aug 01:46:20 BST 2026 ===
+=== main.py --chronics-mode multifolder --chronic-holdout 2 --eval-seed 12345 --eval-norm-reset per-chronic --alg DAGGER --env-id bus5 --action-type topology --difficulty 0 --n-envs 3 --expert-ckpt /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --checkpoint True --track False --time-limit 1300 --seed 102 --verbose True ===
+=== training exit=0 ===
+[DAgger] iter=49 beta=0.081 dataset=300000 global_step=300000
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /rds/general/user/ssl125/home/RL2Grid_v2/hpc/runs/bus5_dagger_s102/wandb/offline-run-20260805_014850-DAGGER_bus5_T_102_0__I__1785890921_8217[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260805_014850-DAGGER_bus5_T_102_0__I__1785890921_8217/logs[0m
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DAGGER run=checkpoint env=bus5 seed=102 difficulty=0 leaves=NA depth=NA select=61.55 report=22.18 report_min=0.20 report_max=100.00 frac100=20.0 n_report=5
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DAGGER run=checkpoint env=bus5 seed=102 difficulty=0 leaves=NA depth=NA select=1.08 report=31.07 report_min=3.57 report_max=100.00 frac100=20.0 n_report=5
+JUMPS bigjumps=1 candjumps=0
+=== bus5_dagger_s102 finished Wed  5 Aug 02:09:39 BST 2026 ===
+
+====================================
+CPU Time used: 01:04:13
+CPU Percent: 421%
+Memory usage: 1537748kb
+Approx Power usage: 0.0128
+Walltime usage: 00:24:32
+
+====================================

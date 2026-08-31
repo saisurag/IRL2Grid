@@ -1,0 +1,23 @@
+=== 3608898[17].pbs-7 [17] bus36-M_viper_L64_s101 on cx3-15-26 | Mon 10 Aug 03:34:36 BST 2026 ===
+=== main.py --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --alg VIPER --env-id bus36-M --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 64 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 101 --verbose True ===
+=== training exit=0 ===
+Eval at step 70014, survival=6.888%, return=[-3.739235123701898, 344.6775981934493, -71.95313862209248, -7.143126177024474]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.997432 survival=6.888% best_survival=72.232%
+[VIPER TREE] depth=12 leaves=64 nodes=127 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=6.715%, return=[-2.0321123601558306, 342.7881518267791, -17.901818908897017, -2.246704331450094]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.997698 survival=6.715% best_survival=72.232%
+=== honest eval (held-out) exit=0 ===
+RESULT alg=VIPER run=bus36-M_viper_L64_s101 env=bus36-M seed=101 difficulty=0 leaves=64 depth=12 select=14.47 report=14.55 report_min=0.12 report_max=100.00 frac100=5.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=VIPER run=bus36-M_viper_L64_s101 env=bus36-M seed=101 difficulty=0 leaves=64 depth=12 select=13.45 report=12.11 report_min=0.21 report_max=80.03 frac100=0.0 n_report=40
+JUMPS bigjumps=17 candjumps=0
+=== bus36-M_viper_L64_s101 finished Mon 10 Aug 04:01:17 BST 2026 ===
+
+====================================
+CPU Time used: 00:30:03
+CPU Percent: 205%
+Memory usage: 2170492kb
+Approx Power usage: 0.006
+Walltime usage: 00:27:32
+
+====================================

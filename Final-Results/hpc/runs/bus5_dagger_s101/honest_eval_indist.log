@@ -1,0 +1,9 @@
+[honest-any] PROTOCOL v2: pool=train holdout=2 eval_seed=12345 norm_reset=per-chronic chronics=multifolder
+[honest-any] ckpt=checkpoint/final_DAGGER_bus5_T_101_0__I__1785888932_8352.tar
+[honest-any] alg=DAGGER env=bus5 difficulty=0 n_chronics=20 using=10 (select=5 / report=5)
+[honest-any] single policy -> SELECT= 44.99%
+
+[honest-any] WINNER single (non-tree policy)
+[honest-any]   select-set survival = 44.99%  (5 chronics)
+[honest-any]   HELD-OUT REPORT survival = 60.36%  (5 chronics)  [min 4% / max 100% / frac@100% 40%]
+RESULT_INDIST alg=DAGGER run=checkpoint env=bus5 seed=101 difficulty=0 leaves=NA depth=NA select=44.99 report=60.36 report_min=3.87 report_max=100.00 frac100=40.0 n_report=5

@@ -1,0 +1,23 @@
+=== 3560648[49].pbs-7 [49] bus5_dtpo-full_L16_s104 on cx3-5-20 | Wed  5 Aug 02:41:32 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus5 --difficulty 0 --seed 104 --chronics-mode multifolder --chronic-holdout 2 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 10 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 --warmstart-seeds 20 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0057 kept mode=leaf gate=accept cand=64.57% leaves=16 survival=64.57% best=64.57% std=30.9%
+[DTPO] it=148/150 step=1479852 J_new=0.0054 kept mode=leaf gate=revert(1) cand=35.86% leaves=16 survival=64.57% best=64.57% std=30.9%
+[DTPO] it=149/150 step=1489851 J_new=0.0007 kept mode=leaf gate=accept cand=64.57% leaves=16 survival=64.57% best=64.57% std=30.9%
+[DTPO] it=150/150 step=1499850 J_new=0.0016 kept mode=leaf gate=revert(1) cand=13.28% leaves=16 survival=64.57% best=64.57% std=30.9%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['64.6%', '64.6%', '64.6%', '55.6%', '55.6%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus5 seed=104 difficulty=0 leaves=16 depth=7 select=74.26 report=43.89 report_min=4.71 report_max=100.00 frac100=20.0 n_report=5
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=checkpoint env=bus5 seed=104 difficulty=0 leaves=16 depth=7 select=52.71 report=76.43 report_min=19.20 report_max=100.00 frac100=60.0 n_report=5
+JUMPS bigjumps=1 candjumps=25
+=== bus5_dtpo-full_L16_s104 finished Wed  5 Aug 04:31:44 BST 2026 ===
+
+====================================
+CPU Time used: 04:25:54
+CPU Percent: 309%
+Memory usage: 1388064kb
+Approx Power usage: 0.053
+Walltime usage: 01:51:52
+
+====================================

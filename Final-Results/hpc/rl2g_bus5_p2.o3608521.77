@@ -1,0 +1,12 @@
+=== 3608521[77].pbs-7 [77] bus5_daggertree_L16_s104 on cx3-1-28 | Fri  7 Aug 00:42:44 BST 2026 ===
+=== distill_only.py --chronics-mode multifolder --chronic-holdout 2 --eval-seed 12345 --eval-norm-reset per-chronic --env-id bus5 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --tree-max-leaf-nodes 16 --temperature 0.5 --seed 104 --distill-seeds 20 --dagger-rounds 5 ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:27
+
+====================================

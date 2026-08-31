@@ -1,0 +1,13 @@
+[honest-any] PROTOCOL v2: pool=held holdout=4 eval_seed=12345 norm_reset=per-chronic chronics=multifolder
+[honest-any] ckpt=checkpoint/DTPO_bus14_T_103_0__I__1786070196_10816.tar
+[honest-any] alg=DTPO env=bus14 difficulty=0 n_chronics=1004 using=80 (select=40 / report=40)
+[honest-any] cand iter=44 cheap= 37.33% -> SELECT= 32.21%
+[honest-any] cand iter=6 cheap= 31.15% -> SELECT= 44.03%
+[honest-any] cand iter=114 cheap= 23.99% -> SELECT= 20.18%
+[honest-any] cand iter=121 cheap= 21.46% -> SELECT= 18.64%
+[honest-any] cand iter=122 cheap= 20.67% -> SELECT= 19.34%
+
+[honest-any] WINNER iter=6 leaves=16 depth=11
+[honest-any]   select-set survival = 44.03%  (40 chronics)
+[honest-any]   HELD-OUT REPORT survival = 30.72%  (40 chronics)  [min 5% / max 100% / frac@100% 8%]
+RESULT alg=DTPO run=bus14_dtpo-scratchgate_L16_s103 env=bus14 seed=103 difficulty=0 leaves=16 depth=11 select=44.03 report=30.72 report_min=4.70 report_max=100.00 frac100=7.5 n_report=40

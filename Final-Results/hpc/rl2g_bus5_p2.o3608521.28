@@ -1,0 +1,23 @@
+=== 3608521[28].pbs-7 [28] bus5_dtpo-full-pat3_L16_s101 on cx3-4-14 | Fri  7 Aug 00:01:39 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus5 --difficulty 0 --seed 101 --chronics-mode multifolder --chronic-holdout 2 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 10 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --dtpo-gate-patience 3 --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 --warmstart-seeds 20 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0009 kept mode=leaf gate=accept(forced,bar-held) cand=51.88% leaves=16 survival=61.63% best=61.63% std=47.0%
+[DTPO] it=148/150 step=1479852 J_new=0.0012 kept mode=leaf gate=revert(1) cand=51.99% leaves=16 survival=61.63% best=61.63% std=47.0%
+[DTPO] it=149/150 step=1489851 J_new=0.0014 kept mode=leaf gate=revert(2) cand=51.88% leaves=16 survival=61.63% best=61.63% std=47.0%
+[DTPO] it=150/150 step=1499850 J_new=0.0046 kept mode=leaf gate=accept(forced,bar-held) cand=51.99% leaves=16 survival=61.63% best=61.63% std=47.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['61.6%', '61.6%', '61.6%', '61.6%', '52.7%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus5_dtpo-full-pat3_L16_s101 env=bus5 seed=101 difficulty=0 leaves=16 depth=7 select=21.90 report=62.22 report_min=4.51 report_max=100.00 frac100=60.0 n_report=5
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus5_dtpo-full-pat3_L16_s101 env=bus5 seed=101 difficulty=0 leaves=16 depth=7 select=61.62 report=61.65 report_min=4.02 report_max=100.00 frac100=60.0 n_report=5
+JUMPS bigjumps=0 candjumps=0
+=== bus5_dtpo-full-pat3_L16_s101 finished Fri  7 Aug 01:38:24 BST 2026 ===
+
+====================================
+CPU Time used: 04:38:38
+CPU Percent: 382%
+Memory usage: 1332716kb
+Approx Power usage: 0.0556
+Walltime usage: 01:36:58
+
+====================================

@@ -1,0 +1,20 @@
+=== 3608521[23].pbs-7 [23] bus5_distill_L64_s101 on cx3-2-2 | Fri  7 Aug 00:00:15 BST 2026 ===
+=== distill_only.py --chronics-mode multifolder --chronic-holdout 2 --eval-seed 12345 --eval-norm-reset per-chronic --env-id bus5 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 101 --distill-seeds 20 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 12, 'fidelity': 0.8926, 'weighted_fidelity': 0.9772067520094566, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus5_T_101_0_L64_1786057297_45919.tar (leaves=64, curated=no)
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus5_distill_L64_s101 env=bus5 seed=101 difficulty=0 leaves=64 depth=12 select=20.66 report=60.23 report_min=0.55 report_max=100.00 frac100=60.0 n_report=5
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus5_distill_L64_s101 env=bus5 seed=101 difficulty=0 leaves=64 depth=12 select=22.42 report=12.13 report_min=0.35 report_max=25.05 frac100=0.0 n_report=5
+JUMPS bigjumps=0 candjumps=0
+=== bus5_distill_L64_s101 finished Fri  7 Aug 00:03:54 BST 2026 ===
+
+====================================
+CPU Time used: 00:01:12
+CPU Percent: 32%
+Memory usage: 409420kb
+Approx Power usage: 0.0002
+Walltime usage: 00:03:58
+
+====================================

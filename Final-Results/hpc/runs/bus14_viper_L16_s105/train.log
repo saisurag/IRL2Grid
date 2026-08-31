@@ -1,0 +1,52 @@
+[F2] training env filtered to 753/1004 chronics (every 4th id held out for evaluation)
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[F2] training env filtered to 753/1004 chronics (every 4th id held out for evaluation)
+[F2] training env filtered to 753/1004 chronics (every 4th id held out for evaluation)
+[F2] training env filtered to 753/1004 chronics (every 4th id held out for evaluation)
+[F2] training env filtered to 753/1004 chronics (every 4th id held out for evaluation)
+[VIPER] oracle=ppo (from /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar)
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=5001 dataset=5001
+Eval at step 5001, survival=5.762%, return=[-1.5604255585349165, 282.973067216873, -6.3343763470620615, -9.058479532163755]
+[VIPER] iter=1/15 dataset=5001 fit_samples=5001 weighted_acc=0.806055 survival=5.762% best_survival=5.762%
+[VIPER TREE] depth=9 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=10002 dataset=10002
+Eval at step 10002, survival=19.478%, return=[-3.1397468938763873, 905.0954038906106, -7.632805255202887, -23.947368421052982]
+[VIPER] iter=2/15 dataset=10002 fit_samples=10002 weighted_acc=0.815072 survival=19.478% best_survival=19.478%
+[VIPER TREE] depth=9 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=15003 dataset=15003
+Eval at step 15003, survival=40.683%, return=[-5.402211644938991, 1939.4384602705616, -3.4327454105756865, -194.4736842104968]
+[VIPER] iter=3/15 dataset=15003 fit_samples=15003 weighted_acc=0.771486 survival=40.683% best_survival=40.683%
+[VIPER TREE] depth=9 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=20004 dataset=20004
+Eval at step 20004, survival=7.635%, return=[-1.7900446816735591, 370.30378039677936, -5.007972132530995, -5.7777777777777715]
+[VIPER] iter=4/15 dataset=20004 fit_samples=20004 weighted_acc=0.786372 survival=7.635% best_survival=40.683%
+[VIPER TREE] depth=9 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=25005 dataset=25005
+Eval at step 25005, survival=26.591%, return=[-3.9708102383301593, 1266.5335807482406, -7.246734604776066, -19.80701754386]
+[VIPER] iter=5/15 dataset=25005 fit_samples=25005 weighted_acc=0.764452 survival=26.591% best_survival=40.683%
+[VIPER TREE] depth=10 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=30006 dataset=30006
+Eval at step 30006, survival=35.822%, return=[-5.066004119464196, 1704.5265411535872, -8.914351070864237, -26.327485380117455]
+[VIPER] iter=6/15 dataset=30006 fit_samples=30006 weighted_acc=0.754854 survival=35.822% best_survival=40.683%
+[VIPER TREE] depth=10 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=35007 dataset=35007
+Eval at step 35007, survival=18.461%, return=[-2.909888699456739, 900.6169333934795, -6.919821580808882, -111.71345029239977]
+[VIPER] iter=7/15 dataset=35007 fit_samples=35007 weighted_acc=0.740737 survival=18.461% best_survival=40.683%
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=40008 dataset=40008
+Eval at step 40008, survival=10.367%, return=[-2.1050707671868927, 503.8910712941484, -6.4439018889982735, -66.59064327485457]
+[VIPER] iter=8/15 dataset=40008 fit_samples=40008 weighted_acc=0.734361 survival=10.367% best_survival=40.683%
+[VIPER TREE] depth=9 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=45009 dataset=45009
+Eval at step 45009, survival=6.709%, return=[-1.7075620251513708, 326.5905035988492, -6.044062762710382, -44.567251461988455]
+[VIPER] iter=9/15 dataset=45009 fit_samples=45009 weighted_acc=0.716738 survival=6.709% best_survival=40.683%
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=50010
+Eval at step 50010, survival=5.551%, return=[-1.5363339534184586, 275.69780931631743, -6.105732583659119, -35.7076023391812]
+[VIPER] iter=10/15 dataset=50010 fit_samples=50000 weighted_acc=0.731408 survival=5.551% best_survival=40.683%
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=55011
+Eval at step 55011, survival=8.738%, return=[-1.9411878684380401, 419.54585272471076, -5.008675280483051, -7.4152046783625964]
+[VIPER] iter=11/15 dataset=55011 fit_samples=50000 weighted_acc=0.721643 survival=8.738% best_survival=40.683%
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=60012
+Eval at step 60012, survival=11.049%, return=[-2.2734852077555843, 534.9615355491638, -5.295356885986014, -49.877192982456656]
+[VIPER] iter=12/15 dataset=60012 fit_samples=50000 weighted_acc=0.710616 survival=11.049% best_survival=40.683%
+[VIPER TREE] depth=7 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=65013
+Eval at step 65013, survival=8.643%, return=[-1.858431424635152, 419.3566016991933, -5.0834170385884745, -2.964912280701759]
+[VIPER] iter=13/15 dataset=65013 fit_samples=50000 weighted_acc=0.715255 survival=8.643% best_survival=40.683%
+[VIPER TREE] depth=7 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=70014
+Eval at step 70014, survival=8.933%, return=[-1.992905745554405, 418.0716776529946, -5.146472318718831, -3.2982456140350895]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.715165 survival=8.933% best_survival=40.683%
+[VIPER TREE] depth=7 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=12.058%, return=[-2.2508916030831947, 577.4271191120143, -5.00927027088801, -3.7719298245613913]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.710022 survival=12.058% best_survival=40.683%

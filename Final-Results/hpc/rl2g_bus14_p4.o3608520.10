@@ -1,0 +1,23 @@
+=== 3608520[10].pbs-7 [10] bus14_dtpo-scratchfull_L16_s105 on cx3-4-12 | Thu  6 Aug 23:01:59 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 105 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0025 kept mode=leaf gate=accept cand=17.77% leaves=16 survival=17.77% best=17.77% std=16.8%
+[DTPO] it=148/150 step=1479852 J_new=0.0037 kept mode=leaf gate=accept cand=17.77% leaves=16 survival=17.77% best=17.77% std=16.8%
+[DTPO] it=149/150 step=1489851 J_new=0.0042 kept mode=leaf gate=accept cand=17.77% leaves=16 survival=17.77% best=17.77% std=16.8%
+[DTPO] it=150/150 step=1499850 J_new=0.0049 kept mode=leaf gate=accept cand=17.77% leaves=16 survival=17.77% best=17.77% std=16.8%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['17.8%', '17.8%', '17.8%', '17.8%', '17.8%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_dtpo-scratchfull_L16_s105 env=bus14 seed=105 difficulty=0 leaves=16 depth=8 select=15.89 report=22.03 report_min=0.04 report_max=61.79 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_dtpo-scratchfull_L16_s105 env=bus14 seed=105 difficulty=0 leaves=16 depth=8 select=22.61 report=19.06 report_min=0.04 report_max=59.96 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_dtpo-scratchfull_L16_s105 finished Fri  7 Aug 12:06:41 BST 2026 ===
+
+====================================
+CPU Time used: 12:46:46
+CPU Percent: 132%
+Memory usage: 2569164kb
+Approx Power usage: 0.15320000000000003
+Walltime usage: 13:05:07
+
+====================================

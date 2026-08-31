@@ -1,0 +1,23 @@
+=== 3608890[25].pbs-7 [25] bus14_viper-v1repro_L16_s104 on cx3-3-21 | Fri  7 Aug 02:53:27 BST 2026 ===
+=== main.py --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --alg VIPER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 16 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 104 --verbose True --chronics-mode cache --chronic-holdout 0 --eval-norm-reset once ===
+=== training exit=0 ===
+Eval at step 70014, survival=63.579%, return=[-8.214423619016694, 2968.7656122048716, -5.0031047373777255, -569.0467836257053]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.806041 survival=63.579% best_survival=63.579%
+[VIPER TREE] depth=7 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=63.579%, return=[-8.415217359201051, 2982.2296258131632, -5.003167690476403, -547.9005847952961]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.813700 survival=63.579% best_survival=63.579%
+=== honest eval (held-out) exit=0 ===
+RESULT alg=VIPER run=bus14_viper-v1repro_L16_s104 env=bus14 seed=104 difficulty=0 leaves=16 depth=8 select=63.58 report=63.58 report_min=63.58 report_max=63.58 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=VIPER run=bus14_viper-v1repro_L16_s104 env=bus14 seed=104 difficulty=0 leaves=16 depth=8 select=63.58 report=63.58 report_min=63.58 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=3 candjumps=0
+=== bus14_viper-v1repro_L16_s104 finished Fri  7 Aug 03:26:08 BST 2026 ===
+
+====================================
+CPU Time used: 00:37:43
+CPU Percent: 280%
+Memory usage: 1156152kb
+Approx Power usage: 0.0074
+Walltime usage: 00:33:05
+
+====================================

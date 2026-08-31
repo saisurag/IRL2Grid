@@ -1,0 +1,23 @@
+=== 3608890[7].pbs-7 [7] bus14_dtpo-ws-v1repro_L16_s101 on cx3-4-2 | Fri  7 Aug 01:42:45 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 101 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 1 --dtpo-replay-iters 1 --dtpo-survival-gate False --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 --warmstart-seeds 20 --chronics-mode cache --chronic-holdout 0 --eval-norm-reset once --dtpo-replay-weight-fit False --dtpo-flush-replay-on-revert False ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0003 kept mode=full leaves=16 survival=9.58% best=62.68% std=4.6%
+[DTPO] it=148/150 step=1479852 J_new=0.0004 kept mode=full leaves=16 survival=12.66% best=62.68% std=6.6%
+[DTPO] it=149/150 step=1489851 J_new=0.0043 kept mode=full leaves=16 survival=19.81% best=62.68% std=10.6%
+[DTPO] it=150/150 step=1499850 J_new=0.0040 kept mode=full leaves=16 survival=0.35% best=62.68% std=0.9%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['62.7%', '59.8%', '59.6%', '56.7%', '56.5%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_dtpo-ws-v1repro_L16_s101 env=bus14 seed=101 difficulty=0 leaves=16 depth=6 select=62.68 report=62.68 report_min=38.49 report_max=63.58 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_dtpo-ws-v1repro_L16_s101 env=bus14 seed=101 difficulty=0 leaves=16 depth=6 select=62.68 report=62.68 report_min=38.49 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=6 candjumps=0
+=== bus14_dtpo-ws-v1repro_L16_s101 finished Fri  7 Aug 07:08:24 BST 2026 ===
+
+====================================
+CPU Time used: 08:12:31
+CPU Percent: 345%
+Memory usage: 1074204kb
+Approx Power usage: 0.09839999999999999
+Walltime usage: 05:26:00
+
+====================================

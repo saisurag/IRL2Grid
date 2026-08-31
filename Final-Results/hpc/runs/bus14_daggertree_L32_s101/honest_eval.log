@@ -1,0 +1,9 @@
+[honest-any] PROTOCOL v2: pool=held holdout=4 eval_seed=12345 norm_reset=per-chronic chronics=multifolder
+[honest-any] ckpt=checkpoint/DISTILL_bus14_T_101_0_L32_1786051571_45919.tar
+[honest-any] alg=DTPO env=bus14 difficulty=0 n_chronics=1004 using=80 (select=40 / report=40)
+[honest-any] cand iter=0 cheap=  0.00% -> SELECT= 16.90%
+
+[honest-any] WINNER iter=0 leaves=32 depth=9
+[honest-any]   select-set survival = 16.90%  (40 chronics)
+[honest-any]   HELD-OUT REPORT survival = 26.42%  (40 chronics)  [min 0% / max 100% / frac@100% 10%]
+RESULT alg=DTPO run=bus14_daggertree_L32_s101 env=bus14 seed=101 difficulty=0 leaves=32 depth=9 select=16.90 report=26.42 report_min=0.14 report_max=100.00 frac100=10.0 n_report=40

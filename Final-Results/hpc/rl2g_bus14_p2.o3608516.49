@@ -1,0 +1,20 @@
+=== 3608516[49].pbs-7 [49] bus14_distill_L8_s103 on cx3-6-29 | Thu  6 Aug 22:35:27 BST 2026 ===
+=== distill_only.py --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --env-id bus14 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --tree-max-leaf-nodes 8 --temperature 0.5 --seed 103 --distill-seeds 20 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 8, 'max_depth': 5, 'fidelity': 0.4969, 'weighted_fidelity': 0.7098292572842532, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus14_T_103_0_L8_1786052172_24339.tar (leaves=8, curated=no)
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_distill_L8_s103 env=bus14 seed=103 difficulty=0 leaves=8 depth=5 select=64.68 report=58.74 report_min=6.32 report_max=100.00 frac100=32.5 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_distill_L8_s103 env=bus14 seed=103 difficulty=0 leaves=8 depth=5 select=60.42 report=56.16 report_min=6.36 report_max=100.00 frac100=25.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_distill_L8_s103 finished Thu  6 Aug 22:59:57 BST 2026 ===
+
+====================================
+CPU Time used: 00:23:09
+CPU Percent: 98%
+Memory usage: 536336kb
+Approx Power usage: 0.004600000000000001
+Walltime usage: 00:24:34
+
+====================================

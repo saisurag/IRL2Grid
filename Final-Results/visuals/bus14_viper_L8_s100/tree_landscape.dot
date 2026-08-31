@@ -1,0 +1,35 @@
+digraph dtpo {
+  rankdir=LR;
+  graph [fontname="Helvetica", nodesep=0.25, ranksep=0.45, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=11, penwidth=1.0];
+  edge  [fontname="Helvetica", fontsize=10, color="#555555"];
+  0 [label="obs_55 ≤ 0.346", shape=oval, style=filled, fillcolor="#eef3fb"];
+  0 -> 1 [label="yes"];
+  0 -> 2 [label="no"];
+  1 [label="obs_151 ≤ 3.11", shape=oval, style=filled, fillcolor="#eef3fb"];
+  1 -> 5 [label="yes"];
+  1 -> 6 [label="no"];
+  5 [label="obs_168 ≤ -0.768", shape=oval, style=filled, fillcolor="#eef3fb"];
+  5 -> 7 [label="yes"];
+  5 -> 8 [label="no"];
+  7 [label="action 11\np=0.80", shape=box, style="filled,rounded", fillcolor="#f0b7ff"];
+  8 [label="obs_43 ≤ 0.931", shape=oval, style=filled, fillcolor="#eef3fb"];
+  8 -> 9 [label="yes"];
+  8 -> 10 [label="no"];
+  9 [label="obs_45 ≤ -0.757", shape=oval, style=filled, fillcolor="#eef3fb"];
+  9 -> 13 [label="yes"];
+  9 -> 14 [label="no"];
+  13 [label="action 5\np=1.00", shape=box, style="filled,rounded", fillcolor="#ffdeb7"];
+  14 [label="action 8\np=0.29", shape=box, style="filled,rounded", fillcolor="#ffb7cf"];
+  10 [label="action 4\np=0.89", shape=box, style="filled,rounded", fillcolor="#b7fff3"];
+  6 [label="action 19\np=0.86", shape=box, style="filled,rounded", fillcolor="#d8b7ff"];
+  2 [label="obs_73 ≤ -0.543", shape=oval, style=filled, fillcolor="#eef3fb"];
+  2 -> 3 [label="yes"];
+  2 -> 4 [label="no"];
+  3 [label="action 11\np=0.74", shape=box, style="filled,rounded", fillcolor="#f0b7ff"];
+  4 [label="obs_58 ≤ -0.0868", shape=oval, style=filled, fillcolor="#eef3fb"];
+  4 -> 11 [label="yes"];
+  4 -> 12 [label="no"];
+  11 [label="action 14\np=0.39", shape=box, style="filled,rounded", fillcolor="#b7bdff"];
+  12 [label="action 1\np=0.90", shape=box, style="filled,rounded", fillcolor="#b7ccff"];
+}

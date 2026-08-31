@@ -1,0 +1,20 @@
+=== 3608898[4].pbs-7 [4] bus36-M_distill_L32_s100 on cx3-15-15 | Sun  9 Aug 22:31:05 BST 2026 ===
+=== distill_only.py --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --env-id bus36-M --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar --tree-max-leaf-nodes 32 --temperature 0.5 --seed 100 --distill-seeds 20 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 32, 'max_depth': 9, 'fidelity': 0.95155, 'weighted_fidelity': 0.9962569392741506, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus36-M_T_100_0_L32_1786311331_38408.tar (leaves=32, curated=no)
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus36-M_distill_L32_s100 env=bus36-M seed=100 difficulty=0 leaves=32 depth=9 select=27.82 report=23.22 report_min=0.12 report_max=100.00 frac100=5.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus36-M_distill_L32_s100 env=bus36-M seed=100 difficulty=0 leaves=32 depth=9 select=19.07 report=14.90 report_min=0.05 report_max=69.02 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus36-M_distill_L32_s100 finished Sun  9 Aug 22:56:04 BST 2026 ===
+
+====================================
+CPU Time used: 00:14:01
+CPU Percent: 96%
+Memory usage: 739812kb
+Approx Power usage: 0.0028
+Walltime usage: 00:26:13
+
+====================================

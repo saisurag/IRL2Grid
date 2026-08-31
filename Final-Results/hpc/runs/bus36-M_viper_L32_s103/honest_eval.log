@@ -1,0 +1,9 @@
+[honest-any] PROTOCOL v2: pool=held holdout=4 eval_seed=12345 norm_reset=per-chronic chronics=multifolder
+[honest-any] ckpt=checkpoint/final_VIPER_bus36-M_T_103_0__I__1786332239_9831.tar
+[honest-any] alg=VIPER env=bus36-M difficulty=0 n_chronics=2880 using=80 (select=40 / report=40)
+[honest-any] single policy -> SELECT= 11.66%
+
+[honest-any] WINNER single leaves=32 depth=8
+[honest-any]   select-set survival = 11.66%  (40 chronics)
+[honest-any]   HELD-OUT REPORT survival = 7.07%  (40 chronics)  [min 0% / max 51% / frac@100% 0%]
+RESULT alg=VIPER run=bus36-M_viper_L32_s103 env=bus36-M seed=103 difficulty=0 leaves=32 depth=8 select=11.66 report=7.07 report_min=0.30 report_max=51.39 frac100=0.0 n_report=40

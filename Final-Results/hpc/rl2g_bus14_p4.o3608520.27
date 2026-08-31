@@ -1,0 +1,23 @@
+=== 3608520[27].pbs-7 [27] bus14_dtpo-full_L16_s107 on cx3-6-29 | Thu  6 Aug 23:13:59 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 107 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 --warmstart-seeds 20 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0017 kept mode=leaf gate=revert(18) cand=32.48% leaves=16 survival=42.13% best=42.13% std=36.3%
+[DTPO] it=148/150 step=1479852 J_new=0.0015 kept mode=leaf gate=revert(19) cand=42.04% leaves=16 survival=42.13% best=42.13% std=36.3%
+[DTPO] it=149/150 step=1489851 J_new=0.0011 kept mode=leaf gate=revert(20) cand=15.67% leaves=16 survival=42.13% best=42.13% std=36.3%
+[DTPO] it=150/150 step=1499850 J_new=0.0020 kept mode=leaf gate=revert(21) cand=37.82% leaves=16 survival=42.13% best=42.13% std=36.3%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['42.1%', '42.0%', '37.8%', '37.8%', '37.8%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_dtpo-full_L16_s107 env=bus14 seed=107 difficulty=0 leaves=16 depth=8 select=48.85 report=45.21 report_min=6.36 report_max=100.00 frac100=17.5 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_dtpo-full_L16_s107 env=bus14 seed=107 difficulty=0 leaves=16 depth=8 select=44.99 report=54.88 report_min=2.91 report_max=100.00 frac100=32.5 n_report=40
+JUMPS bigjumps=0 candjumps=16
+=== bus14_dtpo-full_L16_s107 finished Fri  7 Aug 06:59:48 BST 2026 ===
+
+====================================
+CPU Time used: 10:42:49
+CPU Percent: 289%
+Memory usage: 2516200kb
+Approx Power usage: 0.1284
+Walltime usage: 07:45:53
+
+====================================

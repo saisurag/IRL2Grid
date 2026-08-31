@@ -1,0 +1,23 @@
+=== 3608516[54].pbs-7 [54] bus14_dtpo-full_L32_s103 on cx3-3-10 | Thu  6 Aug 22:42:03 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 103 --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --dtpo-eval-total 40 --tree-max-leaf-nodes 32 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 --warmstart-seeds 20 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0044 kept mode=leaf gate=accept cand=48.54% leaves=32 survival=48.54% best=48.54% std=41.0%
+[DTPO] it=148/150 step=1479852 J_new=0.0020 kept mode=leaf gate=revert(1) cand=46.90% leaves=32 survival=48.54% best=48.54% std=41.0%
+[DTPO] it=149/150 step=1489851 J_new=0.0011 kept mode=leaf gate=revert(2) cand=43.96% leaves=32 survival=48.54% best=48.54% std=41.0%
+[DTPO] it=150/150 step=1499850 J_new=0.0013 kept mode=leaf gate=accept cand=48.95% leaves=32 survival=48.95% best=48.95% std=41.5%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['49.0%', '48.5%', '46.9%', '44.0%', '43.2%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval (held-out) exit=0 ===
+RESULT alg=DTPO run=bus14_dtpo-full_L32_s103 env=bus14 seed=103 difficulty=0 leaves=32 depth=7 select=47.57 report=41.73 report_min=0.14 report_max=100.00 frac100=22.5 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=DTPO run=bus14_dtpo-full_L32_s103 env=bus14 seed=103 difficulty=0 leaves=32 depth=7 select=51.94 report=41.25 report_min=0.07 report_max=100.00 frac100=20.0 n_report=40
+JUMPS bigjumps=0 candjumps=4
+=== bus14_dtpo-full_L32_s103 finished Fri  7 Aug 04:48:34 BST 2026 ===
+
+====================================
+CPU Time used: 08:19:28
+CPU Percent: 200%
+Memory usage: 2059092kb
+Approx Power usage: 0.0998
+Walltime usage: 06:06:53
+
+====================================

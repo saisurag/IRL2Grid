@@ -1,0 +1,23 @@
+=== 3608890[23].pbs-7 [23] bus14_viper-v1repro_L16_s102 on cx3-2-2 | Fri  7 Aug 02:49:17 BST 2026 ===
+=== main.py --chronics-mode multifolder --chronic-holdout 4 --eval-seed 12345 --eval-norm-reset per-chronic --alg VIPER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_v2/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 16 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 102 --verbose True --chronics-mode cache --chronic-holdout 0 --eval-norm-reset once ===
+=== training exit=0 ===
+Eval at step 70014, survival=63.579%, return=[-9.405931323417462, 3061.874891726175, -5.007736504310742, -262.95321637427213]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.844566 survival=63.579% best_survival=63.579%
+[VIPER TREE] depth=8 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=63.579%, return=[-9.428204422836037, 3111.237484900156, -5.0071685903239995, -324.9239766081809]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.840091 survival=63.579% best_survival=63.579%
+=== honest eval (held-out) exit=0 ===
+RESULT alg=VIPER run=bus14_viper-v1repro_L16_s102 env=bus14 seed=102 difficulty=0 leaves=16 depth=9 select=36.01 report=36.01 report_min=8.59 report_max=63.58 frac100=0.0 n_report=40
+=== honest eval (in-distribution) exit=0 ===
+RESULT_INDIST alg=VIPER run=bus14_viper-v1repro_L16_s102 env=bus14 seed=102 difficulty=0 leaves=16 depth=9 select=36.01 report=36.01 report_min=8.59 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_viper-v1repro_L16_s102 finished Fri  7 Aug 03:10:08 BST 2026 ===
+
+====================================
+CPU Time used: 00:23:53
+CPU Percent: 257%
+Memory usage: 1143448kb
+Approx Power usage: 0.004600000000000001
+Walltime usage: 00:21:07
+
+====================================
