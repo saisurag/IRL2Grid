@@ -1,0 +1,62 @@
+=== eval batch done (or timed out); starting bus14 multi-seed ===
+=== START dtpo_testing/bus14_scratch_seed1 (seed=1 mode=scratch) ===
+=== train exit=0 for dtpo_testing/bus14_scratch_seed1 ===
+[finalize] dtpo_testing/bus14_scratch_seed1  <- checkpoint/DTPO_bus14_T_1_0__I__1781183845_32804.tar
+[viz] dtpo_testing/bus14_scratch_seed1/tree.dot  (depth=9 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_scratch_seed1/tree.svg
+[viz] dtpo_testing/bus14_scratch_seed1/tree_landscape.dot  (depth=9 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_scratch_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus14_scratch_seed1/curve.png  final_best=13.5%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_scratch_seed1 done -> DTPO_bus14_T_1_0__I__1781183845_32804.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus14_hybrid_seed1 (seed=1 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus14_hybrid_seed1 ===
+[finalize] dtpo_testing/bus14_hybrid_seed1  <- checkpoint/DTPO_bus14_T_1_0__I__1781185255_37725.tar
+[viz] dtpo_testing/bus14_hybrid_seed1/tree.dot  (depth=7 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_hybrid_seed1/tree.svg
+[viz] dtpo_testing/bus14_hybrid_seed1/tree_landscape.dot  (depth=7 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_hybrid_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus14_hybrid_seed1/curve.png  final_best=63.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_hybrid_seed1 done -> DTPO_bus14_T_1_0__I__1781185255_37725.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus14_scratch_seed2 (seed=2 mode=scratch) ===
+=== train exit=0 for dtpo_testing/bus14_scratch_seed2 ===
+[finalize] dtpo_testing/bus14_scratch_seed2  <- checkpoint/DTPO_bus14_T_2_0__I__1781186658_11904.tar
+[viz] dtpo_testing/bus14_scratch_seed2/tree.dot  (depth=5 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_scratch_seed2/tree.svg
+[viz] dtpo_testing/bus14_scratch_seed2/tree_landscape.dot  (depth=5 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_scratch_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus14_scratch_seed2/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_scratch_seed2 done -> DTPO_bus14_T_2_0__I__1781186658_11904.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus14_hybrid_seed2 (seed=2 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus14_hybrid_seed2 ===
+[finalize] dtpo_testing/bus14_hybrid_seed2  <- checkpoint/DTPO_bus14_T_2_0__I__1781188661_10627.tar
+[viz] dtpo_testing/bus14_hybrid_seed2/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_hybrid_seed2/tree.svg
+[viz] dtpo_testing/bus14_hybrid_seed2/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_hybrid_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus14_hybrid_seed2/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_hybrid_seed2 done -> DTPO_bus14_T_2_0__I__1781188661_10627.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+===== BUS14 MULTISEED SWEEP COMPLETE =====

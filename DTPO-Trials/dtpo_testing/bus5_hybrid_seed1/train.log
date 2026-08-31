@@ -1,0 +1,18 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from final_PPO_bus5_T_0_0__I__1776174124_47043_45000000: {'mode': 'soft', 'n_samples': 10080, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 8, 'fidelity': 0.7923611111111111, 'weighted_fidelity': 0.9235517195106244, 'curated': False}
+Eval at step 20000, survival=56.151%, return=[-8.64688958209202, 539.1103885024786, -2106.2730288758153, -294.2222222222336]
+[DTPO] it=10/80 step=20000 J_new=0.0075 kept leaves=16 survival=56.15% best=56.15%
+Eval at step 40000, survival=5.853%, return=[-2.5226740557700396, 52.70815151929855, -11.836229719920084, -4.19047619047619]
+[DTPO] it=20/80 step=40000 J_new=0.0115 kept leaves=16 survival=5.85% best=56.15%
+Eval at step 60000, survival=100.000%, return=[-7.327708926992879, 1685.3716530799866, -0.02960508514661342, -446.25396825397746]
+[DTPO] it=30/80 step=60000 J_new=0.0087 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 80000, survival=100.000%, return=[-7.456753718530915, 1677.7364347477753, 0.0, -309.0952380952449]
+[DTPO] it=40/80 step=80000 J_new=0.0152 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 100000, survival=82.804%, return=[-6.93917323439382, 973.3249604379138, -3175.3795324826206, -441.90476190476755]
+[DTPO] it=50/80 step=100000 J_new=0.0272 kept leaves=16 survival=82.80% best=100.00%
+Eval at step 120000, survival=100.000%, return=[-7.585744730541289, 1624.5740742981434, -4.3070077206963715, -418.5396825396942]
+[DTPO] it=60/80 step=120000 J_new=0.0313 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 140000, survival=100.000%, return=[-7.509522162901703, 1678.3306709825993, -0.006936940480954945, -425.7142857142974]
+[DTPO] it=70/80 step=140000 J_new=0.0037 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 160000, survival=5.903%, return=[-2.565604854375124, 51.958581015467644, -16.210878387792036, -6.047619047619043]
+[DTPO] it=80/80 step=160000 J_new=0.0216 kept leaves=16 survival=5.90% best=100.00%

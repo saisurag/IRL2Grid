@@ -1,0 +1,12 @@
+=== 3464963[25].pbs-7 [25] bus14_dagger_s101 on cx3-6-2 | Mon 27 Jul 16:07:53 BST 2026 ===
+=== main.py --alg DAGGER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --expert-ckpt /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --checkpoint True --track False --time-limit 1300 --seed 101 --verbose True ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:01
+CPU Percent: 10%
+Memory usage: 59436kb
+Approx Power usage: 0.0
+Walltime usage: 00:00:21
+
+====================================

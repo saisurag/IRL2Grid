@@ -1,0 +1,20 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 9, 'fidelity': 0.6587, 'weighted_fidelity': 0.8181604170682965, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 20 fixed chronics (of 1004): ids=[0, 52, 105, 158, 211, 263, 316, 369, 422, 475, 527, 580, 633, 686, 739, 791, 844, 897, 950, 1003]
+[DTPO] it=5/50 step=99990 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=10/50 step=199980 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=15/50 step=299970 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=20/50 step=399960 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=25/50 step=499950 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=30/50 step=599940 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=35/50 step=699930 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=40/50 step=799920 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=45/50 step=899910 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] it=50/50 step=999900 J_new=0.0000 revert leaves=16 survival=86.81% best=86.81% std=6.7%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['86.8%', '86.8%', '86.8%', '86.8%', '86.8%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+[curve] /home/sai/RL2Grid_full/dtpo_testing_6/bus14_hybrid_seed144/curve.png  final_best=86.8%  first_100_at_it=None  leaves=None
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/bus14_hybrid_seed144/tree.dot  (depth=9 leaves=16 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/bus14_hybrid_seed144/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/bus14_hybrid_seed144/tree_landscape.dot  (depth=9 leaves=16 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/bus14_hybrid_seed144/tree_landscape.svg

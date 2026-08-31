@@ -1,0 +1,20 @@
+{
+  "tree_ckpt": "dtpo_testing/bus14_dqn83_seed1/DTPO_bus14_T_1_0__I__1781199442_43974.tar",
+  "oracle_ckpt": "checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar",
+  "grid": "bus14",
+  "oracle_alg": "PPO",
+  "episodes": 10,
+  "seed": 0,
+  "on_oracle_states": {
+    "fidelity": 0.1002,
+    "weighted_fidelity": 0.0511,
+    "n_states": 80640,
+    "driver_survival": 1.0
+  },
+  "on_tree_states": {
+    "fidelity": 0.0002,
+    "weighted_fidelity": 0.0,
+    "n_states": 10950,
+    "driver_survival": 0.1358
+  }
+}

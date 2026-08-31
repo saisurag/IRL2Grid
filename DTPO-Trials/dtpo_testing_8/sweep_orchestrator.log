@@ -1,0 +1,49 @@
+########## ROUND K=1: seeds (100 101 102 103) 16:43:53 ##########
+=== START bus5 K=1 seed=100 16:43:53 ===
+=== START bus5 K=1 seed=101 16:43:53 ===
+=== START bus5 K=1 seed=102 16:43:53 ===
+=== START bus5 K=1 seed=103 16:43:53 ===
+=== DONE bus5 K=1 seed=102 honest=100.00 bigjumps=2 candjumps=27 18:07:44 ===
+=== DONE bus5 K=1 seed=100 honest=100.00 bigjumps=2 candjumps=58 18:13:12 ===
+=== DONE bus5 K=1 seed=101 honest=100.00 bigjumps=1 candjumps=29 18:30:21 ===
+=== DONE bus5 K=1 seed=103 honest=100.00 bigjumps=2 candjumps=50 18:34:43 ===
+===== ROUND K=1 COMPLETE 18:34:43 =====
+########## ROUND K=3: seeds (100 101 102 103) 18:34:43 ##########
+=== START bus5 K=3 seed=101 18:34:43 ===
+=== START bus5 K=3 seed=100 18:34:43 ===
+=== START bus5 K=3 seed=103 18:34:43 ===
+=== START bus5 K=3 seed=102 18:34:43 ===
+=== DONE bus5 K=3 seed=101 honest=100.00 bigjumps=1 candjumps=14 19:49:42 ===
+=== DONE bus5 K=3 seed=102 honest=100.00 bigjumps=1 candjumps=21 20:08:47 ===
+=== DONE bus5 K=3 seed=100 honest=100.00 bigjumps=1 candjumps=45 20:34:31 ===
+=== DONE bus5 K=3 seed=103 honest=100.00 bigjumps=1 candjumps=31 20:36:09 ===
+===== ROUND K=3 COMPLETE 20:36:09 =====
+########## ROUND K=5: seeds (100 101 102 103) 20:36:09 ##########
+=== START bus5 K=5 seed=102 20:36:09 ===
+=== START bus5 K=5 seed=101 20:36:09 ===
+=== START bus5 K=5 seed=100 20:36:09 ===
+=== START bus5 K=5 seed=103 20:36:09 ===
+=== DONE bus5 K=5 seed=100 honest=100.00 bigjumps=2 candjumps=29 22:01:41 ===
+=== DONE bus5 K=5 seed=101 honest=100.00 bigjumps=1 candjumps=41 22:12:08 ===
+=== DONE bus5 K=5 seed=102 honest=100.00 bigjumps=1 candjumps=50 22:18:33 ===
+=== DONE bus5 K=5 seed=103 honest=100.00 bigjumps=2 candjumps=10 22:39:43 ===
+===== ROUND K=5 COMPLETE 22:39:43 =====
+########## ROUND K=10: seeds (100 101 102 103) 22:39:43 ##########
+=== START bus5 K=10 seed=100 22:39:43 ===
+=== START bus5 K=10 seed=101 22:39:43 ===
+=== START bus5 K=10 seed=102 22:39:43 ===
+=== START bus5 K=10 seed=103 22:39:43 ===
+=== DONE bus5 K=10 seed=100 honest=100.00 bigjumps=2 candjumps=13 00:04:40 ===
+=== DONE bus5 K=10 seed=101 honest=100.00 bigjumps=2 candjumps=22 00:08:11 ===
+=== DONE bus5 K=10 seed=103 honest=100.00 bigjumps=2 candjumps=26 00:53:59 ===
+=== DONE bus5 K=10 seed=102 honest=100.00 bigjumps=1 candjumps=28 01:08:52 ===
+===== ROUND K=10 COMPLETE 01:08:52 =====
+
+########## bus5 SUMMARY per K ##########
+K=1: mean bigjumps=1.8 candjumps=41.0 honest=100.0% (n=4)
+K=3: mean bigjumps=1.0 candjumps=27.8 honest=100.0% (n=4)
+K=5: mean bigjumps=1.5 candjumps=32.5 honest=100.0% (n=4)
+K=10: mean bigjumps=1.8 candjumps=22.2 honest=100.0% (n=4)
+===== BUS5 GATE+REPLAY SWEEP COMPLETE 01:08:52 =====
+=== START bus14 K=5 seed=100 01:08:52 ===
+===== ALL RUNS COMPLETE 07:35:57 =====

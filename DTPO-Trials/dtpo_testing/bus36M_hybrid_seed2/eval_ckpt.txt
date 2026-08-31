@@ -1,0 +1,2 @@
+[eval_ckpt] alg=DTPO env=bus36-M action_type=topology difficulty=0 episodes=20 device=cpu
+Eval at step 0, survival=9.025%, return=[-515.0841270609737, -376.9155810598325, -2593.9510510255172, -518.5203389830506]

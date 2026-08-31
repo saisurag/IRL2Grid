@@ -1,0 +1,20 @@
+K=1 seed=102 honest=100.00 bigjumps=2 candjumps=27
+K=1 seed=100 honest=100.00 bigjumps=2 candjumps=58
+K=1 seed=101 honest=100.00 bigjumps=1 candjumps=29
+K=1 seed=103 honest=100.00 bigjumps=2 candjumps=50
+K=3 seed=101 honest=100.00 bigjumps=1 candjumps=14
+K=3 seed=102 honest=100.00 bigjumps=1 candjumps=21
+K=3 seed=100 honest=100.00 bigjumps=1 candjumps=45
+K=3 seed=103 honest=100.00 bigjumps=1 candjumps=31
+K=5 seed=100 honest=100.00 bigjumps=2 candjumps=29
+K=5 seed=101 honest=100.00 bigjumps=1 candjumps=41
+K=5 seed=102 honest=100.00 bigjumps=1 candjumps=50
+K=5 seed=103 honest=100.00 bigjumps=2 candjumps=10
+K=10 seed=100 honest=100.00 bigjumps=2 candjumps=13
+K=10 seed=101 honest=100.00 bigjumps=2 candjumps=22
+K=10 seed=103 honest=100.00 bigjumps=2 candjumps=26
+K=10 seed=102 honest=100.00 bigjumps=1 candjumps=28
+bus14 K=5 seed=101 honest80=survival = 59.17%
+bus14 K=5 seed=100 honest80=survival = 63.58%
+bus14 OLD baseline honest80=survival = 63.58%
+bus14 K=5 seed=102 honest80=survival = 100.00%

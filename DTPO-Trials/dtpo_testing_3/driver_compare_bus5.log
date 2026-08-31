@@ -1,0 +1,3 @@
+########## bus5 A/B compare 22:25:04 ##########
+########## A + B in PARALLEL 22:25:04 ##########
+A pid=8556  B pid=8557  (tail bus5_*_seed0.runlog for per-run progress)

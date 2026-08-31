@@ -1,0 +1,40 @@
+=== bus14 sweep done (or timed out); starting bus5 hybrid multi-seed ===
+=== START dtpo_testing/bus5_hybrid_seed1 (seed=1 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus5_hybrid_seed1 ===
+[finalize] dtpo_testing/bus5_hybrid_seed1  <- checkpoint/DTPO_bus5_T_1_0__I__1781190428_15139.tar
+[viz] dtpo_testing/bus5_hybrid_seed1/tree.dot  (depth=7 leaves=16 actions=50)
+[viz] dtpo_testing/bus5_hybrid_seed1/tree.svg
+[viz] dtpo_testing/bus5_hybrid_seed1/tree_landscape.dot  (depth=7 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus5_hybrid_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus5_hybrid_seed1/curve.png  final_best=100.0%  first_100_at_it=30  leaves=16
+[finalize] dtpo_testing/bus5_hybrid_seed1 done -> DTPO_bus5_T_1_0__I__1781190428_15139.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=63.539%
+[fidelity] bus5 on oracle-states: fid=0.234 wfid=0.175 n=20160 driver_surv=1.000
+[fidelity] bus5 on tree-states: fid=0.002 wfid=0.000 n=2648 driver_surv=0.131
+[fidelity] wrote dtpo_testing/bus5_hybrid_seed1/fidelity.json
+=== START dtpo_testing/bus5_hybrid_seed2 (seed=2 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus5_hybrid_seed2 ===
+[finalize] dtpo_testing/bus5_hybrid_seed2  <- checkpoint/DTPO_bus5_T_2_0__I__1781190760_39630.tar
+[viz] dtpo_testing/bus5_hybrid_seed2/tree.dot  (depth=7 leaves=16 actions=50)
+[viz] dtpo_testing/bus5_hybrid_seed2/tree.svg
+[viz] dtpo_testing/bus5_hybrid_seed2/tree_landscape.dot  (depth=7 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus5_hybrid_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus5_hybrid_seed2/curve.png  final_best=100.0%  first_100_at_it=60  leaves=16
+[finalize] dtpo_testing/bus5_hybrid_seed2 done -> DTPO_bus5_T_2_0__I__1781190760_39630.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=19.365%
+[fidelity] bus5 on oracle-states: fid=0.464 wfid=0.481 n=20160 driver_surv=1.000
+[fidelity] bus5 on tree-states: fid=0.000 wfid=0.000 n=940 driver_surv=0.047
+[fidelity] wrote dtpo_testing/bus5_hybrid_seed2/fidelity.json
+===== BUS5 HYBRID MULTISEED + METRICS COMPLETE =====

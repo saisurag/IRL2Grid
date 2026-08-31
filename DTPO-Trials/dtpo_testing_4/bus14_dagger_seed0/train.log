@@ -1,0 +1,33 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from final_PPO_bus14_T_0_0__I__1775940444_3936: {'mode': 'soft', 'n_samples': 70000, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 13, 'fidelity': 0.7345285714285714, 'weighted_fidelity': 0.9035848749709869, 'curated': False, 'dagger_rounds': 5, 'dagger_dataset_sizes': [20000, 30000, 40000, 50000, 60000, 70000]}
+Eval at step 200000, survival=25.647%, return=[-4.657231854938436, 1145.7058737536559, -640.8028077465017, -245.63508771930418]
+[DTPO] it=10/150 step=200000 J_new=0.0046 kept leaves=64 survival=25.65% best=25.65%
+Eval at step 400000, survival=22.591%, return=[-4.116863445547642, 1018.2952630531697, -486.36650643197936, -213.05789473684712]
+[DTPO] it=20/150 step=400000 J_new=0.0039 kept leaves=64 survival=22.59% best=25.65%
+Eval at step 600000, survival=22.135%, return=[-4.010412246972555, 1012.114465479367, -354.48449196936565, -197.1403508771976]
+[DTPO] it=30/150 step=600000 J_new=0.0027 kept leaves=64 survival=22.13% best=25.65%
+Eval at step 800000, survival=22.143%, return=[-3.9639673467667307, 1005.6218422136229, -354.80949192578555, -199.2377192982502]
+[DTPO] it=40/150 step=800000 J_new=0.0023 kept leaves=64 survival=22.14% best=25.65%
+Eval at step 1000000, survival=22.185%, return=[-3.9897835745476184, 1016.535754001133, -356.5094910977641, -204.11228070175918]
+[DTPO] it=50/150 step=1000000 J_new=0.0026 kept leaves=64 survival=22.19% best=25.65%
+Eval at step 1200000, survival=64.210%, return=[-8.858717050994164, 3009.1484983027076, -8.000383917399086, -563.8403508771676]
+[DTPO] it=60/150 step=1200000 J_new=0.0036 kept leaves=64 survival=64.21% best=64.21%
+Eval at step 1400000, survival=22.142%, return=[-3.967939543596003, 1009.5697329311299, -354.7844911413442, -208.94210526316274]
+[DTPO] it=70/150 step=1400000 J_new=-0.0043 revert leaves=64 survival=22.14% best=64.21%
+Eval at step 1600000, survival=3.697%, return=[-1.4498666793922894, 177.03281974315632, -5.673980913928244, -28.033333333333683]
+[DTPO] it=80/150 step=1600000 J_new=0.0079 kept leaves=64 survival=3.70% best=64.21%
+Eval at step 1800000, survival=7.726%, return=[-1.9062407011166216, 361.18297030210505, -7.824558998807333, -63.0447368421052]
+[DTPO] it=90/150 step=1800000 J_new=0.0043 kept leaves=64 survival=7.73% best=64.21%
+Eval at step 2000000, survival=5.853%, return=[-1.7016240186523646, 281.65648531198497, -5.0, -40.06228070175462]
+[DTPO] it=100/150 step=2000000 J_new=0.0038 kept leaves=64 survival=5.85% best=64.21%
+Eval at step 2200000, survival=5.371%, return=[-1.6663844451191836, 254.9823481287955, -5.554970745136961, -53.65877192982481]
+[DTPO] it=110/150 step=2200000 J_new=0.0040 kept leaves=64 survival=5.37% best=64.21%
+Eval at step 2400000, survival=5.534%, return=[-1.7061977085773834, 265.8835118198394, -5.590202833293006, -44.55614035087747]
+[DTPO] it=120/150 step=2400000 J_new=0.0048 kept leaves=64 survival=5.53% best=64.21%
+Eval at step 2600000, survival=13.393%, return=[-2.740382435324136, 621.8364810109141, -7.432574321934953, -125.58508771929965]
+[DTPO] it=130/150 step=2600000 J_new=0.0027 kept leaves=64 survival=13.39% best=64.21%
+Eval at step 2800000, survival=2.679%, return=[-1.3058348568738438, 130.35678942680357, -5.069934910396114, -16.794736842105255]
+[DTPO] it=140/150 step=2800000 J_new=0.0039 kept leaves=64 survival=2.68% best=64.21%
+Eval at step 3000000, survival=0.583%, return=[-1.0640430676285177, 26.079306650161747, -5.0, -4.6666666666666625]
+[DTPO] it=150/150 step=3000000 J_new=0.0054 kept leaves=64 survival=0.58% best=64.21%
+[DTPO] stored 15 candidate trees for final selection (cheap survivals: ['64.2%', '25.6%', '22.6%', '22.2%', '22.1%', '22.1%', '22.1%', '13.4%', '7.7%', '5.9%', '5.5%', '5.4%', '3.7%', '2.7%', '0.6%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.

@@ -1,0 +1,2 @@
+[eval_ckpt] alg=PPO env=bus5 action_type=topology difficulty=0 episodes=100 device=cpu
+Eval at step 0, survival=100.000%, return=[-1.4006680707563646, 1703.3622599634527, -0.0024838060286128893, -327.93571428572386]

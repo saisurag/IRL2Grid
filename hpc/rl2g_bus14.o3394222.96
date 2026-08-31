@@ -1,0 +1,21 @@
+=== 3394222[96].pbs-7 [96] bus14_dtpo-ws_L16_s104 on cx3-2-2 | Fri 24 Jul 22:04:51 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 104 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 1 --dtpo-replay-iters 1 --dtpo-survival-gate False --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0046 kept mode=full leaves=16 survival=3.76% best=61.52% std=2.3%
+[DTPO] it=148/150 step=1479852 J_new=0.0067 kept mode=full leaves=16 survival=3.04% best=61.52% std=2.4%
+[DTPO] it=149/150 step=1489851 J_new=0.0085 kept mode=full leaves=16 survival=12.59% best=61.52% std=2.6%
+[DTPO] it=150/150 step=1499850 J_new=0.0000 kept mode=full leaves=16 survival=0.33% best=61.52% std=0.9%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['61.5%', '59.7%', '58.0%', '57.5%', '57.4%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=104 difficulty=0 leaves=16 depth=6 select=61.52 report=61.52 report_min=13.54 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=3 candjumps=0
+=== bus14_dtpo-ws_L16_s104 finished Sat 25 Jul 01:42:29 BST 2026 ===
+
+====================================
+CPU Time used: 07:15:51
+CPU Percent: 348%
+Memory usage: 1343344kb
+Approx Power usage: 0.087
+Walltime usage: 03:38:14
+
+====================================

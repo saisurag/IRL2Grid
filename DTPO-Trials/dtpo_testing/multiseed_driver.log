@@ -1,0 +1,91 @@
+=== START dtpo_testing/bus36M_scratch_seed1 (seed=1 mode=scratch) ===
+=== train exit=0 for dtpo_testing/bus36M_scratch_seed1 ===
+[finalize] dtpo_testing/bus36M_scratch_seed1  <- checkpoint/DTPO_bus36-M_T_1_0__I__1781126937_8521.tar
+[viz] dtpo_testing/bus36M_scratch_seed1/tree.dot  (depth=10 leaves=32 actions=50)
+[viz] dtpo_testing/bus36M_scratch_seed1/tree.svg
+[viz] dtpo_testing/bus36M_scratch_seed1/tree_landscape.dot  (depth=10 leaves=32 actions=50 landscape)
+[viz] dtpo_testing/bus36M_scratch_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus36M_scratch_seed1/curve.png  final_best=65.5%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_scratch_seed1 done -> DTPO_bus36-M_T_1_0__I__1781126937_8521.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus36M_hybrid_seed1 (seed=1 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus36M_hybrid_seed1 ===
+[finalize] dtpo_testing/bus36M_hybrid_seed1  <- checkpoint/DTPO_bus36-M_T_1_0__I__1781135944_32990.tar
+[viz] dtpo_testing/bus36M_hybrid_seed1/tree.dot  (depth=9 leaves=32 actions=50)
+[viz] dtpo_testing/bus36M_hybrid_seed1/tree.svg
+[viz] dtpo_testing/bus36M_hybrid_seed1/tree_landscape.dot  (depth=9 leaves=32 actions=50 landscape)
+[viz] dtpo_testing/bus36M_hybrid_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus36M_hybrid_seed1/curve.png  final_best=88.6%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_hybrid_seed1 done -> DTPO_bus36-M_T_1_0__I__1781135944_32990.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus36M_scratch_seed2 (seed=2 mode=scratch) ===
+=== train exit=0 for dtpo_testing/bus36M_scratch_seed2 ===
+[finalize] dtpo_testing/bus36M_scratch_seed2  <- checkpoint/DTPO_bus36-M_T_2_0__I__1781145145_31478.tar
+[viz] dtpo_testing/bus36M_scratch_seed2/tree.dot  (depth=11 leaves=32 actions=50)
+[viz] dtpo_testing/bus36M_scratch_seed2/tree.svg
+[viz] dtpo_testing/bus36M_scratch_seed2/tree_landscape.dot  (depth=11 leaves=32 actions=50 landscape)
+[viz] dtpo_testing/bus36M_scratch_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus36M_scratch_seed2/curve.png  final_best=77.0%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_scratch_seed2 done -> DTPO_bus36-M_T_2_0__I__1781145145_31478.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus36M_hybrid_seed2 (seed=2 mode=hybrid) ===
+=== train exit=0 for dtpo_testing/bus36M_hybrid_seed2 ===
+[finalize] dtpo_testing/bus36M_hybrid_seed2  <- checkpoint/DTPO_bus36-M_T_2_0__I__1781154352_36056.tar
+[viz] dtpo_testing/bus36M_hybrid_seed2/tree.dot  (depth=11 leaves=32 actions=50)
+[viz] dtpo_testing/bus36M_hybrid_seed2/tree.svg
+[viz] dtpo_testing/bus36M_hybrid_seed2/tree_landscape.dot  (depth=11 leaves=32 actions=50 landscape)
+[viz] dtpo_testing/bus36M_hybrid_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus36M_hybrid_seed2/curve.png  final_best=83.2%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_hybrid_seed2 done -> DTPO_bus36-M_T_2_0__I__1781154352_36056.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus36M_curated_seed1 (seed=1 mode=curated) ===
+=== train exit=0 for dtpo_testing/bus36M_curated_seed1 ===
+[finalize] dtpo_testing/bus36M_curated_seed1  <- checkpoint/DTPO_bus36-M_T_1_0__I__1781163399_29253.tar
+[viz] dtpo_testing/bus36M_curated_seed1/tree.dot  (depth=10 leaves=32 actions=15)
+[viz] dtpo_testing/bus36M_curated_seed1/tree.svg
+[viz] dtpo_testing/bus36M_curated_seed1/tree_landscape.dot  (depth=10 leaves=32 actions=15 landscape)
+[viz] dtpo_testing/bus36M_curated_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus36M_curated_seed1/curve.png  final_best=83.7%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_curated_seed1 done -> DTPO_bus36-M_T_1_0__I__1781163399_29253.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+=== START dtpo_testing/bus36M_curated_seed2 (seed=2 mode=curated) ===
+=== train exit=0 for dtpo_testing/bus36M_curated_seed2 ===
+[finalize] dtpo_testing/bus36M_curated_seed2  <- checkpoint/DTPO_bus36-M_T_2_0__I__1781172536_36124.tar
+[viz] dtpo_testing/bus36M_curated_seed2/tree.dot  (depth=9 leaves=32 actions=15)
+[viz] dtpo_testing/bus36M_curated_seed2/tree.svg
+[viz] dtpo_testing/bus36M_curated_seed2/tree_landscape.dot  (depth=9 leaves=32 actions=15 landscape)
+[viz] dtpo_testing/bus36M_curated_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus36M_curated_seed2/curve.png  final_best=83.2%  first_100_at_it=None  leaves=32
+[finalize] dtpo_testing/bus36M_curated_seed2 done -> DTPO_bus36-M_T_2_0__I__1781172536_36124.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+===== BUS36-M MULTISEED SWEEP COMPLETE =====

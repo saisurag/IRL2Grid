@@ -1,0 +1,15 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar: {'mode': 'soft', 'n_samples': 10080, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 8, 'fidelity': 0.7923611111111111, 'weighted_fidelity': 0.9235517195106244, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 20 fixed chronics (of 20): ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[DTPO] it=5/50 step=99990 J_new=232.2814 kept leaves=16 survival=4.81% best=4.81% std=0.1%
+[DTPO] it=10/50 step=199980 J_new=125.9567 kept leaves=16 survival=5.82% best=5.82% std=0.2%
+[DTPO] it=15/50 step=299970 J_new=68.0454 kept leaves=16 survival=2.00% best=5.82% std=1.6%
+[DTPO] it=20/50 step=399960 J_new=44.9565 kept leaves=16 survival=49.40% best=49.40% std=40.2%
+[DTPO] it=25/50 step=499950 J_new=39.4482 kept leaves=16 survival=5.81% best=49.40% std=0.2%
+[DTPO] it=30/50 step=599940 J_new=20.8813 kept leaves=16 survival=0.21% best=49.40% std=0.0%
+[DTPO] it=35/50 step=699930 J_new=27.5753 kept leaves=16 survival=0.58% best=49.40% std=1.2%
+[DTPO] it=40/50 step=799920 J_new=15.0096 kept leaves=16 survival=5.86% best=49.40% std=0.0%
+[DTPO] it=45/50 step=899910 J_new=10.5063 kept leaves=16 survival=5.86% best=49.40% std=0.0%
+[DTPO] it=50/50 step=999900 J_new=0.1432 kept leaves=16 survival=5.86% best=49.40% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['49.4%', '5.9%', '5.9%', '5.9%', '5.8%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.

@@ -1,0 +1,108 @@
+########## dtpo_testing_3 ROBUSTNESS SWEEP (no curation) 15:52:19 ##########
+########## BUS36-M  hybrid<-DQN  seed 0  (iters=200 batch=12000 leaves=32) ##########
+=== START bus36M_hybrid_seed0 (env=bus36-M seed=0 mode=hybrid leaves=32 batch=12000 iters=200 eta=0.5 msl=50 evalep=20) 15:52:19 ===
+=== train exit=0 for bus36M_hybrid_seed0 20:00:19 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus36-M_T_0_0__I__1781967155_40078.tar
+  [select] iter=40 cheap= 67.91% -> 100ep= 38.17%  leaves=32
+  [select] iter=110 cheap= 65.68% -> 100ep= 50.88%  leaves=32
+  [select] iter=180 cheap= 62.49% -> 100ep= 41.83%  leaves=32
+  [select] iter=50 cheap= 61.31% -> 100ep= 36.59%  leaves=32
+  [select] iter=60 cheap= 57.86% -> 100ep= 32.41%  leaves=32
+  [select] iter=120 cheap= 55.85% -> 100ep= 50.88%  leaves=32
+  [select] iter=140 cheap= 55.83% -> 100ep= 46.41%  leaves=32
+  [select] iter=30 cheap= 52.05% -> 100ep= 38.17%  leaves=32
+  [select] iter=130 cheap= 51.92% -> 100ep= 36.70%  leaves=32
+  [select] iter=170 cheap= 50.95% -> 100ep= 41.84%  leaves=32
+  [select] HONEST BEST = 50.88% over 100 ep (iter=110, leaves=32)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus36-M_T_0_0__I__1781967155_40078.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0  <- checkpoint/DTPO_bus36-M_T_0_0__I__1781967155_40078.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/tree.dot  (depth=8 leaves=32 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/tree_landscape.dot  (depth=8 leaves=32 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/curve.png  final_best=67.9%  first_100_at_it=None  leaves=32
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0 done -> DTPO_bus36-M_T_0_0__I__1781967155_40078.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+[fidelity] bus36-M on oracle-states: fid=0.932 wfid=0.960 n=35677 driver_surv=0.443
+[fidelity] bus36-M on tree-states: fid=0.608 wfid=0.700 n=36873 driver_surv=0.457
+[fidelity] wrote /home/sai/RL2Grid_full/dtpo_testing_3/bus36M_hybrid_seed0/fidelity.json
+=== DONE bus36M_hybrid_seed0 20:51:05 ===
+########## BUS14    hybrid<-PPO  seeds 0,1  (iters=150 batch=9000 leaves=16) ##########
+=== START bus14_hybrid_seed0 (env=bus14 seed=0 mode=hybrid leaves=16 batch=9000 iters=150 eta=0.5 msl=50 evalep=20) 20:51:05 ===
+=== train exit=0 for bus14_hybrid_seed0 21:27:32 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus14_T_0_0__I__1781985073_10076.tar
+  [select] iter=20 cheap= 13.85% -> 100ep=  1.17%  leaves=16
+  [select] iter=140 cheap= 13.57% -> 100ep= 16.79%  leaves=16
+  [select] iter=130 cheap= 13.55% -> 100ep= 14.22%  leaves=16
+  [select] iter=110 cheap= 13.53% -> 100ep= 14.06%  leaves=16
+  [select] iter=120 cheap= 13.51% -> 100ep= 14.22%  leaves=16
+  [select] iter=50 cheap= 13.31% -> 100ep= 13.55%  leaves=16
+  [select] iter=150 cheap=  8.83% -> 100ep=  9.16%  leaves=16
+  [select] iter=100 cheap=  8.39% -> 100ep= 13.56%  leaves=16
+  [select] iter=70 cheap=  8.28% -> 100ep= 12.77%  leaves=16
+  [select] iter=80 cheap=  8.28% -> 100ep= 11.21%  leaves=16
+  [select] HONEST BEST = 16.79% over 100 ep (iter=140, leaves=16)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus14_T_0_0__I__1781985073_10076.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0  <- checkpoint/DTPO_bus14_T_0_0__I__1781985073_10076.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/tree.dot  (depth=5 leaves=16 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/tree_landscape.dot  (depth=5 leaves=16 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/curve.png  final_best=13.8%  first_100_at_it=None  leaves=16
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0 done -> DTPO_bus14_T_0_0__I__1781985073_10076.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+[fidelity] bus14 on oracle-states: fid=0.378 wfid=0.439 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.192 wfid=0.201 n=6728 driver_surv=0.083
+[fidelity] wrote /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed0/fidelity.json
+=== DONE bus14_hybrid_seed0 21:43:06 ===
+=== START bus14_hybrid_seed1 (env=bus14 seed=1 mode=hybrid leaves=16 batch=9000 iters=150 eta=0.5 msl=50 evalep=20) 21:43:06 ===
+=== train exit=0 for bus14_hybrid_seed1 22:21:01 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus14_T_1_0__I__1781988193_36034.tar
+  [select] iter=130 cheap= 13.53% -> 100ep= 11.05%  leaves=16
+  [select] iter=150 cheap= 13.51% -> 100ep=  3.06%  leaves=16
+  [select] iter=110 cheap= 12.36% -> 100ep=  1.91%  leaves=16
+  [select] iter=120 cheap= 12.15% -> 100ep=  4.53%  leaves=16
+  [select] iter=90 cheap=  9.86% -> 100ep=  8.13%  leaves=16
+  [select] iter=20 cheap=  9.75% -> 100ep=  2.75%  leaves=16
+  [select] iter=140 cheap=  8.80% -> 100ep=  2.40%  leaves=16
+  [select] iter=100 cheap=  8.28% -> 100ep=  1.39%  leaves=16
+  [select] iter=40 cheap=  7.25% -> 100ep=  0.51%  leaves=16
+  [select] iter=30 cheap=  7.04% -> 100ep=  5.87%  leaves=16
+  [select] HONEST BEST = 11.05% over 100 ep (iter=130, leaves=16)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus14_T_1_0__I__1781988193_36034.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1  <- checkpoint/DTPO_bus14_T_1_0__I__1781988193_36034.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/curve.png  final_best=13.5%  first_100_at_it=None  leaves=16
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1 done -> DTPO_bus14_T_1_0__I__1781988193_36034.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+[fidelity] bus14 on oracle-states: fid=0.422 wfid=0.442 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.025 wfid=0.028 n=8555 driver_surv=0.106
+[fidelity] wrote /home/sai/RL2Grid_full/dtpo_testing_3/bus14_hybrid_seed1/fidelity.json
+=== DONE bus14_hybrid_seed1 22:27:27 ===
+
+===== dtpo_testing_3 SWEEP COMPLETE 22:27:27 =====
+--- honest results ---
+bus14_hybrid_seed0               16.79% over 100 ep (iter=140, leaves=16)
+bus14_hybrid_seed1               11.05% over 100 ep (iter=130, leaves=16)
+bus36M_hybrid_seed0              50.88% over 100 ep (iter=110, leaves=32)

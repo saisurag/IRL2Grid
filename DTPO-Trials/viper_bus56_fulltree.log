@@ -1,0 +1,61 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+Eval at step 5000, survival=75.794%, return=[-3.419956672897873, 1151.834289888541, -1.749460200953763, -217.28571428571476]
+[VIPER] iter=1/30 dataset=5000 resample=5000 weighted_acc=0.799040 survival=printed_by_evaluator best_score=0.799040 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_001_step_5000_acc_0.799040.dot
+Eval at step 10000, survival=100.000%, return=[-3.9957239631039556, 1562.3941445946693, 0.0, -288.00000000000057]
+[VIPER] iter=2/30 dataset=10000 resample=10000 weighted_acc=0.800222 survival=printed_by_evaluator best_score=0.800222 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_002_step_10000_acc_0.800222.dot
+Eval at step 15000, survival=24.487%, return=[-1.674021117563825, 385.7657951315244, -5.019086281390628, -69.61904761904748]
+[VIPER] iter=3/30 dataset=15000 resample=15000 weighted_acc=0.785143 survival=printed_by_evaluator best_score=0.800222 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_003_step_15000_acc_0.785143.dot
+Eval at step 20000, survival=100.000%, return=[-8.921023500908632, 1426.8321284751098, -51.02313852672523, -332.07936507937484]
+[VIPER] iter=4/30 dataset=20000 resample=20000 weighted_acc=0.753688 survival=printed_by_evaluator best_score=0.800222 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_004_step_20000_acc_0.753688.dot
+Eval at step 25000, survival=100.000%, return=[-3.6295457563828677, 1624.8756486376126, 0.0, -378.7936507936651]
+[VIPER] iter=5/30 dataset=25000 resample=25000 weighted_acc=0.849331 survival=printed_by_evaluator best_score=0.849331 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_005_step_25000_acc_0.849331.dot
+Eval at step 30000, survival=100.000%, return=[-3.885566788056167, 1597.3156551122665, 0.0, -334.9047619047735]
+[VIPER] iter=6/30 dataset=30000 resample=30000 weighted_acc=0.880433 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_006_step_30000_acc_0.880433.dot
+Eval at step 35000, survival=35.499%, return=[-2.2158924011261356, 539.6062541604042, -5.0, -120.06349206349144]
+[VIPER] iter=7/30 dataset=35000 resample=35000 weighted_acc=0.785624 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_007_step_35000_acc_0.785624.dot
+Eval at step 40000, survival=25.794%, return=[-2.198717639374081, 382.5186075568199, -13.491619688769182, -73.09523809523749]
+[VIPER] iter=8/30 dataset=40000 resample=40000 weighted_acc=0.808725 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_008_step_40000_acc_0.808725.dot
+Eval at step 45000, survival=100.000%, return=[-4.197967121901456, 1527.1733979582787, 0.0, -306.42857142857576]
+[VIPER] iter=9/30 dataset=45000 resample=45000 weighted_acc=0.840753 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_009_step_45000_acc_0.840753.dot
+Eval at step 50000, survival=100.000%, return=[-3.7150691603455925, 1516.0239387452602, -0.8937126487580827, -527.8571428571398]
+[VIPER] iter=10/30 dataset=50000 resample=50000 weighted_acc=0.848653 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_010_step_50000_acc_0.848653.dot
+Eval at step 55000, survival=33.532%, return=[-1.9133388671762077, 507.0745220084985, -3.6312375495860274, -177.1904761904752]
+[VIPER] iter=11/30 dataset=55000 resample=55000 weighted_acc=0.818836 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_011_step_55000_acc_0.818836.dot
+Eval at step 60000, survival=0.298%, return=[-1.0124737205915153, 2.5998136401176453, -5.0, -1.857142857142857]
+[VIPER] iter=12/30 dataset=60000 resample=60000 weighted_acc=0.798659 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_012_step_60000_acc_0.798659.dot
+Eval at step 65000, survival=100.000%, return=[-3.724172128975624, 1560.9815737009048, 0.0, -384.0000000000088]
+[VIPER] iter=13/30 dataset=65000 resample=65000 weighted_acc=0.766477 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_013_step_65000_acc_0.766477.dot
+Eval at step 70000, survival=100.000%, return=[-4.5193713523913175, 1547.878567814827, 0.0, -336.000000000012]
+[VIPER] iter=14/30 dataset=70000 resample=70000 weighted_acc=0.791612 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_014_step_70000_acc_0.791612.dot
+Eval at step 75000, survival=100.000%, return=[-3.4513172468577977, 1571.5032012462616, 0.0, -432.00000000000756]
+[VIPER] iter=15/30 dataset=75000 resample=75000 weighted_acc=0.761710 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_015_step_75000_acc_0.761710.dot
+Eval at step 80000, survival=100.000%, return=[-3.4513172468577977, 1571.5032012462616, 0.0, -432.00000000000756]
+[VIPER] iter=16/30 dataset=80000 resample=80000 weighted_acc=0.750592 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_016_step_80000_acc_0.750592.dot
+Eval at step 85000, survival=100.000%, return=[-3.4513172468577977, 1571.5032012462616, 0.0, -432.00000000000756]
+[VIPER] iter=17/30 dataset=85000 resample=85000 weighted_acc=0.739071 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_017_step_85000_acc_0.739071.dot
+Eval at step 90000, survival=100.000%, return=[-4.338456056478511, 1552.266702691714, 0.0, -360.87301587302665]
+[VIPER] iter=18/30 dataset=90000 resample=90000 weighted_acc=0.734359 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_018_step_90000_acc_0.734359.dot
+Eval at step 95000, survival=100.000%, return=[-4.337471811071737, 1552.2869369586308, 0.0, -360.9365079365188]
+[VIPER] iter=19/30 dataset=95000 resample=95000 weighted_acc=0.745061 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_019_step_95000_acc_0.745061.dot
+Eval at step 100000, survival=100.000%, return=[-4.336583987547783, 1552.306079030037, 0.0, -361.00000000001086]
+[VIPER] iter=20/30 dataset=100000 resample=100000 weighted_acc=0.753661 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_020_step_100000_acc_0.753661.dot
+Eval at step 105000, survival=100.000%, return=[-4.490734237449942, 1523.0467023650806, 0.0, -370.74603174604687]
+[VIPER] iter=21/30 dataset=105000 resample=105000 weighted_acc=0.761189 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_021_step_105000_acc_0.761189.dot
+Eval at step 110000, survival=100.000%, return=[-4.44380144601261, 1521.3154696424801, 0.0, -375.4126984127153]
+[VIPER] iter=22/30 dataset=110000 resample=110000 weighted_acc=0.766147 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_022_step_110000_acc_0.766147.dot
+Eval at step 115000, survival=100.000%, return=[-5.303716111840913, 1489.1798077027004, 0.0, -404.4126984127088]
+[VIPER] iter=23/30 dataset=115000 resample=115000 weighted_acc=0.770697 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_023_step_115000_acc_0.770697.dot
+Eval at step 120000, survival=100.000%, return=[-3.7029555268527474, 1608.6681574185689, 0.0, -432.6666666666706]
+[VIPER] iter=24/30 dataset=120000 resample=120000 weighted_acc=0.773926 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_024_step_120000_acc_0.773926.dot
+Eval at step 125000, survival=100.000%, return=[-4.036401029666497, 1594.2980758349102, 0.0, -431.0476190476234]
+[VIPER] iter=25/30 dataset=125000 resample=125000 weighted_acc=0.776106 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_025_step_125000_acc_0.776106.dot
+Eval at step 130000, survival=39.980%, return=[-14.420889624394476, 296.7187389880419, -121.03403123968747, -58.476190476190915]
+[VIPER] iter=26/30 dataset=130000 resample=130000 weighted_acc=0.734676 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_026_step_130000_acc_0.734676.dot
+Eval at step 135000, survival=100.000%, return=[-10.460424556639433, 1396.6681697815657, -35.052021038039435, -232.19047619047203]
+[VIPER] iter=27/30 dataset=135000 resample=135000 weighted_acc=0.767422 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_027_step_135000_acc_0.767422.dot
+Eval at step 140000, survival=4.613%, return=[-2.0478180423378944, 43.260130137205124, -5.286766579374671, -3.2857142857142865]
+[VIPER] iter=28/30 dataset=140000 resample=140000 weighted_acc=0.759301 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_028_step_140000_acc_0.759301.dot
+Eval at step 145000, survival=39.980%, return=[-14.420889624394476, 296.7187389880419, -121.03403123968747, -58.476190476190915]
+[VIPER] iter=29/30 dataset=145000 resample=145000 weighted_acc=0.768274 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_029_step_145000_acc_0.768274.dot
+Eval at step 150000, survival=100.000%, return=[-7.109902675554622, 1689.520594894886, -0.09391534142196178, -383.7142857142946]
+[VIPER] iter=30/30 dataset=150000 resample=150000 weighted_acc=0.782519 survival=printed_by_evaluator best_score=0.880433 tree=viper_trees/VIPER_bus5_T_1_0__I__1778622266_2131/viper_bus5_iter_030_step_150000_acc_0.782519.dot

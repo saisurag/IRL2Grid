@@ -1,0 +1,21 @@
+=== 3394222[50].pbs-7 [50] bus14_dtpo-ws_L16_s102 on cx3-2-2 | Fri 24 Jul 19:50:32 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 102 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 1 --dtpo-replay-iters 1 --dtpo-survival-gate False --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=-0.0134 revert mode=full leaves=16 survival=0.83% best=64.37% std=0.5%
+[DTPO] it=148/150 step=1479852 J_new=0.0037 kept mode=full leaves=16 survival=0.19% best=64.37% std=0.4%
+[DTPO] it=149/150 step=1489851 J_new=0.0040 kept mode=full leaves=16 survival=0.39% best=64.37% std=0.7%
+[DTPO] it=150/150 step=1499850 J_new=0.0022 kept mode=full leaves=16 survival=11.53% best=64.37% std=2.4%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['64.4%', '63.6%', '63.6%', '63.5%', '63.5%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=102 difficulty=0 leaves=16 depth=5 select=64.37 report=64.37 report_min=60.02 report_max=100.00 frac100=2.5 n_report=40
+JUMPS bigjumps=41 candjumps=0
+=== bus14_dtpo-ws_L16_s102 finished Sat 25 Jul 05:27:16 BST 2026 ===
+
+====================================
+CPU Time used: 12:28:38
+CPU Percent: 342%
+Memory usage: 1621780kb
+Approx Power usage: 0.14959999999999998
+Walltime usage: 09:37:29
+
+====================================

@@ -1,0 +1,21 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[DTPO] deterministic eval on 20 fixed chronics (of 20): ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[DTPO] it=5/60 step=99990 J_new=393.4815 kept leaves=16 survival=1.14% best=1.14% std=2.2%
+[DTPO] it=10/60 step=199980 J_new=283.1304 kept leaves=16 survival=0.79% best=1.14% std=1.4%
+[DTPO] it=15/60 step=299970 J_new=208.1435 kept leaves=16 survival=0.79% best=1.14% std=1.4%
+[DTPO] it=20/60 step=399960 J_new=168.7643 kept leaves=16 survival=2.92% best=2.92% std=1.8%
+[DTPO] it=25/60 step=499950 J_new=141.0874 kept leaves=16 survival=2.04% best=2.92% std=4.5%
+[DTPO] it=30/60 step=599940 J_new=116.8329 kept leaves=16 survival=1.90% best=2.92% std=2.3%
+[DTPO] it=35/60 step=699930 J_new=100.2357 kept leaves=16 survival=1.90% best=2.92% std=2.3%
+[DTPO] it=40/60 step=799920 J_new=75.6756 kept leaves=16 survival=7.79% best=7.79% std=8.6%
+[DTPO] it=45/60 step=899910 J_new=68.2520 kept leaves=16 survival=1.91% best=7.79% std=2.3%
+[DTPO] it=50/60 step=999900 J_new=41.5372 kept leaves=16 survival=1.88% best=7.79% std=2.3%
+[DTPO] it=55/60 step=1099890 J_new=30.6512 kept leaves=16 survival=7.01% best=7.79% std=10.1%
+[DTPO] it=60/60 step=1199880 J_new=3.8425 kept leaves=16 survival=9.21% best=9.21% std=16.8%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['9.2%', '7.8%', '7.0%', '2.9%', '2.0%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+[curve] /home/sai/RL2Grid_full/dtpo_testing_5/bus5_scratch_seed0/curve.png  final_best=9.2%  first_100_at_it=None  leaves=16
+[viz] /home/sai/RL2Grid_full/dtpo_testing_5/bus5_scratch_seed0/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_5/bus5_scratch_seed0/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_5/bus5_scratch_seed0/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_5/bus5_scratch_seed0/tree_landscape.svg

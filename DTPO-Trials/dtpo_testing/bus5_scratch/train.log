@@ -1,0 +1,17 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+Eval at step 20000, survival=36.756%, return=[-6.4731597289210185, 404.1705668717623, -958.301367422755, -139.95238095238133]
+[DTPO] it=10/80 step=20000 J_new=0.5218 kept leaves=16 survival=36.76% best=36.76%
+Eval at step 40000, survival=0.149%, return=[-1.0080361131113023, 0.3472995162010193, -5.0, -1.3333333333333333]
+[DTPO] it=20/80 step=40000 J_new=0.2237 kept leaves=16 survival=0.15% best=36.76%
+Eval at step 60000, survival=100.000%, return=[-18.85589008500877, 1029.3173785042018, -1852.8525151670995, -239.04761904762776]
+[DTPO] it=30/80 step=60000 J_new=0.3693 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 80000, survival=100.000%, return=[-17.970895226317225, 973.6214955793694, -2546.010913847622, -277.1428571428668]
+[DTPO] it=40/80 step=80000 J_new=0.0544 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 100000, survival=100.000%, return=[-17.53733320669562, 1267.62320356071, -35.07921314943815, -143.99999999999832]
+[DTPO] it=50/80 step=100000 J_new=0.0284 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 120000, survival=100.000%, return=[-8.692604652955197, 1308.5369509160519, 0.0, -240.0476190476213]
+[DTPO] it=60/80 step=120000 J_new=0.0866 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 140000, survival=100.000%, return=[-17.970895226317225, 973.6214955793694, -2546.010913847622, -277.1428571428668]
+[DTPO] it=70/80 step=140000 J_new=0.2549 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 160000, survival=100.000%, return=[-6.4769562696892535, 1327.7914063533146, -2377.8539867745712, -412.34920634921747]
+[DTPO] it=80/80 step=160000 J_new=0.0462 kept leaves=16 survival=100.00% best=100.00%

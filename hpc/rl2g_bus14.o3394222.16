@@ -1,0 +1,18 @@
+=== 3394222[16].pbs-7 [16] bus14_distill_L64_s100 on cx3-5-2 | Thu 23 Jul 12:51:01 BST 2026 ===
+=== distill_only.py --env-id bus14 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 100 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 13, 'fidelity': 0.7861, 'weighted_fidelity': 0.9277250653231494, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus14_T_100_0_L64_1784807583_38408.tar (leaves=64, curated=no)
+=== honest eval exit=0 ===
+RESULT alg=DTPO env=bus14 seed=100 difficulty=0 leaves=64 depth=13 select=0.31 report=0.31 report_min=0.09 report_max=1.65 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_distill_L64_s100 finished Thu 23 Jul 12:54:25 BST 2026 ===
+
+====================================
+CPU Time used: 00:00:26
+CPU Percent: 20%
+Memory usage: 443972kb
+Approx Power usage: 0.0
+Walltime usage: 00:04:05
+
+====================================

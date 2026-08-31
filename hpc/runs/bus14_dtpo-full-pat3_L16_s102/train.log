@@ -1,0 +1,11 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 9, 'fidelity': 0.6498, 'weighted_fidelity': 0.8141073463021605, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 40 fixed chronics (of 1004): ids=[0, 25, 51, 77, 102, 128, 154, 180, 205, 231, 257, 282, 308, 334, 360, 385, 411, 437, 462, 488, 514, 540, 565, 591, 617, 642, 668, 694, 720, 745, 771, 797, 822, 848, 874, 900, 925, 951, 977, 1003]
+[DTPO] it=1/150 step=9999 J_new=-0.0028 revert mode=full gate=accept cand=37.78% leaves=16 survival=37.78% best=37.78% std=41.1%
+[DTPO] it=2/150 step=19998 J_new=0.0027 kept mode=leaf gate=accept cand=37.78% leaves=16 survival=37.78% best=37.78% std=41.1%
+[DTPO] it=3/150 step=29997 J_new=0.0042 kept mode=leaf gate=accept cand=66.26% leaves=16 survival=66.26% best=66.26% std=30.3%
+[DTPO] it=4/150 step=39996 J_new=0.0055 kept mode=leaf gate=accept cand=66.26% leaves=16 survival=66.26% best=66.26% std=30.3%
+[DTPO] it=5/150 step=49995 J_new=0.0067 kept mode=leaf gate=revert(1) cand=66.26% leaves=16 survival=66.26% best=66.26% std=30.3%
+[DTPO] it=6/150 step=59994 J_new=0.0044 kept mode=full gate=revert(2) cand=48.55% leaves=16 survival=66.26% best=66.26% std=30.3%
+[DTPO] it=7/150 step=69993 J_new=0.0042 kept mode=leaf gate=revert(3) cand=66.26% leaves=16 survival=66.26% best=66.26% std=30.3%
+[DTPO] it=8/150 step=79992 J_new=0.0037 kept mode=leaf gate=accept(forced) cand=66.26% leaves=16 survival=66.26% best=66.26% std=25.6%

@@ -1,0 +1,7 @@
+########## dtpo_testing_4 bus5 run-A batch100k, seeds 1+2 in PARALLEL 00:40:02 ##########
+seed1 pid=12941  seed2 pid=12942
+
+===== dtpo_testing_4 bus5 run-A batch100k COMPLETE 11:32:01 =====
+--- ref: bus5 run-A seed0 @ batch20000 = 100% honest ---
+bus5_A100k_seed1         4.87% over 100 ep (iter=70, leaves=64)
+bus5_A100k_seed2         28.15% over 100 ep (iter=90, leaves=64)

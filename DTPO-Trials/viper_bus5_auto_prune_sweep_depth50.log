@@ -1,0 +1,121 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[VIPER PRUNE SWEEP] selected_alpha=0.00042927 val_acc=0.988156 adjusted_score=0.980456 depth=14 leaves=77 nodes=153
+[VIPER TREE] depth=14 leaves=77 nodes=153 ccp_alpha=0.00042927 fit_samples=5000 dataset=5000
+Eval at step 5000, survival=50.595%, return=[-2.354736438501277, 803.193024555842, -3.3542505894244337, -194.49206349206545]
+[VIPER] iter=1/30 dataset=5000 resample=5000 weighted_acc=0.992240 survival=printed_by_evaluator best_score=0.992240 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_001_step_5000_acc_0.992240.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019221 val_acc=0.987843 adjusted_score=0.977843 depth=17 leaves=100 nodes=199
+[VIPER TREE] depth=17 leaves=100 nodes=199 ccp_alpha=0.00019221 fit_samples=10000 dataset=10000
+Eval at step 10000, survival=33.714%, return=[-9.247306654540202, 306.9387275719394, -144.01043745124602, -72.60317460317496]
+[VIPER] iter=2/30 dataset=10000 resample=10000 weighted_acc=0.992897 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_002_step_10000_acc_0.992897.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00017240 val_acc=0.987222 adjusted_score=0.976022 depth=16 leaves=112 nodes=223
+[VIPER TREE] depth=16 leaves=112 nodes=223 ccp_alpha=0.00017240 fit_samples=15000 dataset=15000
+Eval at step 15000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=3/30 dataset=15000 resample=15000 weighted_acc=0.992478 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_003_step_15000_acc_0.992478.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00021412 val_acc=0.987702 adjusted_score=0.977402 depth=15 leaves=103 nodes=205
+[VIPER TREE] depth=15 leaves=103 nodes=205 ccp_alpha=0.00021412 fit_samples=20000 dataset=20000
+Eval at step 20000, survival=15.856%, return=[-4.3958223372076946, 163.02729957178235, -149.94906024608403, -34.444444444444464]
+[VIPER] iter=4/30 dataset=20000 resample=20000 weighted_acc=0.991043 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_004_step_20000_acc_0.991043.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00020281 val_acc=0.986898 adjusted_score=0.974398 depth=21 leaves=125 nodes=249
+[VIPER TREE] depth=21 leaves=125 nodes=249 ccp_alpha=0.00020281 fit_samples=25000 dataset=25000
+Eval at step 25000, survival=0.595%, return=[-1.1659328835085034, 3.0116804763674736, -10.575335336616263, -2.0476190476190474]
+[VIPER] iter=5/30 dataset=25000 resample=25000 weighted_acc=0.991156 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_005_step_25000_acc_0.991156.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00014986 val_acc=0.987729 adjusted_score=0.973629 depth=18 leaves=141 nodes=281
+[VIPER TREE] depth=18 leaves=141 nodes=281 ccp_alpha=0.00014986 fit_samples=30000 dataset=30000
+Eval at step 30000, survival=11.376%, return=[-1.2301967954457116, 186.39619650443396, -6.04621841928747, -27.04761904761926]
+[VIPER] iter=6/30 dataset=30000 resample=30000 weighted_acc=0.990365 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_006_step_30000_acc_0.990365.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00014762 val_acc=0.988963 adjusted_score=0.973763 depth=17 leaves=152 nodes=303
+[VIPER TREE] depth=17 leaves=152 nodes=303 ccp_alpha=0.00014762 fit_samples=35000 dataset=35000
+Eval at step 35000, survival=5.109%, return=[-2.213000318966806, 46.931728541851044, -5.309845317387953, -3.4285714285714284]
+[VIPER] iter=7/30 dataset=35000 resample=35000 weighted_acc=0.991519 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_007_step_35000_acc_0.991519.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019348 val_acc=0.985787 adjusted_score=0.970787 depth=19 leaves=150 nodes=299
+[VIPER TREE] depth=19 leaves=150 nodes=299 ccp_alpha=0.00019348 fit_samples=40000 dataset=40000
+Eval at step 40000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=8/30 dataset=40000 resample=40000 weighted_acc=0.988002 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_008_step_40000_acc_0.988002.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00028572 val_acc=0.982747 adjusted_score=0.971247 depth=17 leaves=115 nodes=229
+[VIPER TREE] depth=17 leaves=115 nodes=229 ccp_alpha=0.00028572 fit_samples=45000 dataset=45000
+Eval at step 45000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=9/30 dataset=45000 resample=45000 weighted_acc=0.985217 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_009_step_45000_acc_0.985217.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00014462 val_acc=0.985880 adjusted_score=0.969380 depth=17 leaves=165 nodes=329
+[VIPER TREE] depth=17 leaves=165 nodes=329 ccp_alpha=0.00014462 fit_samples=50000 dataset=50000
+Eval at step 50000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=10/30 dataset=50000 resample=50000 weighted_acc=0.989810 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_010_step_50000_acc_0.989810.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00011231 val_acc=0.994124 adjusted_score=0.981524 depth=14 leaves=126 nodes=251
+[VIPER TREE] depth=14 leaves=126 nodes=251 ccp_alpha=0.00011231 fit_samples=50000 dataset=55000
+Eval at step 55000, survival=8.796%, return=[-2.886404075504591, 88.40575617551804, -19.077525408793008, -13.76190476190473]
+[VIPER] iter=11/30 dataset=55000 resample=50000 weighted_acc=0.979293 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_011_step_55000_acc_0.979293.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00025190 val_acc=0.991380 adjusted_score=0.983580 depth=12 leaves=78 nodes=155
+[VIPER TREE] depth=12 leaves=78 nodes=155 ccp_alpha=0.00025190 fit_samples=50000 dataset=60000
+Eval at step 60000, survival=18.452%, return=[-5.256786391294251, 180.08966748788953, -43.48076286677193, -27.190476190476108]
+[VIPER] iter=12/30 dataset=60000 resample=50000 weighted_acc=0.972603 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_012_step_60000_acc_0.972603.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019492 val_acc=0.992904 adjusted_score=0.983004 depth=13 leaves=99 nodes=197
+[VIPER TREE] depth=13 leaves=99 nodes=197 ccp_alpha=0.00019492 fit_samples=50000 dataset=65000
+Eval at step 65000, survival=0.198%, return=[-1.0426819119602442, 0.3016410768032074, -5.602728701196611, -1.2857142857142856]
+[VIPER] iter=13/30 dataset=65000 resample=50000 weighted_acc=0.973541 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_013_step_65000_acc_0.973541.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00021063 val_acc=0.992179 adjusted_score=0.983279 depth=11 leaves=89 nodes=177
+[VIPER TREE] depth=11 leaves=89 nodes=177 ccp_alpha=0.00021063 fit_samples=50000 dataset=70000
+Eval at step 70000, survival=0.198%, return=[-1.0413597598671913, 0.3167400062084198, -5.322423106990755, -1.1904761904761905]
+[VIPER] iter=14/30 dataset=70000 resample=50000 weighted_acc=0.974199 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_014_step_70000_acc_0.974199.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00021066 val_acc=0.993178 adjusted_score=0.984278 depth=12 leaves=89 nodes=177
+[VIPER TREE] depth=12 leaves=89 nodes=177 ccp_alpha=0.00021066 fit_samples=50000 dataset=75000
+Eval at step 75000, survival=0.198%, return=[-1.0413597598671913, 0.3167400062084198, -5.322423106990755, -1.1904761904761905]
+[VIPER] iter=15/30 dataset=75000 resample=50000 weighted_acc=0.976859 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_015_step_75000_acc_0.976859.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00024026 val_acc=0.991608 adjusted_score=0.983608 depth=11 leaves=80 nodes=159
+[VIPER TREE] depth=11 leaves=80 nodes=159 ccp_alpha=0.00024026 fit_samples=50000 dataset=80000
+Eval at step 80000, survival=56.581%, return=[-9.605846864695195, 651.5572780321041, -747.9270259538438, -255.74603174604113]
+[VIPER] iter=16/30 dataset=80000 resample=50000 weighted_acc=0.973383 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_016_step_80000_acc_0.973383.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00020882 val_acc=0.992822 adjusted_score=0.983822 depth=12 leaves=90 nodes=179
+[VIPER TREE] depth=12 leaves=90 nodes=179 ccp_alpha=0.00020882 fit_samples=50000 dataset=85000
+Eval at step 85000, survival=1.339%, return=[-1.2721059890463948, 12.721207112073898, -5.345514065120369, -2.4285714285714293]
+[VIPER] iter=17/30 dataset=85000 resample=50000 weighted_acc=0.974705 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_017_step_85000_acc_0.974705.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019051 val_acc=0.993389 adjusted_score=0.984389 depth=12 leaves=90 nodes=179
+[VIPER TREE] depth=12 leaves=90 nodes=179 ccp_alpha=0.00019051 fit_samples=50000 dataset=90000
+Eval at step 90000, survival=0.347%, return=[-1.080956139601767, 1.6063721776008606, -5.701464515877888, -1.4285714285714286]
+[VIPER] iter=18/30 dataset=90000 resample=50000 weighted_acc=0.977139 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_018_step_90000_acc_0.977139.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00020343 val_acc=0.994425 adjusted_score=0.985325 depth=11 leaves=91 nodes=181
+[VIPER TREE] depth=11 leaves=91 nodes=181 ccp_alpha=0.00020343 fit_samples=50000 dataset=95000
+Eval at step 95000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=19/30 dataset=95000 resample=50000 weighted_acc=0.976666 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_019_step_95000_acc_0.976666.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00016138 val_acc=0.992528 adjusted_score=0.983028 depth=11 leaves=95 nodes=189
+[VIPER TREE] depth=11 leaves=95 nodes=189 ccp_alpha=0.00016138 fit_samples=50000 dataset=100000
+Eval at step 100000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=20/30 dataset=100000 resample=50000 weighted_acc=0.974075 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_020_step_100000_acc_0.974075.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00021642 val_acc=0.990704 adjusted_score=0.982804 depth=11 leaves=79 nodes=157
+[VIPER TREE] depth=11 leaves=79 nodes=157 ccp_alpha=0.00021642 fit_samples=50000 dataset=105000
+Eval at step 105000, survival=100.000%, return=[-3.2041027747133435, 1595.8989687363307, -0.16734010462338725, -448.47619047619827]
+[VIPER] iter=21/30 dataset=105000 resample=50000 weighted_acc=0.971768 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_021_step_105000_acc_0.971768.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019302 val_acc=0.992721 adjusted_score=0.983721 depth=12 leaves=90 nodes=179
+[VIPER TREE] depth=12 leaves=90 nodes=179 ccp_alpha=0.00019302 fit_samples=50000 dataset=110000
+Eval at step 110000, survival=0.347%, return=[-1.079419182613492, 1.7021856009960175, -5.430085782427341, -1.3809523809523807]
+[VIPER] iter=22/30 dataset=110000 resample=50000 weighted_acc=0.977003 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_022_step_110000_acc_0.977003.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00025275 val_acc=0.991117 adjusted_score=0.984017 depth=10 leaves=71 nodes=141
+[VIPER TREE] depth=10 leaves=71 nodes=141 ccp_alpha=0.00025275 fit_samples=50000 dataset=115000
+Eval at step 115000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=23/30 dataset=115000 resample=50000 weighted_acc=0.974827 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_023_step_115000_acc_0.974827.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00017662 val_acc=0.993768 adjusted_score=0.984968 depth=11 leaves=88 nodes=175
+[VIPER TREE] depth=11 leaves=88 nodes=175 ccp_alpha=0.00017662 fit_samples=50000 dataset=120000
+Eval at step 120000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=24/30 dataset=120000 resample=50000 weighted_acc=0.977623 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_024_step_120000_acc_0.977623.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00018422 val_acc=0.992327 adjusted_score=0.982927 depth=14 leaves=94 nodes=187
+[VIPER TREE] depth=14 leaves=94 nodes=187 ccp_alpha=0.00018422 fit_samples=50000 dataset=125000
+Eval at step 125000, survival=0.446%, return=[-1.1317271534353495, 3.9668182730674744, -6.573257711715996, -1.9523809523809523]
+[VIPER] iter=25/30 dataset=125000 resample=50000 weighted_acc=0.974928 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_025_step_125000_acc_0.974928.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00020268 val_acc=0.991560 adjusted_score=0.983660 depth=11 leaves=79 nodes=157
+[VIPER TREE] depth=11 leaves=79 nodes=157 ccp_alpha=0.00020268 fit_samples=50000 dataset=130000
+Eval at step 130000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=26/30 dataset=130000 resample=50000 weighted_acc=0.972496 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_026_step_130000_acc_0.972496.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00019707 val_acc=0.993592 adjusted_score=0.984392 depth=13 leaves=92 nodes=183
+[VIPER TREE] depth=13 leaves=92 nodes=183 ccp_alpha=0.00019707 fit_samples=50000 dataset=135000
+Eval at step 135000, survival=35.351%, return=[-3.804078592957618, 470.2592218418916, -761.041458505982, -220.77777777777965]
+[VIPER] iter=27/30 dataset=135000 resample=50000 weighted_acc=0.974571 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_027_step_135000_acc_0.974571.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00017141 val_acc=0.993018 adjusted_score=0.983518 depth=13 leaves=95 nodes=189
+[VIPER TREE] depth=13 leaves=95 nodes=189 ccp_alpha=0.00017141 fit_samples=50000 dataset=140000
+Eval at step 140000, survival=0.149%, return=[-1.0283747101202607, -0.16023284196853638, -5.358877531252801, -1.1428571428571428]
+[VIPER] iter=28/30 dataset=140000 resample=50000 weighted_acc=0.974984 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_028_step_140000_acc_0.974984.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00016192 val_acc=0.993404 adjusted_score=0.984104 depth=14 leaves=93 nodes=185
+[VIPER TREE] depth=14 leaves=93 nodes=185 ccp_alpha=0.00016192 fit_samples=50000 dataset=145000
+Eval at step 145000, survival=0.198%, return=[-1.0411997884511948, 0.31941330432891846, -5.613299845717847, -1.2380952380952381]
+[VIPER] iter=29/30 dataset=145000 resample=50000 weighted_acc=0.976160 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_029_step_145000_acc_0.976160.dot
+[VIPER PRUNE SWEEP] selected_alpha=0.00020973 val_acc=0.993342 adjusted_score=0.985342 depth=11 leaves=80 nodes=159
+[VIPER TREE] depth=11 leaves=80 nodes=159 ccp_alpha=0.00020973 fit_samples=50000 dataset=150000
+Eval at step 150000, survival=0.099%, return=[-1.0152192451059818, -0.6332526803016663, -5.068000792525709, -1.0476190476190477]
+[VIPER] iter=30/30 dataset=150000 resample=50000 weighted_acc=0.976233 survival=printed_by_evaluator best_score=0.992897 tree=viper_trees/VIPER_bus5_T_1_0__I__1779226139_17875/viper_bus5_iter_030_step_150000_acc_0.976233.dot

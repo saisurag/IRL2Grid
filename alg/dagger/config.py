@@ -2,7 +2,7 @@ from common.imports import *
 from common.utils import str2bool
 
 def get_alg_args() -> Namespace:
-    parser = ap.ArgumentParser()
+    parser = ap.ArgumentParser(allow_abbrev=False)
 
     # DAgger loop
     parser.add_argument("--dagger-iters", type=int, default=50)

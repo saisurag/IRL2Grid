@@ -1,0 +1,20 @@
+{
+  "tree_ckpt": "dtpo_testing/bus36M_curated_seed2/DTPO_bus36-M_T_2_0__I__1781172536_36124.tar",
+  "oracle_ckpt": "checkpoint/DQN_bus36-M_T_0_0_H_I__1777671868_9169.tar",
+  "grid": "bus36-M",
+  "oracle_alg": "DQN",
+  "episodes": 10,
+  "seed": 0,
+  "on_oracle_states": {
+    "fidelity": 0.1183,
+    "weighted_fidelity": 0.099,
+    "n_states": 35677,
+    "driver_survival": 0.4425
+  },
+  "on_tree_states": {
+    "fidelity": 0.0416,
+    "weighted_fidelity": 0.0413,
+    "n_states": 36873,
+    "driver_survival": 0.4574
+  }
+}

@@ -1,0 +1,18 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from final_PPO_bus14_T_0_0__I__1775940444_3936: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 64, 'max_depth': 12, 'fidelity': 0.75375, 'weighted_fidelity': 0.9081635536595994, 'curated': False, 'dagger_rounds': 0}
+Eval at step 1000000, survival=6.886%, return=[-1.9531693921337137, 327.567498013973, -5.365681523714011, -44.378947368421244]
+[DTPO] it=10/150 step=1000000 J_new=504.1139 kept leaves=64 survival=6.89% best=6.89%
+Eval at step 2000000, survival=63.604%, return=[-8.665398025669855, 2937.8263414406797, -5.007553356233984, -337.05789473683166]
+[DTPO] it=20/150 step=2000000 J_new=39.6155 kept leaves=64 survival=63.60% best=63.60%
+Eval at step 3000000, survival=13.573%, return=[-2.8980277745227796, 631.0086974215504, -5.597300133250338, -108.98947368421236]
+[DTPO] it=30/150 step=3000000 J_new=0.0000 revert leaves=64 survival=13.57% best=63.60%
+Eval at step 4000000, survival=13.570%, return=[-3.086792663205415, 621.6764033436773, -8.163720095437748, -106.87368421052815]
+[DTPO] it=40/150 step=4000000 J_new=0.0000 revert leaves=64 survival=13.57% best=63.60%
+Eval at step 5000000, survival=13.575%, return=[-3.0614872165606357, 624.4609841251371, -7.483854917539247, -105.05263157894925]
+[DTPO] it=50/150 step=5000000 J_new=0.0000 revert leaves=64 survival=13.58% best=63.60%
+Eval at step 6000000, survival=13.575%, return=[-3.084518074558582, 623.6710513401031, -7.811376327124071, -104.9070175438615]
+[DTPO] it=60/150 step=6000000 J_new=0.0000 revert leaves=64 survival=13.57% best=63.60%
+Eval at step 7000000, survival=13.574%, return=[-3.1100905113853514, 623.3273131990433, -8.195305549039768, -103.3114035087737]
+[DTPO] it=70/150 step=7000000 J_new=0.0000 revert leaves=64 survival=13.57% best=63.60%
+Eval at step 8000000, survival=13.573%, return=[-3.1333219637686853, 622.2902588653566, -8.565062891682555, -103.56578947368595]
+[DTPO] it=80/150 step=8000000 J_new=0.0000 revert leaves=64 survival=13.57% best=63.60%

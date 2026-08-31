@@ -213,3 +213,28 @@ class VIPERCheckpoint(CheckpointSaver):
         self.record['wb_run_name'] = wb_run_name
         self.record['last_iter'] = last_iter
         self.record['best_score'] = best_score
+
+
+class DTPOCheckpoint(CheckpointSaver):
+    """Checkpoint for Decision Tree Policy Optimization: stores the best
+    deterministic regression-tree policy (sklearn tree) plus run metadata."""
+
+    def set_record(
+        self,
+        args: Dict[str, Any],
+        tree,
+        global_step: int,
+        wb_run_name: str,
+        last_iter: int = 0,
+        best_score: float = None,
+        action_kept=None,
+        candidates=None,
+    ) -> None:
+        self._get_base_record(global_step)
+        self.record['args'] = args
+        self.record['tree'] = tree
+        self.record['wb_run_name'] = wb_run_name
+        self.record['last_iter'] = last_iter
+        self.record['best_score'] = best_score
+        self.record['action_kept'] = action_kept
+        self.record['candidates'] = candidates

@@ -1,0 +1,133 @@
+=== START dtpo_testing/bus14_dqn225_seed0 (seed=0 warmstart=DQN_bus14_T_0_0_H_I__1777591692_5026) ===
+=== train exit=0 for dtpo_testing/bus14_dqn225_seed0 ===
+[finalize] dtpo_testing/bus14_dqn225_seed0  <- checkpoint/DTPO_bus14_T_0_0__I__1781192196_19785.tar
+[viz] dtpo_testing/bus14_dqn225_seed0/tree.dot  (depth=9 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn225_seed0/tree.svg
+[viz] dtpo_testing/bus14_dqn225_seed0/tree_landscape.dot  (depth=9 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn225_seed0/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn225_seed0/curve.png  final_best=87.5%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn225_seed0 done -> DTPO_bus14_T_0_0__I__1781192196_19785.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=87.463%
+[fidelity] bus14 on oracle-states: fid=0.000 wfid=0.000 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.000 wfid=0.000 n=80640 driver_surv=1.000
+[fidelity] wrote dtpo_testing/bus14_dqn225_seed0/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.131 wfid=0.340 n=2790 driver_surv=0.035
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.373 wfid=0.784 n=70530 driver_surv=0.875
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn225_seed0/fidelity_vs_teacher.json
+=== START dtpo_testing/bus14_dqn225_seed1 (seed=1 warmstart=DQN_bus14_T_0_0_H_I__1777591692_5026) ===
+=== train exit=0 for dtpo_testing/bus14_dqn225_seed1 ===
+[finalize] dtpo_testing/bus14_dqn225_seed1  <- checkpoint/DTPO_bus14_T_1_0__I__1781193944_31995.tar
+[viz] dtpo_testing/bus14_dqn225_seed1/tree.dot  (depth=8 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn225_seed1/tree.svg
+[viz] dtpo_testing/bus14_dqn225_seed1/tree_landscape.dot  (depth=8 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn225_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn225_seed1/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn225_seed1 done -> DTPO_bus14_T_1_0__I__1781193944_31995.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=5.593%
+[fidelity] bus14 on oracle-states: fid=0.001 wfid=0.000 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.004 wfid=0.001 n=10920 driver_surv=0.135
+[fidelity] wrote dtpo_testing/bus14_dqn225_seed1/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.051 wfid=0.045 n=2790 driver_surv=0.035
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.338 wfid=0.484 n=8052 driver_surv=0.100
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn225_seed1/fidelity_vs_teacher.json
+=== START dtpo_testing/bus14_dqn225_seed2 (seed=2 warmstart=DQN_bus14_T_0_0_H_I__1777591692_5026) ===
+=== train exit=0 for dtpo_testing/bus14_dqn225_seed2 ===
+[finalize] dtpo_testing/bus14_dqn225_seed2  <- checkpoint/DTPO_bus14_T_2_0__I__1781195814_15214.tar
+[viz] dtpo_testing/bus14_dqn225_seed2/tree.dot  (depth=7 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn225_seed2/tree.svg
+[viz] dtpo_testing/bus14_dqn225_seed2/tree_landscape.dot  (depth=7 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn225_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn225_seed2/curve.png  final_best=57.8%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn225_seed2 done -> DTPO_bus14_T_2_0__I__1781195814_15214.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=9.985%
+[fidelity] bus14 on oracle-states: fid=0.000 wfid=0.000 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.000 wfid=0.000 n=80640 driver_surv=1.000
+[fidelity] wrote dtpo_testing/bus14_dqn225_seed2/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.064 wfid=0.131 n=2790 driver_surv=0.035
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.386 wfid=0.727 n=9986 driver_surv=0.124
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn225_seed2/fidelity_vs_teacher.json
+=== START dtpo_testing/bus14_dqn83_seed0 (seed=0 warmstart=final_DQN_bus14_T_0_0__I__1776196348_3835) ===
+=== train exit=0 for dtpo_testing/bus14_dqn83_seed0 ===
+[finalize] dtpo_testing/bus14_dqn83_seed0  <- checkpoint/DTPO_bus14_T_0_0__I__1781197946_41048.tar
+[viz] dtpo_testing/bus14_dqn83_seed0/tree.dot  (depth=7 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn83_seed0/tree.svg
+[viz] dtpo_testing/bus14_dqn83_seed0/tree_landscape.dot  (depth=7 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn83_seed0/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn83_seed0/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn83_seed0 done -> DTPO_bus14_T_0_0__I__1781197946_41048.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=3.694%
+[fidelity] bus14 on oracle-states: fid=0.003 wfid=0.002 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.075 wfid=0.103 n=10942 driver_surv=0.136
+[fidelity] wrote dtpo_testing/bus14_dqn83_seed0/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.020 wfid=0.011 n=13278 driver_surv=0.165
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.184 wfid=0.168 n=10944 driver_surv=0.136
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn83_seed0/fidelity_vs_teacher.json
+=== START dtpo_testing/bus14_dqn83_seed1 (seed=1 warmstart=final_DQN_bus14_T_0_0__I__1776196348_3835) ===
+=== train exit=0 for dtpo_testing/bus14_dqn83_seed1 ===
+[finalize] dtpo_testing/bus14_dqn83_seed1  <- checkpoint/DTPO_bus14_T_1_0__I__1781199442_43974.tar
+[viz] dtpo_testing/bus14_dqn83_seed1/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn83_seed1/tree.svg
+[viz] dtpo_testing/bus14_dqn83_seed1/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn83_seed1/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn83_seed1/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn83_seed1 done -> DTPO_bus14_T_1_0__I__1781199442_43974.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=0.868%
+[fidelity] bus14 on oracle-states: fid=0.100 wfid=0.051 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.000 wfid=0.000 n=10950 driver_surv=0.136
+[fidelity] wrote dtpo_testing/bus14_dqn83_seed1/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.094 wfid=0.060 n=13278 driver_surv=0.165
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.130 wfid=0.390 n=10950 driver_surv=0.136
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn83_seed1/fidelity_vs_teacher.json
+=== START dtpo_testing/bus14_dqn83_seed2 (seed=2 warmstart=final_DQN_bus14_T_0_0__I__1776196348_3835) ===
+=== train exit=0 for dtpo_testing/bus14_dqn83_seed2 ===
+[finalize] dtpo_testing/bus14_dqn83_seed2  <- checkpoint/DTPO_bus14_T_2_0__I__1781200933_36444.tar
+[viz] dtpo_testing/bus14_dqn83_seed2/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] dtpo_testing/bus14_dqn83_seed2/tree.svg
+[viz] dtpo_testing/bus14_dqn83_seed2/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] dtpo_testing/bus14_dqn83_seed2/tree_landscape.svg
+[curve] dtpo_testing/bus14_dqn83_seed2/curve.png  final_best=13.6%  first_100_at_it=None  leaves=16
+[finalize] dtpo_testing/bus14_dqn83_seed2 done -> DTPO_bus14_T_2_0__I__1781200933_36444.tar
+curve.png
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  eval_ckpt: survival=12.974%
+[fidelity] bus14 on oracle-states: fid=0.101 wfid=0.051 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.007 wfid=0.001 n=10890 driver_surv=0.135
+[fidelity] wrote dtpo_testing/bus14_dqn83_seed2/fidelity.json
+  (vs DQN teacher) [fidelity] bus14 on oracle-states: fid=0.082 wfid=0.068 n=13278 driver_surv=0.165
+  (vs DQN teacher) [fidelity] bus14 on tree-states: fid=0.079 wfid=0.079 n=6415 driver_surv=0.080
+  (vs DQN teacher) [fidelity] wrote dtpo_testing/bus14_dqn83_seed2/fidelity_vs_teacher.json
+===== BUS14 DQN-HYBRID SWEEP COMPLETE =====

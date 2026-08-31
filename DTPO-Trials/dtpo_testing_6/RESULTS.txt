@@ -1,0 +1,20 @@
+scratch_seed0 seed=0 inloop=5.71 honest=1.58 frac100=100
+scratch_seed1 seed=1 inloop=100.00 honest=33.04 frac100=100
+scratch_seed2 seed=2 inloop=100.00 honest=100.00 frac100=100
+scratch_seed3 seed=3 inloop=100.00 honest=100.00 frac100=100
+scratch_seed5 seed=5 inloop=100.00 honest=100.00 frac100=100
+scratch_seed4 seed=4 inloop=100.00 honest=100.00 frac100=100
+hybrid_seed100 seed=100 inloop=5.86 honest=5.85 frac100=100
+scratch_seed6 seed=6 inloop=100.00 honest=100.00 frac100=100
+scratch_seed7 seed=7 inloop=100.00 honest=100.00 frac100=100
+hybrid_seed101 seed=101 inloop=49.40 honest=100.00 frac100=100
+hybrid_seed102 seed=102 inloop=6.43 honest=5.90 frac100=100
+hybrid_seed103 seed=103 inloop=41.37 honest=7.98 frac100=100
+hybrid_seed104 seed=104 inloop=13.40 honest=5.85 frac100=100
+hybrid_seed105 seed=105 inloop=10.44 honest=0.71 frac100=100
+hybrid_seed106 seed=106 inloop=7.41 honest=5.85 frac100=100
+hybrid_seed107 seed=107 inloop=8.75 honest=15.27 frac100=100
+scratch_seed265 seed=265 inloop=52.39 honest=100.00
+scratch_seed296 seed=296 inloop=100.00 honest=100.00
+bus14_hybrid_seed194 seed=194 inloop=12.40 honest=10.45
+bus14_hybrid_seed144 seed=144 inloop=86.81 honest=82.06

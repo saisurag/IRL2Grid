@@ -1,0 +1,65 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+Eval at step 2000, survival=4.829%, return=[-303.05233184176905, -247.62251354795785, -1525.9885257041635, -304.62523540489633]
+[DAgger] iter=0 beta=1.000 dataset=2000 global_step=2000
+[DAgger] iter=1 beta=0.950 dataset=4000 global_step=4000
+[DAgger] iter=2 beta=0.902 dataset=6000 global_step=6000
+[DAgger] iter=3 beta=0.857 dataset=8000 global_step=8000
+[DAgger] iter=4 beta=0.815 dataset=10000 global_step=10000
+Eval at step 12000, survival=4.809%, return=[-54.190277355897706, 164.37070041098687, -314.84056655120867, -61.52354048964238]
+[DAgger] iter=5 beta=0.774 dataset=12000 global_step=12000
+[DAgger] iter=6 beta=0.735 dataset=14000 global_step=14000
+[DAgger] iter=7 beta=0.698 dataset=16000 global_step=16000
+[DAgger] iter=8 beta=0.663 dataset=18000 global_step=18000
+[DAgger] iter=9 beta=0.630 dataset=20000 global_step=20000
+Eval at step 22000, survival=4.862%, return=[-81.51596695792493, 120.79785063686148, -450.67210668907046, -88.95291902071585]
+[DAgger] iter=10 beta=0.599 dataset=22000 global_step=22000
+[DAgger] iter=11 beta=0.569 dataset=24000 global_step=24000
+[DAgger] iter=12 beta=0.540 dataset=26000 global_step=26000
+[DAgger] iter=13 beta=0.513 dataset=28000 global_step=28000
+[DAgger] iter=14 beta=0.488 dataset=30000 global_step=30000
+Eval at step 32000, survival=4.862%, return=[-116.49578992574243, 62.38307917886319, -621.9978156214366, -123.25988700564976]
+[DAgger] iter=15 beta=0.463 dataset=32000 global_step=32000
+[DAgger] iter=16 beta=0.440 dataset=34000 global_step=34000
+[DAgger] iter=17 beta=0.418 dataset=36000 global_step=36000
+[DAgger] iter=18 beta=0.397 dataset=38000 global_step=38000
+[DAgger] iter=19 beta=0.377 dataset=40000 global_step=40000
+Eval at step 42000, survival=4.858%, return=[-137.4836177481096, 27.265828137104165, -724.2815760333647, -143.84745762711847]
+[DAgger] iter=20 beta=0.358 dataset=42000 global_step=42000
+[DAgger] iter=21 beta=0.341 dataset=44000 global_step=44000
+[DAgger] iter=22 beta=0.324 dataset=46000 global_step=46000
+[DAgger] iter=23 beta=0.307 dataset=48000 global_step=48000
+[DAgger] iter=24 beta=0.292 dataset=50000 global_step=50000
+Eval at step 52000, survival=4.862%, return=[-118.16281273104444, 59.434456846899614, -629.14141784101, -124.71939736346519]
+[DAgger] iter=25 beta=0.277 dataset=52000 global_step=52000
+[DAgger] iter=26 beta=0.264 dataset=54000 global_step=54000
+[DAgger] iter=27 beta=0.250 dataset=56000 global_step=56000
+[DAgger] iter=28 beta=0.238 dataset=58000 global_step=58000
+[DAgger] iter=29 beta=0.226 dataset=60000 global_step=60000
+Eval at step 62000, survival=4.854%, return=[-123.49198100258461, 50.37709615696988, -655.6430909334338, -130.0037664783428]
+[DAgger] iter=30 beta=0.215 dataset=62000 global_step=62000
+[DAgger] iter=31 beta=0.204 dataset=64000 global_step=64000
+[DAgger] iter=32 beta=0.194 dataset=66000 global_step=66000
+[DAgger] iter=33 beta=0.184 dataset=68000 global_step=68000
+[DAgger] iter=34 beta=0.175 dataset=70000 global_step=70000
+Eval at step 72000, survival=4.850%, return=[-114.16288489283276, 65.78840283389566, -609.821632582651, -120.83992467043315]
+[DAgger] iter=35 beta=0.166 dataset=72000 global_step=72000
+[DAgger] iter=36 beta=0.158 dataset=74000 global_step=74000
+[DAgger] iter=37 beta=0.150 dataset=76000 global_step=76000
+[DAgger] iter=38 beta=0.142 dataset=78000 global_step=78000
+[DAgger] iter=39 beta=0.135 dataset=80000 global_step=80000
+Eval at step 82000, survival=4.854%, return=[-108.16639137135644, 75.95563418424804, -581.2347097912694, -114.87570621468949]
+[DAgger] iter=40 beta=0.129 dataset=82000 global_step=82000
+[DAgger] iter=41 beta=0.122 dataset=84000 global_step=84000
+[DAgger] iter=42 beta=0.116 dataset=86000 global_step=86000
+[DAgger] iter=43 beta=0.110 dataset=88000 global_step=88000
+[DAgger] iter=44 beta=0.105 dataset=90000 global_step=90000
+Eval at step 92000, survival=4.850%, return=[-130.1521114501229, 39.65704737912304, -687.8377946320974, -136.64030131826746]
+[DAgger] iter=45 beta=0.099 dataset=92000 global_step=92000
+[DAgger] iter=46 beta=0.094 dataset=94000 global_step=94000
+[DAgger] iter=47 beta=0.090 dataset=96000 global_step=96000
+[DAgger] iter=48 beta=0.085 dataset=98000 global_step=98000
+[DAgger] iter=49 beta=0.081 dataset=100000 global_step=100000
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /home/sai/RL2Grid_bus5/wandb/offline-run-20260527_090626-DAGGER_bus36-M_T_0_0__I__1779869184_35859[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260527_090626-DAGGER_bus36-M_T_0_0__I__1779869184_35859/logs[0m

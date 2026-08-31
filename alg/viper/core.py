@@ -33,8 +33,6 @@ def _flatten_obs(obs: np.ndarray) -> np.ndarray:
 
 # Oracle adapter for being able to test both DQN and PPO with the same VIPER code.
 class _DQNOracle:
-    """Q-network oracle. Importance weight l(s) = max_a Q(s,a) - min_a Q(s,a),
-    exactly as in Bastani et al. (2018) -- the Q-values are available directly."""
 
     name = "dqn"
 
@@ -153,7 +151,6 @@ def fit_pruned_viper_tree(X, y, sample_weight, args):
     if len(candidate_alphas) == 0:
         candidate_alphas = np.array([0.0])
 
-    # Always include the user's explicit alpha and an unpruned candidate.
     candidate_alphas = np.unique(
         np.concatenate([candidate_alphas, np.array([0.0, args.tree_ccp_alpha], dtype=np.float64)])
     )
@@ -208,14 +205,8 @@ def _export_tree_dot(tree, obs_dim, n_actions, out_path, max_depth=None) -> None
 
 class VIPER:
     """
-    VIPER policy extraction (Bastani et al., 2018,
-    "Verifiable Reinforcement Learning via Policy Extraction"):
-      - a pretrained DQN *or* PPO oracle (set --oracle-type),
-      - DAgger-style dataset aggregation with the *student* rolled out,
-      - importance weighting l(s) = max_a Q(s,a) - min_a Q(s,a) for a DQN oracle
-        (probability-gap proxy for a PPO oracle),
-      - a decision-tree student fit on a weight-proportional resample,
-      - the returned policy is the iterate with the best evaluated survival.
+    VIPER policy extraction (Bastani et al., 2018),
+    "Verifiable Reinforcement Learning via Policy Extraction")
     """
 
     def __init__(self, envs: gym.Env, run_name: str, start_time: float, args: Dict[str, Any], ckpt: CheckpointSaver):
@@ -229,7 +220,6 @@ class VIPER:
 
         device = th.device("cuda" if th.cuda.is_available() and args.cuda else "cpu")
 
-        # ---- load oracle checkpoint ----
         oracle_ckpt_path = _resolve_checkpoint_path(args.oracle_run_name)
         oracle_record = th.load(oracle_ckpt_path, map_location=device, weights_only=False)
         oracle = _build_oracle(oracle_record, envs, device, args.oracle_type)

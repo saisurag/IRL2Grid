@@ -1,0 +1,21 @@
+=== 3394222[69].pbs-7 [69] bus14-d1_dtpo-scratchfull_L16_s102 on cx3-5-21 | Fri 24 Jul 20:40:41 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 1 --seed 102 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0040 kept mode=leaf gate=revert(51) cand=13.48% leaves=16 survival=85.03% best=85.03% std=0.0%
+[DTPO] it=148/150 step=1479852 J_new=0.0041 kept mode=leaf gate=revert(52) cand=13.48% leaves=16 survival=85.03% best=85.03% std=0.0%
+[DTPO] it=149/150 step=1489851 J_new=0.0041 kept mode=leaf gate=revert(53) cand=13.48% leaves=16 survival=85.03% best=85.03% std=0.0%
+[DTPO] it=150/150 step=1499850 J_new=0.0042 kept mode=leaf gate=revert(54) cand=13.48% leaves=16 survival=85.03% best=85.03% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['85.0%', '85.0%', '85.0%', '85.0%', '85.0%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=102 difficulty=1 leaves=16 depth=6 select=85.03 report=85.03 report_min=85.03 report_max=85.03 frac100=0.0 n_report=40
+JUMPS bigjumps=1 candjumps=24
+=== bus14-d1_dtpo-scratchfull_L16_s102 finished Sat 25 Jul 04:31:20 BST 2026 ===
+
+====================================
+CPU Time used: 11:23:13
+CPU Percent: 244%
+Memory usage: 1774180kb
+Approx Power usage: 0.1366
+Walltime usage: 07:51:30
+
+====================================

@@ -1,0 +1,11 @@
+[honest] ckpt=/home/sai/RL2Grid_full/dtpo_testing_8/bus5_gatereplay_K10_seed102/ckpt.tar
+[honest] env=bus5 n_chronics=20 using=20 (select=10 / report=10 held-out) candidates=5 curated=no
+[honest] iter=7 cheap=100.00% -> SELECT(10)=100.00%
+[honest] iter=8 cheap=100.00% -> SELECT(10)=100.00%
+[honest] iter=9 cheap=100.00% -> SELECT(10)=100.00%
+[honest] iter=10 cheap=100.00% -> SELECT(10)=100.00%
+[honest] iter=11 cheap=100.00% -> SELECT(10)=100.00%
+
+[honest] WINNER iter=7 leaves=16
+[honest]   select-set survival = 100.00%  (10 chronics)
+[honest]   HELD-OUT REPORT survival = 100.00%  (10 chronics)  [min 100% / max 100% / frac@100% 100%]

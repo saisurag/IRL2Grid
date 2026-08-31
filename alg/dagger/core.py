@@ -29,18 +29,14 @@ class DAGGER:
         logger = Logger(run_name, args)
         evaluator = Evaluator(args, logger, device)
 
-        # -------------------------
         # Load PPO expert from checkpoint
-        # -------------------------
         expert_run = th.load(args.expert_ckpt, map_location=device, weights_only=False)
         expert_args = expert_run["args"]
         expert = PPOAgent(envs, expert_args, continuous_actions=False).to(device)
         expert.actor.load_state_dict(expert_run["actor"])
         expert.actor.eval()
 
-        # -------------------------
         # Student policy (reuse PPOAgent; we only train its actor)
-        # -------------------------
         student = PPOAgent(envs, args, continuous_actions=False).to(device)
         student.actor.train()
 
@@ -105,9 +101,7 @@ class DAGGER:
 
                 global_step += args.n_envs
 
-            # -------------------------
             # Behaviour Cloning update on aggregated dataset
-            # -------------------------
             student.actor.train()
 
             X = th.cat(D_obs, dim=0)  # [N, obs_dim]

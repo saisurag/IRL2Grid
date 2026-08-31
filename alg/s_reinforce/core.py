@@ -6,6 +6,7 @@ from common.checkpoint import CheckpointSaver
 from common.imports import *
 from common.logger import Logger
 from env.eval import Evaluator
+from sklearn.tree import DecisionTreeClassifier, export_text
 
 try:
     from pysr import PySRRegressor
@@ -17,10 +18,8 @@ except ImportError:
 class SReinforce:
     """S-REINFORCE: PPO extended with a periodic Symbolic Regressor (SR) component.
 
-    The SR is fitted every `sr_interval` rollouts on the NN actor's action-probability
-    outputs. Its predictions are used as importance-sampling (IS) weights that scale
-    the GAE advantages before the PPO policy-gradient update, reducing gradient
-    variance while producing an interpretable symbolic policy as a by-product.
+    The SR is fitted periodically to imitate the NN actor's greedy action choices.
+Its predictions are used to weight PPO advantages based on symbolic/NN action agreement.
 
     Reference: Dutta et al., "S-REINFORCE: A Neuro-Symbolic Policy Gradient Approach
     for Interpretable Reinforcement Learning", arXiv:2305.07367.
@@ -43,7 +42,10 @@ class SReinforce:
             )
 
         if not ckpt.resumed:
-            args = ap.Namespace(**vars(args), **vars(get_alg_args()))
+            alg_args = get_alg_args()
+
+            for key, value in vars(alg_args).items():
+                setattr(args, key, value)
 
         assert args.n_steps % args.n_envs == 0, \
             f"Invalid n_steps: {args.n_steps}. Must be a multiple of n_envs={args.n_envs}"
@@ -57,6 +59,13 @@ class SReinforce:
         init_rollout    = 1 if not ckpt.resumed else ckpt.loaded_run['last_rollout']
 
         continuous_actions = True if args.action_type == "redispatch" else False
+
+        if continuous_actions:
+            raise NotImplementedError(
+                "Current S-REINFORCE implementation only supports discrete topology actions."
+            )
+
+        n_actions = envs.single_action_space.n
 
         # ── Agent ──────────────────────────────────────────────────────────────
         agent = Agent(envs, args, continuous_actions).to(device)
@@ -89,7 +98,7 @@ class SReinforce:
         # ── S-REINFORCE state ─────────────────────────────────────────────────
         sym_policy    = None          # PySRRegressor, None until first fit
         sr_states_buf = []            # obs  accumulated across rollouts
-        sr_targets_buf = []           # NN top-action probs accumulated
+        sr_targets_buf = []           # NN greedy action labels accumulated
         # Feature-selection mask for SR (chosen once on first rollout by variance)
         sr_feature_mask: Optional[np.ndarray] = None
 
@@ -116,35 +125,25 @@ class SReinforce:
             return obs_np[:, sr_feature_mask]
 
         # ── Helper: fit symbolic regressor ────────────────────────────────────
-        def _fit_sr(states_np: np.ndarray, targets_np: np.ndarray) -> PySRRegressor:
-            sr = PySRRegressor(
-                niterations=args.sr_iterations,
-                binary_operators=["+", "*", "/"],
-                unary_operators=["log", "abs", "sqrt"],
-                maxsize=args.sr_maxsize,
-                verbosity=0,
+        def _fit_sr(states_np: np.ndarray, targets_np: np.ndarray):
+            tree = DecisionTreeClassifier(
+                max_depth=args.sr_maxsize,
+                min_samples_leaf=20,
                 random_state=args.seed,
             )
-            sr.fit(states_np, targets_np)
-            return sr
-
-        # ── Helper: IS weights from symbolic policy ───────────────────────────
-        def _compute_is_weights(sym_pol: PySRRegressor,
-                                b_obs_t: th.Tensor) -> th.Tensor:
-            obs_np    = b_obs_t.cpu().numpy()
+            tree.fit(states_np, targets_np.astype(np.int64))
+            return tree
+        
+        def _symbolic_predict_actions(sym_pol,
+                              b_obs_t: th.Tensor,
+                              n_actions: int) -> th.Tensor:
+            obs_np = b_obs_t.cpu().numpy()
             obs_feats = _select_sr_features(obs_np)
-            sr_preds  = sym_pol.predict(obs_feats).astype(np.float32)
-            sr_preds  = np.clip(sr_preds, 1e-8, 1.0)
-            sr_t      = th.tensor(sr_preds, dtype=th.float32, device=device)
 
-            with th.no_grad():
-                nn_probs   = th.softmax(agent.actor(b_obs_t), dim=-1)
-                nn_top_p   = nn_probs.max(dim=-1).values          # (batch,)
+            pred_actions = sym_pol.predict(obs_feats).astype(np.int64)
+            pred_actions = np.clip(pred_actions, 0, n_actions - 1)
 
-            weights = (sr_t / (nn_top_p + 1e-8)).clamp(
-                args.is_clip_low, args.is_clip_high
-            )
-            return weights
+            return th.tensor(pred_actions, dtype=th.long, device=device)
 
         # ══════════════════════════════════════════════════════════════════════
         # Training loop
@@ -220,11 +219,12 @@ class SReinforce:
                 with th.no_grad():
                     nn_probs_flat = th.softmax(
                         agent.actor(b_obs), dim=-1
-                    ).cpu().numpy()                                # (batch, n_actions)
+                    ).cpu().numpy()
 
                 obs_flat_np = b_obs.cpu().numpy()
                 sr_states_buf.append(obs_flat_np)
-                sr_targets_buf.append(nn_probs_flat.max(axis=1))  # top-action prob scalar
+
+                sr_targets_buf.append(nn_probs_flat.argmax(axis=1))
 
                 # ── S-REINFORCE: refit SR every sr_interval rollouts ───────────
                 if iteration % args.sr_interval == 0:
@@ -238,12 +238,27 @@ class SReinforce:
                     sr_targets_buf.clear()
 
                     if args.verbose:
-                        print(f"[S-REINFORCE] SR refit at rollout {iteration} "
-                              f"| best eq: {sym_policy.get_best()}")
+                        train_acc = sym_policy.score(sr_feats, all_targets.astype(np.int64))
+                        print(f"[S-REINFORCE] symbolic tree refit at rollout {iteration} "
+                            f"| imitation_acc={train_acc:.3f}")
+                        print(export_text(sym_policy, max_depth=3))
 
                 # ── S-REINFORCE: IS weights (ones until first SR fit) ──────────
                 if sym_policy is not None:
-                    b_is_weights = _compute_is_weights(sym_policy, b_obs)
+                    with th.no_grad():
+                        symbolic_actions = _symbolic_predict_actions(sym_policy, b_obs, n_actions)
+
+                    b_taken_actions = b_actions.reshape(-1).long()
+
+                    # Weight samples higher when symbolic policy agrees with the taken action
+                    b_is_weights = th.where(
+                        symbolic_actions == b_taken_actions,
+                        th.tensor(args.is_clip_high, device=device),
+                        th.tensor(args.is_clip_low, device=device),
+                    )
+                    if args.verbose:
+                        agreement = (symbolic_actions == b_taken_actions).float().mean().item()
+                        print(f"[S-REINFORCE] symbolic-policy agreement={agreement:.3f}")
                 else:
                     b_is_weights = th.ones(b_advantages.shape[0], device=device)
 

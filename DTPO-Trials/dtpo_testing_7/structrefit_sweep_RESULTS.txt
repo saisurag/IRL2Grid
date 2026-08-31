@@ -1,0 +1,16 @@
+K=1 seed=103 honest=100.00 bigjumps=17
+K=1 seed=101 honest=100.00 bigjumps=44
+K=1 seed=102 honest=100.00 bigjumps=44
+K=3 seed=101 honest=0.05 bigjumps=2
+K=3 seed=100 honest=100.00 bigjumps=14
+K=3 seed=103 honest=100.00 bigjumps=13
+K=3 seed=102 honest=100.00 bigjumps=18
+K=5 seed=103 honest=100.00 bigjumps=11
+K=5 seed=101 honest=100.00 bigjumps=18
+K=5 seed=100 honest=100.00 bigjumps=6
+K=5 seed=102 honest=100.00 bigjumps=18
+K=10 seed=101 honest=100.00 bigjumps=37
+K=10 seed=103 honest=100.00 bigjumps=17
+K=10 seed=102 honest=100.00 bigjumps=19
+K=1 seed=100 honest=100.00 bigjumps=26 (pre-existing)
+K=10 seed=100 honest=100.00 bigjumps=8 (pre-existing)

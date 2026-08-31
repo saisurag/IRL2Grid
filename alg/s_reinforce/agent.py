@@ -84,8 +84,8 @@ class Agent(nn.Module):
         return action, probs.log_prob(action).sum(1), probs.entropy().sum(1)
 
     def get_eval_discrete_action(self, x: th.Tensor) -> th.Tensor:
-        """Evaluate discrete actions without exploration."""
-        return self.get_discrete_action(x)[0]
+        logits = self.actor(x)
+        return th.argmax(logits, dim=-1)
 
     def get_eval_continuous_action(self, x: th.Tensor) -> th.Tensor:
         """Evaluate continuous actions without exploration."""

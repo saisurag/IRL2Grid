@@ -1,0 +1,8 @@
+[honest-any] ckpt=checkpoint/final_VIPER_bus5_T_103_0__I__1784759563_28504.tar
+[honest-any] alg=VIPER env=bus5 difficulty=0 n_chronics=20 using=20 (select=10 / report=10)
+[honest-any] single policy -> SELECT=  8.12%
+
+[honest-any] WINNER single leaves=32 depth=12
+[honest-any]   select-set survival = 8.12%  (10 chronics)
+[honest-any]   HELD-OUT REPORT survival = 8.12%  (10 chronics)  [min 6% / max 17% / frac@100% 0%]
+RESULT alg=VIPER env=bus5 seed=103 difficulty=0 leaves=32 depth=12 select=8.12 report=8.12 report_min=5.85 report_max=17.11 frac100=0.0 n_report=10

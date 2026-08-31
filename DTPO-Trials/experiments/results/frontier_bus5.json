@@ -1,0 +1,90 @@
+{
+  "grid": "bus5",
+  "oracle_ceiling": 1.0,
+  "points": [
+    {
+      "method": "oracle(PPO)",
+      "n_leaves": null,
+      "survival": 1.0,
+      "rho": 0.81
+    },
+    {
+      "method": "distill@8",
+      "n_leaves": 8,
+      "survival": 0.0005,
+      "depth": 5,
+      "feat": 7,
+      "wfid": 0.854
+    },
+    {
+      "method": "distill@16",
+      "n_leaves": 16,
+      "survival": 0.003,
+      "depth": 7,
+      "feat": 12,
+      "wfid": 0.924
+    },
+    {
+      "method": "distill@32",
+      "n_leaves": 32,
+      "survival": 0.0069,
+      "depth": 10,
+      "feat": 17,
+      "wfid": 0.964
+    },
+    {
+      "method": "distill@64",
+      "n_leaves": 64,
+      "survival": 0.1014,
+      "depth": 11,
+      "feat": 17,
+      "wfid": 0.99
+    },
+    {
+      "method": "distill@free",
+      "n_leaves": 10000,
+      "survival": 0.0967,
+      "depth": 27,
+      "feat": 49,
+      "wfid": 1.0
+    },
+    {
+      "method": "viper@16",
+      "n_leaves": 16,
+      "survival": 1.0
+    },
+    {
+      "method": "viper@57",
+      "n_leaves": 57,
+      "survival": 0.5938
+    },
+    {
+      "method": "viper@115",
+      "n_leaves": 115,
+      "survival": 1.0
+    },
+    {
+      "method": "viper@148",
+      "n_leaves": 148,
+      "survival": 0.1038
+    },
+    {
+      "method": "dtpo-scratch@8",
+      "n_leaves": 8,
+      "survival": 1.0
+    },
+    {
+      "method": "dtpo-scratch@16",
+      "n_leaves": 16,
+      "survival": 1.0
+    },
+    {
+      "method": "hybrid@16",
+      "n_leaves": 16,
+      "survival": 1.0
+    }
+  ],
+  "pareto": [
+    "dtpo-scratch@8"
+  ]
+}

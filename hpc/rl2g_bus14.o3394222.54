@@ -1,0 +1,21 @@
+=== 3394222[54].pbs-7 [54] bus14_dtpo-replay_L16_s102 on cx3-2-3 | Fri 24 Jul 19:53:38 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 102 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate False --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0008 kept mode=leaf leaves=16 survival=0.96% best=66.26% std=2.8%
+[DTPO] it=148/150 step=1479852 J_new=0.0009 kept mode=leaf leaves=16 survival=0.72% best=66.26% std=1.3%
+[DTPO] it=149/150 step=1489851 J_new=0.0008 kept mode=leaf leaves=16 survival=6.91% best=66.26% std=4.5%
+[DTPO] it=150/150 step=1499850 J_new=0.0011 kept mode=leaf leaves=16 survival=5.76% best=66.26% std=4.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['66.3%', '66.3%', '66.3%', '63.6%', '63.6%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=102 difficulty=0 leaves=16 depth=9 select=66.26 report=66.26 report_min=13.54 report_max=100.00 frac100=25.0 n_report=40
+JUMPS bigjumps=12 candjumps=0
+=== bus14_dtpo-replay_L16_s102 finished Sat 25 Jul 01:57:45 BST 2026 ===
+
+====================================
+CPU Time used: 08:25:32
+CPU Percent: 354%
+Memory usage: 1703644kb
+Approx Power usage: 0.101
+Walltime usage: 06:04:39
+
+====================================

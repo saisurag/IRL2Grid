@@ -14,13 +14,8 @@ setup(
         'Programming Language :: Python :: 3.12.2',
     ],
     install_requires=[
-        # grid2op 1.12.1 fixes some speed up issues
-        'grid2op==1.11.0',  # 1.11.0 - 1.12.1
-        'lightsim2grid==0.9',   # 0.9 - 0.10.3
-        'gymnasium==0.29.1',
-        'stable_baselines3',
-        'wandb',
-        'tensorboard'
+        'grid2op==1.12.1',  # 1.11.0 - 1.12.1
+        'lightsim2grid==0.10.3',   # 0.9 - 0.10.3
     ],
     dependency_links=[
         'git+https://github.com/rte-france/grid2op.git@v1.10.4'  # last grid2op release with duplicated spaces fix

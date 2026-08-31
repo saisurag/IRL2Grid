@@ -1,0 +1,21 @@
+=== 3394221[3].pbs-7 [3] bus5_viper_L16_s100 on cx3-5-28 | Wed 22 Jul 13:27:08 BST 2026 ===
+=== main.py --alg VIPER --env-id bus5 --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 16 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 100 --verbose True ===
+=== training exit=0 ===
+Eval at step 70014, survival=100.000%, return=[-3.92955271032406, 1597.1162624955177, 0.0, -336.000000000012]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.919139 survival=100.000% best_survival=100.000%
+[VIPER TREE] depth=6 leaves=16 nodes=31 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=13.690%, return=[-1.9174507320858538, 201.46263360977173, -6.112779676914215, -51.142857142857046]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.908841 survival=13.690% best_survival=100.000%
+=== honest eval exit=0 ===
+RESULT alg=VIPER env=bus5 seed=100 difficulty=0 leaves=16 depth=10 select=100.00 report=100.00 report_min=100.00 report_max=100.00 frac100=100.0 n_report=10
+JUMPS bigjumps=8 candjumps=0
+=== bus5_viper_L16_s100 finished Wed 22 Jul 13:37:31 BST 2026 ===
+
+====================================
+CPU Time used: 00:15:03
+CPU Percent: 252%
+Memory usage: 1089608kb
+Approx Power usage: 0.003
+Walltime usage: 00:11:17
+
+====================================

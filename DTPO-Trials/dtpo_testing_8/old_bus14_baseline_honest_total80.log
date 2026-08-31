@@ -1,0 +1,11 @@
+[honest] ckpt=dtpo_testing_7/bus14_t0.5_d0_seed100/ckpt.tar
+[honest] env=bus14 n_chronics=1004 using=80 (select=40 / report=40 held-out) candidates=5 curated=no
+[honest] iter=20 cheap= 57.14% -> SELECT(40)= 60.36%
+[honest] iter=30 cheap= 52.95% -> SELECT(40)= 61.63%
+[honest] iter=100 cheap= 45.86% -> SELECT(40)=  0.17%
+[honest] iter=10 cheap= 44.40% -> SELECT(40)= 30.08%
+[honest] iter=120 cheap= 12.16% -> SELECT(40)= 12.78%
+
+[honest] WINNER iter=30 leaves=16
+[honest]   select-set survival = 61.63%  (40 chronics)
+[honest]   HELD-OUT REPORT survival = 63.58%  (40 chronics)  [min 64% / max 64% / frac@100% 0%]

@@ -1,0 +1,12 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 9, 'fidelity': 0.6498, 'weighted_fidelity': 0.8141073463021605, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 40 fixed chronics (of 1004): ids=[0, 25, 51, 77, 102, 128, 154, 180, 205, 231, 257, 282, 308, 334, 360, 385, 411, 437, 462, 488, 514, 540, 565, 591, 617, 642, 668, 694, 720, 745, 771, 797, 822, 848, 874, 900, 925, 951, 977, 1003]
+[DTPO] it=1/150 step=9999 J_new=0.0056 kept mode=full leaves=16 survival=51.84% best=51.84% std=19.4%
+[DTPO] it=2/150 step=19998 J_new=0.0025 kept mode=full leaves=16 survival=46.02% best=51.84% std=20.2%
+[DTPO] it=3/150 step=29997 J_new=0.0043 kept mode=full leaves=16 survival=60.16% best=60.16% std=8.7%
+[DTPO] it=4/150 step=39996 J_new=0.0045 kept mode=full leaves=16 survival=59.97% best=60.16% std=8.7%
+[DTPO] it=5/150 step=49995 J_new=0.0046 kept mode=full leaves=16 survival=60.15% best=60.16% std=8.7%
+[DTPO] it=6/150 step=59994 J_new=0.0038 kept mode=full leaves=16 survival=61.09% best=61.09% std=4.5%
+[DTPO] it=7/150 step=69993 J_new=0.0102 kept mode=full leaves=16 survival=58.46% best=61.09% std=11.2%
+[DTPO] it=8/150 step=79992 J_new=0.0063 kept mode=full leaves=16 survival=60.06% best=61.09% std=8.7%
+[DTPO] it=9/150 step=89991 J_new=0.0067 kept mode=full leaves=16 survival=59.97% best=61.09% std=8.7%

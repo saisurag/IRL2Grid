@@ -82,6 +82,59 @@ class Evaluator:
             "return": avg_return,
         }
 
+    def _norm_wrapper(self):
+        """Return the NormalizeObservation wrapper on the eval env (or None)."""
+        e = self.env
+        while e is not None:
+            if hasattr(e, "reset_stats") and hasattr(e, "obs_rms"):
+                return e
+            e = getattr(e, "env", None)
+        return None
+
+    def n_chronics(self) -> int:
+        try:
+            return len(self.env.init_env.chronics_handler.real_data.subpaths)
+        except Exception:
+            return 0
+
+    def fixed_chronic_ids(self, total: int) -> np.ndarray:
+        """Evenly-spaced, deterministic subset of all chronics (capped at total)."""
+        n = self.n_chronics()
+        if n <= 0:
+            return np.arange(max(1, total))
+        total = min(total, n)
+        return np.unique(np.linspace(0, n - 1, total).astype(int))
+
+    def evaluate_fixed(self, model: object, chronic_ids, reset_norm: bool = True) -> dict:
+        """
+        Roll the deterministic policy over EXACTLY the given chronic ids, in order. 
+        With reset_norm=True the observation-normalisation stats are cold-reset first
+        Result is a deterministic function of the policy, reproducible across iterations and consistent with honest_eval.py.
+        Returns survival mean/std and the per-chronic vector.
+        """
+        nw = self._norm_wrapper()
+        if nw is not None and reset_norm:
+            nw.reset_stats()
+
+        survs = []
+        for cid in np.asarray(chronic_ids).tolist():
+            self.env.init_env.set_id(int(cid))
+            obs, info = self.env.reset()
+            while True:
+                action = model.get_eval_action(
+                    th.tensor(obs, dtype=th.float).to(self.device)).detach().cpu().numpy()
+                obs, _, _, _, info = self.env.step(action)
+                if "episode" in info:
+                    survs.append(self.env.init_env.nb_time_step / self.max_steps)
+                    break
+        survs = np.asarray(survs, dtype=np.float64)
+        return {
+            "survival": float(survs.mean()) if len(survs) else 0.0,
+            "survival_std": float(survs.std()) if len(survs) else 0.0,
+            "per_chronic": survs.tolist(),
+        }
+
+
 class CMDPEvaluator(Evaluator):
     """Evaluator class for evaluating a constrained reinforcement learning model deterministically.
 

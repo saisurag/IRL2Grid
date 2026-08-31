@@ -1,0 +1,31 @@
+=== START bus5_A100k_seed1 (seed=1 leaves=64 batch=100000 iters=150 extra: --dtpo-ppo-clip 0.2 --dtpo-policy-updates 10 --dtpo-anneal-lr True) 00:40:02 ===
+=== train exit=0 for bus5_A100k_seed1 11:31:30 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus5_T_1_0__I__1782258011_39435.tar
+  [select] iter=70 cheap=100.00% -> 100ep=  4.87%  leaves=64
+  [select] iter=80 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=90 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=100 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=110 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=120 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=130 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=140 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=150 cheap=100.00% -> 100ep=  0.67%  leaves=64
+  [select] iter=60 cheap= 90.08% -> 100ep=  0.54%  leaves=64
+  [select] HONEST BEST = 4.87% over 100 ep (iter=70, leaves=64)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus5_T_1_0__I__1782258011_39435.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1  <- checkpoint/DTPO_bus14_T_0_0__I__1782257044_30791.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1/tree.dot  (depth=11 leaves=64 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1/tree_landscape.dot  (depth=11 leaves=64 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1/curve.png  final_best=100.0%  first_100_at_it=70  leaves=64
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_A100k_seed1 done -> DTPO_bus14_T_0_0__I__1782257044_30791.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+  (fidelity skipped)
+=== DONE bus5_A100k_seed1 11:32:01 ===

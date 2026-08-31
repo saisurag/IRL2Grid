@@ -1,0 +1,21 @@
+=== 3394221[54].pbs-7 [54] bus5_dtpo-full_L8_s102 on cx3-5-6 | Wed 22 Jul 22:27:43 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus5 --difficulty 0 --seed 102 --dtpo-eval-total 20 --tree-max-leaf-nodes 8 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0014 kept mode=leaf gate=revert(64) cand=1.18% leaves=8 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=148/150 step=1479852 J_new=0.0011 kept mode=leaf gate=revert(65) cand=1.18% leaves=8 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=149/150 step=1489851 J_new=0.0013 kept mode=leaf gate=revert(66) cand=1.18% leaves=8 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=150/150 step=1499850 J_new=0.0011 kept mode=leaf gate=revert(67) cand=1.18% leaves=8 survival=100.00% best=100.00% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['100.0%', '100.0%', '100.0%', '100.0%', '100.0%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO env=bus5 seed=102 difficulty=0 leaves=8 depth=4 select=100.00 report=100.00 report_min=100.00 report_max=100.00 frac100=100.0 n_report=10
+JUMPS bigjumps=1 candjumps=18
+=== bus5_dtpo-full_L8_s102 finished Thu 23 Jul 01:10:52 BST 2026 ===
+
+====================================
+CPU Time used: 05:58:42
+CPU Percent: 368%
+Memory usage: 1241316kb
+Approx Power usage: 0.0716
+Walltime usage: 02:43:58
+
+====================================

@@ -1,0 +1,72 @@
+########## dtpo_testing_6 bus5 SEED SWEEP 20:13:11 ##########
+=== START scratch_seed0 (seed=0) 20:13:11 ===
+=== START scratch_seed1 (seed=1) 20:13:11 ===
+=== START scratch_seed2 (seed=2) 20:13:11 ===
+=== DONE scratch_seed0 honest=1.58% frac100=100% 20:44:23 ===
+=== START scratch_seed3 (seed=3) 20:44:23 ===
+=== DONE scratch_seed1 honest=33.04% frac100=100% 20:52:10 ===
+=== START scratch_seed4 (seed=4) 20:52:10 ===
+=== DONE scratch_seed2 honest=100.00% frac100=100% 20:52:50 ===
+=== START scratch_seed5 (seed=5) 20:52:50 ===
+=== DONE scratch_seed3 honest=100.00% frac100=100% 21:24:19 ===
+=== START scratch_seed6 (seed=6) 21:24:19 ===
+=== DONE scratch_seed5 honest=100.00% frac100=100% 21:29:23 ===
+=== START scratch_seed7 (seed=7) 21:29:23 ===
+=== DONE scratch_seed4 honest=100.00% frac100=100% 21:31:44 ===
+=== START hybrid_seed100 (seed=100) 21:31:44 ===
+=== DONE hybrid_seed100 honest=5.85% frac100=100% 22:02:16 ===
+=== START hybrid_seed101 (seed=101) 22:02:16 ===
+=== DONE scratch_seed6 honest=100.00% frac100=100% 22:07:53 ===
+=== START hybrid_seed102 (seed=102) 22:07:53 ===
+=== DONE scratch_seed7 honest=100.00% frac100=100% 22:14:06 ===
+=== START hybrid_seed103 (seed=103) 22:14:06 ===
+=== DONE hybrid_seed101 honest=100.00% frac100=100% 22:52:18 ===
+=== START hybrid_seed104 (seed=104) 22:52:18 ===
+=== DONE hybrid_seed102 honest=5.90% frac100=100% 22:54:45 ===
+=== START hybrid_seed105 (seed=105) 22:54:45 ===
+=== DONE hybrid_seed103 honest=7.98% frac100=100% 23:01:31 ===
+=== START hybrid_seed106 (seed=106) 23:01:31 ===
+=== DONE hybrid_seed104 honest=5.85% frac100=100% 23:25:53 ===
+=== START hybrid_seed107 (seed=107) 23:25:53 ===
+=== DONE hybrid_seed105 honest=0.71% frac100=100% 23:27:25 ===
+=== DONE hybrid_seed106 honest=5.85% frac100=100% 23:32:09 ===
+=== DONE hybrid_seed107 honest=15.27% frac100=100% 23:52:17 ===
+===== SWEEP COMPLETE 23:52:17 =====
+
+==== TALLY: clean 100% = honest==100 and frac@100%==100 ====
+
+[scratch] n=8  clean100=6/8  (>=99%: 6)
+   scratch_seed0        honest=1.58  frac100=100.0
+   scratch_seed1        honest=33.04  frac100=100.0
+   scratch_seed2        honest=100.0  frac100=100.0  <-- CLEAN 100
+   scratch_seed3        honest=100.0  frac100=100.0  <-- CLEAN 100
+   scratch_seed4        honest=100.0  frac100=100.0  <-- CLEAN 100
+   scratch_seed5        honest=100.0  frac100=100.0  <-- CLEAN 100
+   scratch_seed6        honest=100.0  frac100=100.0  <-- CLEAN 100
+   scratch_seed7        honest=100.0  frac100=100.0  <-- CLEAN 100
+
+[hybrid] n=8  clean100=1/8  (>=99%: 1)
+   hybrid_seed100       honest=5.85  frac100=100.0
+   hybrid_seed101       honest=100.0  frac100=100.0  <-- CLEAN 100
+   hybrid_seed102       honest=5.9  frac100=100.0
+   hybrid_seed103       honest=7.98  frac100=100.0
+   hybrid_seed104       honest=5.85  frac100=100.0
+   hybrid_seed105       honest=0.71  frac100=100.0
+   hybrid_seed106       honest=5.85  frac100=100.0
+   hybrid_seed107       honest=15.27  frac100=100.0
+scratch_seed0 seed=0 inloop=5.71 honest=1.58 frac100=100
+scratch_seed1 seed=1 inloop=100.00 honest=33.04 frac100=100
+scratch_seed2 seed=2 inloop=100.00 honest=100.00 frac100=100
+scratch_seed3 seed=3 inloop=100.00 honest=100.00 frac100=100
+scratch_seed5 seed=5 inloop=100.00 honest=100.00 frac100=100
+scratch_seed4 seed=4 inloop=100.00 honest=100.00 frac100=100
+hybrid_seed100 seed=100 inloop=5.86 honest=5.85 frac100=100
+scratch_seed6 seed=6 inloop=100.00 honest=100.00 frac100=100
+scratch_seed7 seed=7 inloop=100.00 honest=100.00 frac100=100
+hybrid_seed101 seed=101 inloop=49.40 honest=100.00 frac100=100
+hybrid_seed102 seed=102 inloop=6.43 honest=5.90 frac100=100
+hybrid_seed103 seed=103 inloop=41.37 honest=7.98 frac100=100
+hybrid_seed104 seed=104 inloop=13.40 honest=5.85 frac100=100
+hybrid_seed105 seed=105 inloop=10.44 honest=0.71 frac100=100
+hybrid_seed106 seed=106 inloop=7.41 honest=5.85 frac100=100
+hybrid_seed107 seed=107 inloop=8.75 honest=15.27 frac100=100

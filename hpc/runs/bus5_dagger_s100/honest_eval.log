@@ -1,0 +1,8 @@
+[honest-any] ckpt=checkpoint/final_DAGGER_bus5_T_100_0__I__1784903029_18839.tar
+[honest-any] alg=DAGGER env=bus5 difficulty=0 n_chronics=20 using=20 (select=10 / report=10)
+[honest-any] single policy -> SELECT=  0.89%
+
+[honest-any] WINNER single (non-tree policy)
+[honest-any]   select-set survival = 0.89%  (10 chronics)
+[honest-any]   HELD-OUT REPORT survival = 0.89%  (10 chronics)  [min 0% / max 7% / frac@100% 0%]
+RESULT alg=DAGGER env=bus5 seed=100 difficulty=0 leaves=NA depth=NA select=0.89 report=0.89 report_min=0.05 report_max=6.80 frac100=0.0 n_report=10

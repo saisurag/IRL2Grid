@@ -1,0 +1,10 @@
+[queue] waiting for bus5 sweep to finish 21:59:27
+[queue] bus5 sweep done -> launching bus14 hybrid runs 23:53:16
+########## dtpo_testing_6 bus14 HYBRID (seeds 194 144) 23:53:16 ##########
+=== START bus14_hybrid_seed194 23:53:16 ===
+=== START bus14_hybrid_seed144 23:53:16 ===
+=== DONE bus14_hybrid_seed194 honest=10.45% 00:38:18 ===
+=== DONE bus14_hybrid_seed144 honest=82.06% 01:02:26 ===
+===== bus14 HYBRID COMPLETE 01:02:26 =====
+bus14_hybrid_seed194 seed=194 inloop=12.40 honest=10.45
+bus14_hybrid_seed144 seed=144 inloop=86.81 honest=82.06

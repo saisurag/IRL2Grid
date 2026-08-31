@@ -1,0 +1,18 @@
+=== 3424650[18].pbs-7 [18] bus14_daggertree_L8_s104 on cx3-4-14 | Fri 24 Jul 22:52:12 BST 2026 ===
+=== distill_only.py --env-id bus14 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --tree-max-leaf-nodes 8 --temperature 0.5 --seed 104 --dagger-rounds 5 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 120000, 'n_actions': 50, 'n_leaves': 8, 'max_depth': 4, 'fidelity': 0.5196916666666667, 'weighted_fidelity': 0.6527919777978834, 'curated': False, 'dagger_rounds': 5, 'dagger_dataset_sizes': [20000, 40000, 60000, 80000, 100000, 120000]}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus14_T_104_0_L8_1784930249_8261.tar (leaves=8, curated=no)
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=104 difficulty=0 leaves=8 depth=4 select=60.91 report=60.91 report_min=60.02 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_daggertree_L8_s104 finished Fri 24 Jul 23:09:07 BST 2026 ===
+
+====================================
+CPU Time used: 00:13:23
+CPU Percent: 99%
+Memory usage: 723456kb
+Approx Power usage: 0.0026
+Walltime usage: 00:17:25
+
+====================================

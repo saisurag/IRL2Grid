@@ -1,0 +1,14 @@
+[select] ckpt=checkpoint/DTPO_bus14_T_1_0__I__1781665681_21942.tar
+[select] env=bus14 candidates=5 episodes=100 curated=no
+Eval at step 0, survival=11.988%, return=[-2.4216211038141044, 567.9838887351993, -5.870287801198865, -50.53105263157935]
+[select] iter=190 cheap= 13.57% -> 100ep= 11.99%  leaves=64
+Eval at step 0, survival=7.171%, return=[-1.7984129779896465, 341.80527912716855, -11.580709257652162, -18.755087719298327]
+[select] iter=180 cheap= 13.53% -> 100ep=  7.17%  leaves=64
+Eval at step 0, survival=9.966%, return=[-2.117482013243134, 465.37479059600764, -5.625760623890674, -21.116842105263167]
+[select] iter=230 cheap= 13.53% -> 100ep=  9.97%  leaves=64
+Eval at step 0, survival=9.528%, return=[-2.105231328055961, 445.73519588947335, -65.66965182763073, -32.70807017543824]
+[select] iter=130 cheap= 13.50% -> 100ep=  9.53%  leaves=64
+Eval at step 0, survival=8.562%, return=[-1.93971678321308, 416.6111367005826, -13.098062601162237, -36.07649122807028]
+[select] iter=150 cheap= 13.35% -> 100ep=  8.56%  leaves=64
+[select] HONEST BEST = 11.99% over 100 ep (iter=190, leaves=64)
+[select] wrote honestly-selected tree back into checkpoint/DTPO_bus14_T_1_0__I__1781665681_21942.tar

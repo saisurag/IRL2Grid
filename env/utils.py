@@ -2,7 +2,6 @@ import os
 import json
 from packaging import version
 
-from gymnasium.wrappers import NormalizeObservation, NormalizeReward
 import grid2op
 from grid2op.Chronics import MultifolderWithCache, Multifolder
 from grid2op.gym_compat import GymEnv, BoxGymObsSpace, BoxGymActSpace, DiscreteActSpace # if we import gymnasium, GymEnv will convert to Gymnasium!   
@@ -10,11 +9,10 @@ from grid2op.Reward import CombinedReward
 from lightsim2grid import LightSimBackend
 
 from common.imports import *
+from common.utils import NormalizeObservation
 from .cmdp import ConstrainedFailureGridOp, ConstrainedOverloadGridOp
 from .reward import LineMarginReward, RedispRewardv1, N1ContingencyRewardv1, IncreasingFlatRewardv1, FlatRewardv1, DistanceRewardv1, OverloadReward
 from .heuristic import GridOpRecoAndRevertBus, GridOpIdle
-
-from time import time
 
 # Get the directory of the current module
 ENV_DIR = os.path.dirname(__file__)
@@ -98,11 +96,11 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
     # Create a grid2op environment with specified backend and reward structure
     # Separate rewards for the eval env for logging
     rewards = {}
-    if eval_env:
-        rewards['redispatchReward'] = RedispRewardv1()
-        rewards['lineMarginReward'] = LineMarginReward()
-        rewards['overloadReward'] = OverloadReward(constrained=args.constraints_type != 0)
-        if env_type == 'topology': rewards['topologyReward'] = DistanceRewardv1()
+    #if eval_env:
+    rewards['redispatchReward'] = RedispRewardv1()
+    rewards['lineMarginReward'] = LineMarginReward()
+    rewards['overloadReward'] = OverloadReward(constrained=args.constraints_type != 0)
+    if env_type == 'topology': rewards['topologyReward'] = DistanceRewardv1()
     
     if args.n1_reward:
         rewards['n1ContingencyReward'] = N1ContingencyRewardv1(l_ids=list(range(env_config[env_id]['n_line'])), normalize=True)
@@ -114,7 +112,8 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
         experimental_read_from_local_dir=True if async_vec_env else False,
         backend=LightSimBackend(),
         other_rewards=rewards,
-        chronics_class=Multifolder if args.optimize_mem else MultifolderWithCache 
+        chronics_class=Multifolder if args.optimize_mem else MultifolderWithCache,
+        test=True if env_id=='bus5' else False
         #class_in_file=True
     ) 
     
@@ -157,7 +156,7 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
     if resume_run: gym_env.reset()   # NOTE: to use set_id, we first have to set gym_env's seed with a reset   
     else: gym_env.reset(seed=args.seed+idx)
     gym_env.init_env.chronics_handler.shuffle()  # Shuffle the chronics
-
+   
     # Prepare action and observation spaces
     state_attrs = config['state_attrs']
     obs_attrs = state_attrs['default']
@@ -216,9 +215,9 @@ def auxiliary_make_env(args: Dict[str, Any], resume_run: bool = False, idx: int 
 
     if args.use_heuristic: 
         if args.heuristic_type == 'idle':
-            gym_env = GridOpIdle(gym_env, eval_env=eval_env)
+            gym_env = GridOpIdle(gym_env, args.gamma, eval_env=eval_env)
         else:
-            gym_env = GridOpRecoAndRevertBus(gym_env, eval_env=eval_env)
+            gym_env = GridOpRecoAndRevertBus(gym_env, args.gamma, eval_env=eval_env)
     else: gym_env = gym.wrappers.RecordEpisodeStatistics(gym_env)            
 
     if args.norm_obs: gym_env = NormalizeObservation(gym_env)

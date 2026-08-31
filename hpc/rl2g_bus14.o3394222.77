@@ -1,0 +1,21 @@
+=== 3394222[77].pbs-7 [77] bus14_dtpo-replay_L16_s103 on cx3-5-15 | Fri 24 Jul 21:32:16 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus14 --difficulty 0 --seed 103 --dtpo-eval-total 40 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 4 --dtpo-survival-gate False --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== training exit=0 ===
+[DTPO] it=147/150 step=1469853 J_new=0.0011 kept mode=leaf leaves=16 survival=27.00% best=63.55% std=19.6%
+[DTPO] it=148/150 step=1479852 J_new=0.0011 kept mode=leaf leaves=16 survival=27.00% best=63.55% std=19.6%
+[DTPO] it=149/150 step=1489851 J_new=0.0010 kept mode=leaf leaves=16 survival=27.00% best=63.55% std=19.6%
+[DTPO] it=150/150 step=1499850 J_new=0.0008 kept mode=leaf leaves=16 survival=27.00% best=63.55% std=19.6%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['63.5%', '63.5%', '63.5%', '63.5%', '63.5%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+=== honest eval exit=0 ===
+RESULT alg=DTPO run=checkpoint env=bus14 seed=103 difficulty=0 leaves=16 depth=6 select=63.55 report=63.55 report_min=63.54 report_max=63.58 frac100=0.0 n_report=40
+JUMPS bigjumps=15 candjumps=0
+=== bus14_dtpo-replay_L16_s103 finished Sat 25 Jul 07:50:52 BST 2026 ===
+
+====================================
+CPU Time used: 13:11:52
+CPU Percent: 334%
+Memory usage: 1799948kb
+Approx Power usage: 0.15819999999999998
+Walltime usage: 10:20:14
+
+====================================

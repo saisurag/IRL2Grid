@@ -1,0 +1,14 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[DTPO] deterministic eval on 20 fixed chronics (of 20): ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[DTPO] it=5/50 step=99990 J_new=364.9747 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=10/50 step=199980 J_new=273.3724 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=15/50 step=299970 J_new=210.1417 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=20/50 step=399960 J_new=149.7867 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=25/50 step=499950 J_new=96.5607 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=30/50 step=599940 J_new=84.5990 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=35/50 step=699930 J_new=61.3210 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=40/50 step=799920 J_new=48.1001 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=45/50 step=899910 J_new=27.8653 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] it=50/50 step=999900 J_new=3.9205 kept leaves=16 survival=100.00% best=100.00% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['100.0%', '100.0%', '100.0%', '100.0%', '100.0%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.

@@ -1,0 +1,8 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from DQN_bus36-M_T_0_0_H_I__1777671868_9169: {'mode': 'soft', 'n_samples': 12924, 'n_actions': 50, 'n_leaves': 32, 'max_depth': 12, 'fidelity': 0.9151191581553698, 'weighted_fidelity': 0.9690142182731686, 'curated': False}
+Eval at step 80000, survival=38.138%, return=[-297.11865471003694, 1490.5107288667439, -1993.4201851217133, -338.8757062146921]
+[DTPO] it=10/200 step=80000 J_new=0.8617 kept leaves=32 survival=38.14% best=38.14%
+Eval at step 160000, survival=83.147%, return=[-3457.2233576317326, -1394.8621496711778, -17823.28619434284, -3491.5499058380756]
+[DTPO] it=20/200 step=160000 J_new=0.3972 kept leaves=32 survival=83.15% best=83.15%
+Eval at step 240000, survival=4.738%, return=[-3.2080599459732184, 251.14696682845337, -28.14388518900435, -6.836158192090397]
+[DTPO] it=30/200 step=240000 J_new=0.0501 kept leaves=32 survival=4.74% best=83.15%

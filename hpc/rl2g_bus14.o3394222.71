@@ -1,0 +1,21 @@
+=== 3394222[71].pbs-7 [71] bus14_dagger_s103 on cx3-6-12 | Fri 24 Jul 21:21:41 BST 2026 ===
+=== main.py --alg DAGGER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --expert-ckpt /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --checkpoint True --track False --time-limit 1300 --seed 103 --verbose True ===
+=== training exit=0 ===
+[DAgger] iter=49 beta=0.081 dataset=300000 global_step=300000
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /rds/general/user/ssl125/home/RL2Grid_full/hpc/runs/bus14_dagger_s103/wandb/offline-run-20260724_212336-DAGGER_bus14_T_103_0__I__1784924603_16204[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260724_212336-DAGGER_bus14_T_103_0__I__1784924603_16204/logs[0m
+=== honest eval exit=0 ===
+RESULT alg=DAGGER run=checkpoint env=bus14 seed=103 difficulty=0 leaves=NA depth=NA select=96.26 report=96.26 report_min=1.53 report_max=100.00 frac100=67.5 n_report=40
+JUMPS bigjumps=0 candjumps=0
+=== bus14_dagger_s103 finished Fri 24 Jul 22:00:23 BST 2026 ===
+
+====================================
+CPU Time used: 01:25:15
+CPU Percent: 404%
+Memory usage: 1921652kb
+Approx Power usage: 0.017
+Walltime usage: 00:39:53
+
+====================================

@@ -1,0 +1,12 @@
+=== 3421755[82].pbs-7 [82] bus5_dtpo-full-M2_L16_s103 on cx3-6-4 | Fri 24 Jul 16:11:45 BST 2026 ===
+=== main.py --alg DTPO --action-type topology --n-envs 3 --dtpo-iters 150 --dtpo-batch 10000 --dtpo-eta 1.0 --dtpo-gamma 0.99 --dtpo-gae-lambda 0.95 --dtpo-norm-adv True --dtpo-eval-every 1 --dtpo-ppo-clip 0.0 --dtpo-policy-updates 1 --dtpo-anneal-lr False --critic-layers 64 64 --critic-act-fn tanh --critic-lr 2.5e-4 --critic-epochs 4 --critic-batch 64 --max-grad-norm 0.5 --checkpoint True --track False --time-limit 1300 --verbose True --env-id bus5 --difficulty 0 --seed 103 --dtpo-eval-total 20 --tree-max-leaf-nodes 16 --dtpo-structure-refit-every 5 --dtpo-replay-iters 2 --dtpo-survival-gate True --warmstart-oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --warmstart-temperature 0.5 --warmstart-dagger-rounds 0 ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 24784kb
+Approx Power usage: 0.0
+Walltime usage: 00:00:17
+
+====================================

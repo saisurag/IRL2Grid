@@ -1,0 +1,23 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 9, 'fidelity': 0.6498, 'weighted_fidelity': 0.8141073464269603, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 20 fixed chronics (of 1004): ids=[0, 52, 105, 158, 211, 263, 316, 369, 422, 475, 527, 580, 633, 686, 739, 791, 844, 897, 950, 1003]
+[DTPO] it=10/150 step=99990 J_new=0.0080 kept leaves=16 survival=26.00% best=26.00% std=14.7%
+[DTPO] it=20/150 step=199980 J_new=0.0052 kept leaves=16 survival=32.44% best=32.44% std=14.8%
+[DTPO] it=30/150 step=299970 J_new=0.0038 kept leaves=16 survival=34.84% best=34.84% std=16.7%
+[DTPO] it=40/150 step=399960 J_new=0.0022 kept leaves=16 survival=13.99% best=34.84% std=13.6%
+[DTPO] it=50/150 step=499950 J_new=0.0025 kept leaves=16 survival=56.60% best=56.60% std=13.7%
+[DTPO] it=60/150 step=599940 J_new=-0.0003 revert leaves=16 survival=60.55% best=60.55% std=8.0%
+[DTPO] it=70/150 step=699930 J_new=0.0039 kept leaves=16 survival=2.39% best=60.55% std=4.1%
+[DTPO] it=80/150 step=799920 J_new=0.0025 kept leaves=16 survival=10.06% best=60.55% std=3.1%
+[DTPO] it=90/150 step=899910 J_new=0.0031 kept leaves=16 survival=13.49% best=60.55% std=0.0%
+[DTPO] it=100/150 step=999900 J_new=0.0041 kept leaves=16 survival=11.63% best=60.55% std=3.4%
+[DTPO] it=110/150 step=1099890 J_new=0.0024 kept leaves=16 survival=4.57% best=60.55% std=2.9%
+[DTPO] it=120/150 step=1199880 J_new=0.0026 kept leaves=16 survival=3.50% best=60.55% std=2.6%
+[DTPO] it=130/150 step=1299870 J_new=0.0050 kept leaves=16 survival=26.45% best=60.55% std=19.1%
+[DTPO] it=140/150 step=1399860 J_new=0.0018 kept leaves=16 survival=7.48% best=60.55% std=5.6%
+[DTPO] it=150/150 step=1499850 J_new=0.0019 kept leaves=16 survival=12.24% best=60.55% std=3.8%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['60.5%', '56.6%', '34.8%', '32.4%', '26.4%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+[curve] dtpo_testing_7/bus14_t0.5_d0_seed101/curve.png  final_best=60.5%  first_100_at_it=None  leaves=16
+[viz] dtpo_testing_7/bus14_t0.5_d0_seed101/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] dtpo_testing_7/bus14_t0.5_d0_seed101/tree.svg

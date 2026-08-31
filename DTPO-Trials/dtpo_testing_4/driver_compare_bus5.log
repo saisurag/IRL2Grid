@@ -1,0 +1,7 @@
+########## dtpo_testing_4 bus5 A/B (batch 20000), A + B in PARALLEL 22:28:49 ##########
+A pid=9660  B pid=9661  (tail dtpo_testing_4/bus5_*_seed0.runlog for per-run progress)
+
+===== dtpo_testing_4 bus5 A/B COMPARE COMPLETE 00:19:55 =====
+--- baseline ref: dtpo_testing_3/bus5_hybrid_seed0 = 37.04% honest, on_tree surv 0.059 fid 0.0 ---
+bus5_baseline_seed0          100.00% over 100 ep (iter=150, leaves=64)
+bus5_dagger_seed0            94.70% over 100 ep (iter=20, leaves=64)

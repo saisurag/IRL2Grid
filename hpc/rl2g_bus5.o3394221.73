@@ -1,0 +1,18 @@
+=== 3394221[73].pbs-7 [73] bus5_distill_L8_s103 on cx3-4-26 | Wed 22 Jul 23:18:58 BST 2026 ===
+=== distill_only.py --env-id bus5 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --tree-max-leaf-nodes 8 --temperature 0.5 --seed 103 ===
+=== training exit=0 ===
+[DISTILL-ONLY] {'mode': 'soft', 'n_samples': 10080, 'n_actions': 50, 'n_leaves': 8, 'max_depth': 5, 'fidelity': 0.7323412698412698, 'weighted_fidelity': 0.8613075386444391, 'curated': False, 'dagger_rounds': 0}
+[DISTILL-ONLY] saved checkpoint/DISTILL_bus5_T_103_0_L8_1784758814_24339.tar (leaves=8, curated=no)
+=== honest eval exit=0 ===
+RESULT alg=DTPO env=bus5 seed=103 difficulty=0 leaves=8 depth=5 select=0.13 report=0.13 report_min=0.05 report_max=0.55 frac100=0.0 n_report=10
+JUMPS bigjumps=0 candjumps=0
+=== bus5_distill_L8_s103 finished Wed 22 Jul 23:21:20 BST 2026 ===
+
+====================================
+CPU Time used: 00:00:23
+CPU Percent: 20%
+Memory usage: 315272kb
+Approx Power usage: 0.0
+Walltime usage: 00:03:06
+
+====================================

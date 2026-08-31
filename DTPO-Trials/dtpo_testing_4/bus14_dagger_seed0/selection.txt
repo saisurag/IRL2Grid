@@ -1,0 +1,24 @@
+[select] ckpt=checkpoint/DTPO_bus14_T_0_0__I__1782257044_30791.tar
+[select] env=bus14 candidates=10 episodes=100 curated=no
+Eval at step 0, survival=77.090%, return=[-10.38191181886359, 3612.7579447735984, -123.21080550115613, -673.7998245613686]
+[select] iter=60 cheap= 64.21% -> 100ep= 77.09%  leaves=64
+Eval at step 0, survival=23.603%, return=[-4.019400900821202, 1079.2175389239242, -293.36068682393056, -202.9477192982498]
+[select] iter=10 cheap= 25.65% -> 100ep= 23.60%  leaves=64
+Eval at step 0, survival=74.043%, return=[-9.748336129847448, 3475.028145759348, -62.78974774536451, -643.2121052631079]
+[select] iter=20 cheap= 22.59% -> 100ep= 74.04%  leaves=64
+Eval at step 0, survival=20.938%, return=[-3.787452528462163, 959.1222048735566, -329.9352336574835, -184.86982456140788]
+[select] iter=50 cheap= 22.19% -> 100ep= 20.94%  leaves=64
+Eval at step 0, survival=100.000%, return=[-12.043919020370813, 4699.054543073648, -0.22577012916604872, -835.3512280701236]
+[select] iter=40 cheap= 22.14% -> 100ep=100.00%  leaves=64
+Eval at step 0, survival=8.140%, return=[-1.9932731794338907, 376.77584040064755, -71.50648590476254, -75.51210526315782]
+[select] iter=70 cheap= 22.14% -> 100ep=  8.14%  leaves=64
+Eval at step 0, survival=91.663%, return=[-16.79763256223465, 4385.485559143549, -3.0587480442854575, -533.1291228069716]
+[select] iter=30 cheap= 22.13% -> 100ep= 91.66%  leaves=64
+Eval at step 0, survival=11.651%, return=[-2.492240180305089, 537.3514870528693, -26.997181609193213, -103.81456140351031]
+[select] iter=130 cheap= 13.39% -> 100ep= 11.65%  leaves=64
+Eval at step 0, survival=5.225%, return=[-1.597249374683015, 244.76824777145356, -18.751740356631345, -45.19701754385993]
+[select] iter=90 cheap=  7.73% -> 100ep=  5.22%  leaves=64
+Eval at step 0, survival=16.327%, return=[-3.213800451385323, 747.9913514036136, -245.393384652511, -124.52771929824817]
+[select] iter=100 cheap=  5.85% -> 100ep= 16.33%  leaves=64
+[select] HONEST BEST = 100.00% over 100 ep (iter=40, leaves=64)
+[select] wrote honestly-selected tree back into checkpoint/DTPO_bus14_T_0_0__I__1782257044_30791.tar

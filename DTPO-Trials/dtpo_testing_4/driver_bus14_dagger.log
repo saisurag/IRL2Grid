@@ -1,0 +1,38 @@
+########## dtpo_testing_4 bus14 DAgger seed0 (batch 20000, 64 leaves) 00:23:55 ##########
+=== START bus14_dagger_seed0 (seed=0 leaves=64 batch=20000 iters=150 extra: --warmstart-dagger-rounds 5) 00:23:55 ===
+=== train exit=0 for bus14_dagger_seed0 02:14:00 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus14_T_0_0__I__1782257044_30791.tar
+  [select] iter=60 cheap= 64.21% -> 100ep= 77.09%  leaves=64
+  [select] iter=10 cheap= 25.65% -> 100ep= 23.60%  leaves=64
+  [select] iter=20 cheap= 22.59% -> 100ep= 74.04%  leaves=64
+  [select] iter=50 cheap= 22.19% -> 100ep= 20.94%  leaves=64
+  [select] iter=40 cheap= 22.14% -> 100ep=100.00%  leaves=64
+  [select] iter=70 cheap= 22.14% -> 100ep=  8.14%  leaves=64
+  [select] iter=30 cheap= 22.13% -> 100ep= 91.66%  leaves=64
+  [select] iter=130 cheap= 13.39% -> 100ep= 11.65%  leaves=64
+  [select] iter=90 cheap=  7.73% -> 100ep=  5.22%  leaves=64
+  [select] iter=100 cheap=  5.85% -> 100ep= 16.33%  leaves=64
+  [select] HONEST BEST = 100.00% over 100 ep (iter=40, leaves=64)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus14_T_0_0__I__1782257044_30791.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0  <- checkpoint/DTPO_bus14_T_0_0__I__1782257044_30791.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/tree.dot  (depth=11 leaves=64 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/tree_landscape.dot  (depth=11 leaves=64 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/curve.png  final_best=64.2%  first_100_at_it=None  leaves=64
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0 done -> DTPO_bus14_T_0_0__I__1782257044_30791.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+[fidelity] bus14 on oracle-states: fid=0.455 wfid=0.538 n=80640 driver_surv=1.000
+[fidelity] bus14 on tree-states: fid=0.255 wfid=0.170 n=18073 driver_surv=0.224
+[fidelity] wrote /home/sai/RL2Grid_full/dtpo_testing_4/bus14_dagger_seed0/fidelity.json
+=== DONE bus14_dagger_seed0 03:30:26 ===
+
+===== dtpo_testing_4 bus14 DAgger COMPLETE 03:30:26 =====
+--- bus14 baseline floor ~13% (dtpo_testing_3) ---
+bus14_dagger_seed0  100.00% over 100 ep (iter=40, leaves=64)

@@ -1,0 +1,11 @@
+=== 3424642.pbs-7 on cx3-5-22 | PPO bus36-M seed=100 total=45000000 | Sun 26 Jul 20:07:05 BST 2026 ===
+=== Training already complete: checkpoint/final_PPO_bus36-M_T_100_0__I__1784927195_14574.tar — nothing to do ===
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 45916kb
+Approx Power usage: 0.0
+Walltime usage: 00:00:34
+
+====================================

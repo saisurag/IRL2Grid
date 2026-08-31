@@ -16,6 +16,17 @@
     },
 
     "environments": {
+        "bus5": {
+            "grid2op_id": "rte_case5_example",
+            "n_line": 7,
+            "renewable": false,
+            "curtail": false,
+            "maintenance": false,
+            "opponent": false,
+            "battery": false,
+            "difficulty": 1
+        },
+
         "bus14": {
             "grid2op_id": "l2rpn_case14_sandbox",
             "n_line": 20,

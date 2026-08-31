@@ -1,0 +1,20 @@
+########## dtpo_testing_5 bus5 STEADY v2 (unbuffered) 17:30:35 ##########
+=== START bus5_scratch_seed1 (seed=1) 17:30:35 ===
+=== START bus5_scratch_seed0 (seed=0) 17:30:35 ===
+=== START bus5_hybrid_seed0 (seed=0) 17:30:35 ===
+=== train exit=0 bus5_hybrid_seed0 18:06:23 ===
+--- honest_eval (bus5_hybrid_seed0) ---
+[honest] WINNER iter=5 leaves=16
+[honest]   select-set survival = 14.42%  (10 chronics)
+[honest]   HELD-OUT REPORT survival = 5.83%  (10 chronics)  [min 6% / max 6% / frac@100% 0%]
+=== train exit=0 bus5_scratch_seed0 18:07:38 ===
+--- honest_eval (bus5_scratch_seed0) ---
+[honest] WINNER iter=20 leaves=16
+[honest]   select-set survival = 17.29%  (10 chronics)
+[honest]   HELD-OUT REPORT survival = 6.05%  (10 chronics)  [min 6% / max 7% / frac@100% 0%]
+=== train exit=0 bus5_scratch_seed1 18:15:18 ===
+--- honest_eval (bus5_scratch_seed1) ---
+[honest] WINNER iter=5 leaves=16
+[honest]   select-set survival = 100.00%  (10 chronics)
+[honest]   HELD-OUT REPORT survival = 100.00%  (10 chronics)  [min 100% / max 100% / frac@100% 100%]
+===== dtpo_testing_5 COMPLETE 18:17:02 =====

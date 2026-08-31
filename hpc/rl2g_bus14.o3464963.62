@@ -1,0 +1,12 @@
+=== 3464963[62].pbs-7 [62] bus14_distill_L64_s102 on cx3-6-11 | Mon 27 Jul 16:10:19 BST 2026 ===
+=== distill_only.py --env-id bus14 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 102 ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:18
+
+====================================

@@ -1,0 +1,18 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from final_PPO_bus5_T_0_0__I__1776174124_47043_45000000: {'mode': 'soft', 'n_samples': 10080, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 8, 'fidelity': 0.7923611111111111, 'weighted_fidelity': 0.9235517195106244, 'curated': False}
+Eval at step 20000, survival=35.764%, return=[-10.759643300436437, 290.82780615985394, -1596.8225730222184, -167.4761904761912]
+[DTPO] it=10/80 step=20000 J_new=0.0135 kept leaves=16 survival=35.76% best=35.76%
+Eval at step 40000, survival=5.671%, return=[-2.3804970045263567, 52.531489529957376, -19.66500163951423, -10.190476190476184]
+[DTPO] it=20/80 step=40000 J_new=0.0321 kept leaves=16 survival=5.67% best=35.76%
+Eval at step 60000, survival=73.644%, return=[-7.1991229480772745, 968.3309907267491, -297.76094299462176, -299.60317460318123]
+[DTPO] it=30/80 step=60000 J_new=0.0197 kept leaves=16 survival=73.64% best=73.64%
+Eval at step 80000, survival=5.853%, return=[-2.4177574031054974, 51.16727196673552, -12.510641343542375, -9.33333333333334]
+[DTPO] it=40/80 step=80000 J_new=0.0280 kept leaves=16 survival=5.85% best=73.64%
+Eval at step 100000, survival=5.853%, return=[-2.4000024469569325, 50.852946534752846, -11.370086330571212, -9.809523809523817]
+[DTPO] it=50/80 step=100000 J_new=0.0149 kept leaves=16 survival=5.85% best=73.64%
+Eval at step 120000, survival=100.000%, return=[-3.8101313604565803, 1550.184238890807, -0.3188979404512793, -474.61904761905197]
+[DTPO] it=60/80 step=120000 J_new=0.0144 kept leaves=16 survival=100.00% best=100.00%
+Eval at step 140000, survival=5.952%, return=[-2.439927057363093, 51.438953682780266, -14.998095584451221, -10.33333333333334]
+[DTPO] it=70/80 step=140000 J_new=0.0205 kept leaves=16 survival=5.95% best=100.00%
+Eval at step 160000, survival=4.663%, return=[-2.102230168568591, 43.49695570766926, -7.703208023740444, -4.682539682539678]
+[DTPO] it=80/80 step=160000 J_new=0.0235 kept leaves=16 survival=4.66% best=100.00%

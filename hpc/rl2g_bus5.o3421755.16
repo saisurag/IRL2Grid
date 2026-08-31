@@ -1,0 +1,12 @@
+=== 3421755[16].pbs-7 [16] bus5_distill_L64_s100 on cx3-5-13 | Fri 24 Jul 15:34:07 BST 2026 ===
+=== distill_only.py --env-id bus5 --difficulty 0 --oracle /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --tree-max-leaf-nodes 64 --temperature 0.5 --seed 100 ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:04
+CPU Percent: 5%
+Memory usage: 59616kb
+Approx Power usage: 0.0
+Walltime usage: 00:01:25
+
+====================================

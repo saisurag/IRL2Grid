@@ -1,0 +1,21 @@
+=== 3394221[44].pbs-7 [44] bus5_dagger_s102 on cx3-3-6 | Wed 22 Jul 21:44:52 BST 2026 ===
+=== main.py --alg DAGGER --env-id bus5 --action-type topology --difficulty 0 --n-envs 3 --expert-ckpt /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --checkpoint True --track False --time-limit 1300 --seed 102 --verbose True ===
+=== training exit=0 ===
+[DAgger] iter=49 beta=0.081 dataset=300000 global_step=300000
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /rds/general/user/ssl125/home/RL2Grid_full/hpc/runs/bus5_dagger_s102/wandb/offline-run-20260722_214634-DAGGER_bus5_T_102_0__I__1784753187_26180[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260722_214634-DAGGER_bus5_T_102_0__I__1784753187_26180/logs[0m
+=== honest eval exit=0 ===
+RESULT alg=DAGGER env=bus5 seed=102 difficulty=0 leaves=NA depth=NA select=100.00 report=100.00 report_min=100.00 report_max=100.00 frac100=100.0 n_report=10
+JUMPS bigjumps=3 candjumps=0
+=== bus5_dagger_s102 finished Wed 22 Jul 22:09:05 BST 2026 ===
+
+====================================
+CPU Time used: 01:18:06
+CPU Percent: 413%
+Memory usage: 1445312kb
+Approx Power usage: 0.015600000000000001
+Walltime usage: 00:25:06
+
+====================================

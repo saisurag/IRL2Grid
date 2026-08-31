@@ -1,0 +1,21 @@
+=== 3394222[40].pbs-7 [40] bus14_viper_L64_s101 on cx3-3-17 | Fri 24 Jul 18:42:27 BST 2026 ===
+=== main.py --alg VIPER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 64 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 101 --verbose True ===
+=== training exit=0 ===
+Eval at step 70014, survival=46.883%, return=[-7.329162404154583, 2156.077441708245, -12.195882404341319, -409.92982456139384]
+[VIPER] iter=14/15 dataset=70014 fit_samples=50000 weighted_acc=0.931892 survival=46.883% best_survival=95.850%
+[VIPER TREE] depth=12 leaves=64 nodes=127 ccp_alpha=0.00000000 fit_samples=50000 dataset=75015
+Eval at step 75015, survival=13.480%, return=[-2.7089603375061415, 598.9712988805767, -8.001672301470535, -126.8596491228083]
+[VIPER] iter=15/15 dataset=75015 fit_samples=50000 weighted_acc=0.926004 survival=13.480% best_survival=95.850%
+=== honest eval exit=0 ===
+RESULT alg=VIPER env=bus14 seed=101 difficulty=0 leaves=64 depth=12 select=74.98 report=74.98 report_min=8.46 report_max=100.00 frac100=40.0 n_report=40
+JUMPS bigjumps=16 candjumps=0
+=== bus14_viper_L64_s101 finished Fri 24 Jul 19:06:03 BST 2026 ===
+
+====================================
+CPU Time used: 00:27:47
+CPU Percent: 233%
+Memory usage: 1258028kb
+Approx Power usage: 0.0054
+Walltime usage: 00:24:28
+
+====================================

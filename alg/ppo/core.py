@@ -108,6 +108,11 @@ class PPO:
                         evaluator.evaluate(global_step, agent)
                         if args.verbose: print(f"SPS={int(global_step / (time() - start_time))}")
 
+                    if global_step % 1000000 == 0 and global_step > 35000000:
+                        # Save the checkpoint and logger data
+                        ckpt.set_record(args, agent.actor, agent.critic, global_step, actor_optim, critic_optim, "" if not logger else logger.wb_path, iteration)
+                        ckpt.save()
+
                 # Bootstrap value if not done
                 with th.no_grad():
                     advantages = th.zeros_like(rewards).to(device)
@@ -137,7 +142,10 @@ class PPO:
                     for start in range(0, batch_size, minibatch_size):
                         end = start + minibatch_size
                         mb_inds = b_inds[start:end]
-                        _, newlogprob, entropy = agent.get_action(b_obs[mb_inds], b_actions.long()[mb_inds])
+                        _, newlogprob, entropy = agent.get_action(
+                            b_obs[mb_inds], 
+                            b_actions.long()[mb_inds] if not continuous_actions else b_actions[mb_inds]
+                        )
                         logratio = newlogprob - b_logprobs[mb_inds]
                         ratio = logratio.exp()
 

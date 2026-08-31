@@ -1,0 +1,10 @@
+[queue-scratch2] waiting for bus5 sweep to finish 23:01:22
+[queue-scratch2] sweep done -> launching extra scratch runs 23:52:38
+########## dtpo_testing_6 EXTRA bus5 scratch (seeds 265 296) 23:52:38 ##########
+=== START scratch_seed265 23:52:38 ===
+=== START scratch_seed296 23:52:38 ===
+=== DONE scratch_seed265 honest=100.00% 00:29:19 ===
+=== DONE scratch_seed296 honest=100.00% 00:34:12 ===
+===== EXTRA bus5 scratch COMPLETE 00:34:12 =====
+scratch_seed265 seed=265 inloop=52.39 honest=100.00
+scratch_seed296 seed=296 inloop=100.00 honest=100.00

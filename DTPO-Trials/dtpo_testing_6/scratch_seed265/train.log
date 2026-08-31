@@ -1,0 +1,19 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[DTPO] deterministic eval on 20 fixed chronics (of 20): ids=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[DTPO] it=5/50 step=99990 J_new=401.7385 kept leaves=16 survival=0.40% best=0.40% std=0.2%
+[DTPO] it=10/50 step=199980 J_new=243.2895 kept leaves=16 survival=16.96% best=16.96% std=13.6%
+[DTPO] it=15/50 step=299970 J_new=218.9269 kept leaves=16 survival=52.39% best=52.39% std=10.9%
+[DTPO] it=20/50 step=399960 J_new=235.1619 kept leaves=16 survival=33.13% best=52.39% std=18.4%
+[DTPO] it=25/50 step=499950 J_new=257.4430 kept leaves=16 survival=33.13% best=52.39% std=18.4%
+[DTPO] it=30/50 step=599940 J_new=441.0468 kept leaves=16 survival=5.70% best=52.39% std=0.0%
+[DTPO] it=35/50 step=699930 J_new=104.5205 kept leaves=16 survival=5.70% best=52.39% std=0.0%
+[DTPO] it=40/50 step=799920 J_new=80.2022 kept leaves=16 survival=5.24% best=52.39% std=0.2%
+[DTPO] it=45/50 step=899910 J_new=41.7212 kept leaves=16 survival=5.14% best=52.39% std=0.2%
+[DTPO] it=50/50 step=999900 J_new=4.6146 kept leaves=16 survival=6.66% best=52.39% std=6.3%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['52.4%', '33.1%', '33.1%', '17.0%', '6.7%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+[curve] /home/sai/RL2Grid_full/dtpo_testing_6/scratch_seed265/curve.png  final_best=52.4%  first_100_at_it=None  leaves=16
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/scratch_seed265/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/scratch_seed265/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/scratch_seed265/tree_landscape.dot  (depth=6 leaves=16 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_6/scratch_seed265/tree_landscape.svg

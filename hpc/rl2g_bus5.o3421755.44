@@ -1,0 +1,12 @@
+=== 3421755[44].pbs-7 [44] bus5_dagger_s102 on cx3-5-11 | Fri 24 Jul 15:46:18 BST 2026 ===
+=== main.py --alg DAGGER --env-id bus5 --action-type topology --difficulty 0 --n-envs 3 --expert-ckpt /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus5_T_0_0__I__1776174124_47043_45000000.tar --checkpoint True --track False --time-limit 1300 --seed 102 --verbose True ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:00
+CPU Percent: 0%
+Memory usage: 0b
+Approx Power usage: 0.0
+Walltime usage: 00:00:28
+
+====================================

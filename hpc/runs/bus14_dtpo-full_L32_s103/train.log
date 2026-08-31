@@ -1,0 +1,24 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 32, 'max_depth': 11, 'fidelity': 0.70585, 'weighted_fidelity': 0.8703627751430294, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 40 fixed chronics (of 1004): ids=[0, 25, 51, 77, 102, 128, 154, 180, 205, 231, 257, 282, 308, 334, 360, 385, 411, 437, 462, 488, 514, 540, 565, 591, 617, 642, 668, 694, 720, 745, 771, 797, 822, 848, 874, 900, 925, 951, 977, 1003]
+[DTPO] it=1/150 step=9999 J_new=0.0077 kept mode=full gate=accept cand=2.16% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=2/150 step=19998 J_new=0.0077 kept mode=leaf gate=revert(1) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=3/150 step=29997 J_new=0.0056 kept mode=leaf gate=revert(2) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=4/150 step=39996 J_new=0.0045 kept mode=leaf gate=accept cand=2.16% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=5/150 step=49995 J_new=0.0033 kept mode=leaf gate=revert(1) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=6/150 step=59994 J_new=0.0038 kept mode=full gate=revert(2) cand=0.36% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=7/150 step=69993 J_new=0.0025 kept mode=leaf gate=accept cand=2.16% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=8/150 step=79992 J_new=0.0038 kept mode=leaf gate=revert(1) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=9/150 step=89991 J_new=0.0031 kept mode=leaf gate=revert(2) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=10/150 step=99990 J_new=0.0028 kept mode=leaf gate=revert(3) cand=0.69% leaves=32 survival=2.16% best=2.16% std=2.0%
+[DTPO] it=11/150 step=109989 J_new=0.0015 kept mode=full gate=accept cand=17.16% leaves=32 survival=17.16% best=17.16% std=8.0%
+[DTPO] it=12/150 step=119988 J_new=0.0036 kept mode=leaf gate=accept cand=17.16% leaves=32 survival=17.16% best=17.16% std=8.0%
+[DTPO] it=13/150 step=129987 J_new=0.0052 kept mode=leaf gate=accept cand=17.16% leaves=32 survival=17.16% best=17.16% std=8.0%
+[DTPO] it=14/150 step=139986 J_new=0.0057 kept mode=leaf gate=accept cand=30.00% leaves=32 survival=30.00% best=30.00% std=22.2%
+[DTPO] it=15/150 step=149985 J_new=0.0056 kept mode=leaf gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=16/150 step=159984 J_new=0.0049 kept mode=full gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=17/150 step=169983 J_new=0.0045 kept mode=leaf gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=18/150 step=179982 J_new=0.0048 kept mode=leaf gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=19/150 step=189981 J_new=0.0051 kept mode=leaf gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=20/150 step=199980 J_new=0.0051 kept mode=leaf gate=accept cand=60.50% leaves=32 survival=60.50% best=60.50% std=13.4%
+[DTPO] it=21/150 step=209979 J_new=0.0053 kept mode=full gate=revert(1) cand=6.99% leaves=32 survival=60.50% best=60.50% std=13.4%

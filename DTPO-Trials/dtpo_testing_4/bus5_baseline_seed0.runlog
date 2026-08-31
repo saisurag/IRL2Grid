@@ -1,0 +1,33 @@
+=== START bus5_baseline_seed0 (seed=0 leaves=64 batch=20000 iters=150 extra: --dtpo-ppo-clip 0.2 --dtpo-policy-updates 10 --dtpo-anneal-lr True) 22:28:49 ===
+=== train exit=0 for bus5_baseline_seed0 00:11:23 ===
+  [select] honest selection over 100 ep (topk=10) on DTPO_bus5_T_0_0__I__1782250136_13936.tar
+  [select] iter=50 cheap=100.00% -> 100ep=  7.44%  leaves=64
+  [select] iter=70 cheap=100.00% -> 100ep= 62.41%  leaves=64
+  [select] iter=150 cheap=100.00% -> 100ep=100.00%  leaves=64
+  [select] iter=40 cheap= 13.72% -> 100ep=  0.54%  leaves=64
+  [select] iter=110 cheap=  7.00% -> 100ep=100.00%  leaves=64
+  [select] iter=100 cheap=  6.55% -> 100ep= 10.82%  leaves=64
+  [select] iter=60 cheap=  5.90% -> 100ep=  5.91%  leaves=64
+  [select] iter=90 cheap=  5.90% -> 100ep=  5.54%  leaves=64
+  [select] iter=140 cheap=  5.90% -> 100ep=  5.90%  leaves=64
+  [select] iter=10 cheap=  5.89% -> 100ep= 10.81%  leaves=64
+  [select] HONEST BEST = 100.00% over 100 ep (iter=150, leaves=64)
+  [select] wrote honestly-selected tree back into checkpoint/DTPO_bus5_T_0_0__I__1782250136_13936.tar
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0  <- checkpoint/DTPO_bus5_T_0_0__I__1782250136_13936.tar
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/tree.dot  (depth=11 leaves=64 actions=50)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/tree.svg
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/tree_landscape.dot  (depth=11 leaves=64 actions=50 landscape)
+[viz] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/tree_landscape.svg
+[curve] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/curve.png  final_best=100.0%  first_100_at_it=50  leaves=64
+[finalize] /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0 done -> DTPO_bus5_T_0_0__I__1782250136_13936.tar
+curve.png
+selection.txt
+train.log
+tree.dot
+tree.svg
+tree_landscape.dot
+tree_landscape.svg
+[fidelity] bus5 on oracle-states: fid=0.142 wfid=0.042 n=20160 driver_surv=1.000
+[fidelity] bus5 on tree-states: fid=0.000 wfid=0.000 n=20160 driver_surv=1.000
+[fidelity] wrote /home/sai/RL2Grid_full/dtpo_testing_4/bus5_baseline_seed0/fidelity.json
+=== DONE bus5_baseline_seed0 00:19:55 ===

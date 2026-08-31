@@ -1,0 +1,12 @@
+=== 3464963[80].pbs-7 [80] bus14_viper_L8_s103 on cx3-2-1 | Mon 27 Jul 16:12:23 BST 2026 ===
+=== main.py --alg VIPER --env-id bus14 --action-type topology --difficulty 0 --n-envs 3 --oracle-run-name /rds/general/user/ssl125/home/RL2Grid_full/checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar --viper-iters 15 --viper-steps-per-iter 5000 --tree-max-leaf-nodes 8 --tree-max-depth 12 --viper-export-trees False --checkpoint True --track False --time-limit 1300 --seed 103 --verbose True ===
+=== already DONE — skipping ===
+
+====================================
+CPU Time used: 00:00:02
+CPU Percent: 8%
+Memory usage: 60420kb
+Approx Power usage: 0.0
+Walltime usage: 00:00:46
+
+====================================

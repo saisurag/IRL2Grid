@@ -1,0 +1,91 @@
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+Eval at step 5000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=1/30 dataset=5000 weighted_acc=0.956904 survival=printed_by_evaluator best_score=0.956904
+[VIPER] iter=1/30 dataset=5000 weighted_acc=0.956904 survival=printed_by_evaluator best_score=0.956904
+Eval at step 10000, survival=0.050%, return=[-1.0, -1.0, -5.0, -1.0]
+[VIPER] iter=2/30 dataset=10000 weighted_acc=0.968310 survival=printed_by_evaluator best_score=0.968310
+[VIPER] iter=2/30 dataset=10000 weighted_acc=0.968310 survival=printed_by_evaluator best_score=0.968310
+Eval at step 15000, survival=0.248%, return=[-1.0281175659038126, 1.0630046427249908, -6.0150231420993805, -1.4761904761904763]
+[VIPER] iter=3/30 dataset=15000 weighted_acc=0.933485 survival=printed_by_evaluator best_score=0.968310
+[VIPER] iter=3/30 dataset=15000 weighted_acc=0.933485 survival=printed_by_evaluator best_score=0.968310
+Eval at step 20000, survival=2.067%, return=[-1.2027253631968051, 26.238946871832013, -9.328235839881623, -6.380952380952379]
+[VIPER] iter=4/30 dataset=20000 weighted_acc=0.943695 survival=printed_by_evaluator best_score=0.968310
+[VIPER] iter=4/30 dataset=20000 weighted_acc=0.943695 survival=printed_by_evaluator best_score=0.968310
+Eval at step 25000, survival=6.994%, return=[-1.7706227268596801, 92.1149481087923, -8.212642621462388, -20.222222222222264]
+[VIPER] iter=5/30 dataset=25000 weighted_acc=0.968612 survival=printed_by_evaluator best_score=0.968612
+[VIPER] iter=5/30 dataset=25000 weighted_acc=0.968612 survival=printed_by_evaluator best_score=0.968612
+Eval at step 30000, survival=0.099%, return=[-1.0036578697618097, -0.317645788192749, -5.0, -1.1428571428571428]
+[VIPER] iter=6/30 dataset=30000 weighted_acc=0.974178 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=6/30 dataset=30000 weighted_acc=0.974178 survival=printed_by_evaluator best_score=0.974178
+Eval at step 35000, survival=0.099%, return=[-1.0036578697618097, -0.317645788192749, -5.0, -1.1428571428571428]
+[VIPER] iter=7/30 dataset=35000 weighted_acc=0.970963 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=7/30 dataset=35000 weighted_acc=0.970963 survival=printed_by_evaluator best_score=0.974178
+Eval at step 40000, survival=10.896%, return=[-2.954227619280573, 124.03643844462931, -51.07859714286557, -29.730158730158653]
+[VIPER] iter=8/30 dataset=40000 weighted_acc=0.932811 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=8/30 dataset=40000 weighted_acc=0.932811 survival=printed_by_evaluator best_score=0.974178
+Eval at step 45000, survival=1.819%, return=[-1.2238760003820062, 20.385425706704456, -5.290876738727093, -5.634920634920633]
+[VIPER] iter=9/30 dataset=45000 weighted_acc=0.964198 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=9/30 dataset=45000 weighted_acc=0.964198 survival=printed_by_evaluator best_score=0.974178
+Eval at step 50000, survival=33.829%, return=[-4.876785912987543, 450.61073439319927, -20.670732777992573, -84.4761904761909]
+[VIPER] iter=10/30 dataset=50000 weighted_acc=0.968829 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=10/30 dataset=50000 weighted_acc=0.968829 survival=printed_by_evaluator best_score=0.974178
+Eval at step 55000, survival=0.446%, return=[-1.060122848721221, 3.6817577183246613, -5.432499875314534, -1.857142857142857]
+[VIPER] iter=11/30 dataset=55000 weighted_acc=0.967338 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=11/30 dataset=55000 weighted_acc=0.967338 survival=printed_by_evaluator best_score=0.974178
+Eval at step 60000, survival=5.704%, return=[-1.5404980000651751, 78.16215083996455, -8.871036334506547, -16.47619047619045]
+[VIPER] iter=12/30 dataset=60000 weighted_acc=0.966352 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=12/30 dataset=60000 weighted_acc=0.966352 survival=printed_by_evaluator best_score=0.974178
+Eval at step 65000, survival=0.446%, return=[-1.060887422412634, 3.7258906960487366, -5.577886207029223, -1.857142857142857]
+[VIPER] iter=13/30 dataset=65000 weighted_acc=0.959864 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=13/30 dataset=65000 weighted_acc=0.959864 survival=printed_by_evaluator best_score=0.974178
+Eval at step 70000, survival=0.248%, return=[-1.0352458774577826, 1.2072076201438904, -5.493314489722252, -1.4285714285714286]
+[VIPER] iter=14/30 dataset=70000 weighted_acc=0.952578 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=14/30 dataset=70000 weighted_acc=0.952578 survival=printed_by_evaluator best_score=0.974178
+Eval at step 75000, survival=0.149%, return=[-1.00482973724138, 0.48273980617523193, -5.0, -1.2380952380952381]
+[VIPER] iter=15/30 dataset=75000 weighted_acc=0.961541 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=15/30 dataset=75000 weighted_acc=0.961541 survival=printed_by_evaluator best_score=0.974178
+Eval at step 80000, survival=6.829%, return=[-1.531722755326579, 102.00210033357143, -6.630074540153146, -19.396825396825367]
+[VIPER] iter=16/30 dataset=80000 weighted_acc=0.962562 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=16/30 dataset=80000 weighted_acc=0.962562 survival=printed_by_evaluator best_score=0.974178
+Eval at step 85000, survival=11.012%, return=[-1.8109227899112739, 164.5385987261931, -13.83447602041997, -27.28571428571442]
+[VIPER] iter=17/30 dataset=85000 weighted_acc=0.961889 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=17/30 dataset=85000 weighted_acc=0.961889 survival=printed_by_evaluator best_score=0.974178
+Eval at step 90000, survival=0.099%, return=[-1.0036578697618097, -0.317645788192749, -5.0, -1.1428571428571428]
+[VIPER] iter=18/30 dataset=90000 weighted_acc=0.962361 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=18/30 dataset=90000 weighted_acc=0.962361 survival=printed_by_evaluator best_score=0.974178
+Eval at step 95000, survival=0.099%, return=[-1.0036578697618097, -0.317645788192749, -5.0, -1.1428571428571428]
+[VIPER] iter=19/30 dataset=95000 weighted_acc=0.963520 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=19/30 dataset=95000 weighted_acc=0.963520 survival=printed_by_evaluator best_score=0.974178
+Eval at step 100000, survival=4.134%, return=[-1.3827339611792315, 57.995184461275734, -5.063689709641039, -11.142857142857137]
+[VIPER] iter=20/30 dataset=100000 weighted_acc=0.957958 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=20/30 dataset=100000 weighted_acc=0.957958 survival=printed_by_evaluator best_score=0.974178
+Eval at step 105000, survival=38.393%, return=[-5.598928212925482, 504.49822652339935, -11.017247705118885, -97.0000000000005]
+[VIPER] iter=21/30 dataset=105000 weighted_acc=0.956205 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=21/30 dataset=105000 weighted_acc=0.956205 survival=printed_by_evaluator best_score=0.974178
+Eval at step 110000, survival=28.902%, return=[-4.024415946468555, 404.5083289841811, -18.475466182959888, -130.15873015873046]
+[VIPER] iter=22/30 dataset=110000 weighted_acc=0.954864 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=22/30 dataset=110000 weighted_acc=0.954864 survival=printed_by_evaluator best_score=0.974178
+Eval at step 115000, survival=5.737%, return=[-1.4084580732354273, 81.75890081127484, -7.71666278267124, -18.333333333333304]
+[VIPER] iter=23/30 dataset=115000 weighted_acc=0.953800 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=23/30 dataset=115000 weighted_acc=0.953800 survival=printed_by_evaluator best_score=0.974178
+Eval at step 120000, survival=5.704%, return=[-1.8336968288058415, 58.404462203383446, -44.44051211234182, -17.52380952380949]
+[VIPER] iter=24/30 dataset=120000 weighted_acc=0.955010 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=24/30 dataset=120000 weighted_acc=0.955010 survival=printed_by_evaluator best_score=0.974178
+Eval at step 125000, survival=5.721%, return=[-1.3755015453789383, 83.58313649892807, -7.4652925521756215, -17.920634920634896]
+[VIPER] iter=25/30 dataset=125000 weighted_acc=0.954296 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=25/30 dataset=125000 weighted_acc=0.954296 survival=printed_by_evaluator best_score=0.974178
+Eval at step 130000, survival=0.992%, return=[-1.1235850673401728, 10.348153531551361, -5.267755636014044, -3.0000000000000013]
+[VIPER] iter=26/30 dataset=130000 weighted_acc=0.951817 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=26/30 dataset=130000 weighted_acc=0.951817 survival=printed_by_evaluator best_score=0.974178
+Eval at step 135000, survival=5.853%, return=[-1.93250405380968, 59.973258882761, -39.09144821111113, -16.333333333333304]
+[VIPER] iter=27/30 dataset=135000 weighted_acc=0.957228 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=27/30 dataset=135000 weighted_acc=0.957228 survival=printed_by_evaluator best_score=0.974178
+Eval at step 140000, survival=5.952%, return=[-1.685750470942973, 78.12560438116391, -12.076933820111057, -16.047619047619026]
+[VIPER] iter=28/30 dataset=140000 weighted_acc=0.956560 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=28/30 dataset=140000 weighted_acc=0.956560 survival=printed_by_evaluator best_score=0.974178
+Eval at step 145000, survival=33.978%, return=[-5.306079531175783, 419.1031275987625, -33.16230609382425, -88.6666666666671]
+[VIPER] iter=29/30 dataset=145000 weighted_acc=0.957490 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=29/30 dataset=145000 weighted_acc=0.957490 survival=printed_by_evaluator best_score=0.974178
+Eval at step 150000, survival=35.532%, return=[-5.683904760381362, 436.5071948220332, -53.94524428721828, -90.65079365079413]
+[VIPER] iter=30/30 dataset=150000 weighted_acc=0.959823 survival=printed_by_evaluator best_score=0.974178
+[VIPER] iter=30/30 dataset=150000 weighted_acc=0.959823 survival=printed_by_evaluator best_score=0.974178

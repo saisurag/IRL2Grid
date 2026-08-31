@@ -1,0 +1,58 @@
+Detected IPython. Loading juliacall extension. See https://juliapy.github.io/PythonCall.jl/stable/compat/#IPython
+Initializing the distributed action 'mapper'... (takes a while with big action spaces)
+[HYBRID] warm-start from checkpoint/final_PPO_bus14_T_0_0__I__1775940444_3936.tar: {'mode': 'soft', 'n_samples': 20000, 'n_actions': 50, 'n_leaves': 16, 'max_depth': 9, 'fidelity': 0.6498, 'weighted_fidelity': 0.8141073464269603, 'curated': False, 'dagger_rounds': 0}
+[DTPO] deterministic eval on 20 fixed chronics (of 1004): ids=[0, 52, 105, 158, 211, 263, 316, 369, 422, 475, 527, 580, 633, 686, 739, 791, 844, 897, 950, 1003]
+[DTPO] it=10/500 step=99990 J_new=0.0053 kept leaves=16 survival=44.40% best=44.40% std=24.4%
+[DTPO] it=20/500 step=199980 J_new=0.0039 kept leaves=16 survival=57.14% best=57.14% std=14.6%
+[DTPO] it=30/500 step=299970 J_new=0.0039 kept leaves=16 survival=52.95% best=57.14% std=13.5%
+[DTPO] it=40/500 step=399960 J_new=0.0037 kept leaves=16 survival=9.41% best=57.14% std=6.5%
+[DTPO] it=50/500 step=499950 J_new=0.0088 kept leaves=16 survival=10.67% best=57.14% std=2.1%
+[DTPO] it=60/500 step=599940 J_new=0.0045 kept leaves=16 survival=0.81% best=57.14% std=1.2%
+[DTPO] it=70/500 step=699930 J_new=0.0039 kept leaves=16 survival=0.64% best=57.14% std=0.1%
+[DTPO] it=80/500 step=799920 J_new=0.0021 kept leaves=16 survival=1.17% best=57.14% std=0.9%
+[DTPO] it=90/500 step=899910 J_new=0.0109 kept leaves=16 survival=1.99% best=57.14% std=2.3%
+[DTPO] it=100/500 step=999900 J_new=0.0026 kept leaves=16 survival=45.86% best=57.14% std=15.9%
+[DTPO] it=110/500 step=1099890 J_new=0.0013 kept leaves=16 survival=1.29% best=57.14% std=1.5%
+[DTPO] it=120/500 step=1199880 J_new=0.0029 kept leaves=16 survival=12.16% best=57.14% std=2.2%
+[DTPO] it=130/500 step=1299870 J_new=0.0043 kept leaves=16 survival=9.91% best=57.14% std=7.6%
+[DTPO] it=140/500 step=1399860 J_new=-0.0318 revert leaves=16 survival=4.08% best=57.14% std=6.6%
+[DTPO] it=150/500 step=1499850 J_new=0.0024 kept leaves=16 survival=2.71% best=57.14% std=4.4%
+[DTPO] it=160/500 step=1599840 J_new=0.0064 kept leaves=16 survival=13.26% best=57.14% std=1.1%
+[DTPO] it=170/500 step=1699830 J_new=0.0096 kept leaves=16 survival=11.12% best=57.14% std=2.6%
+[DTPO] it=180/500 step=1799820 J_new=0.0046 kept leaves=16 survival=11.70% best=57.14% std=2.5%
+[DTPO] it=190/500 step=1899810 J_new=0.0034 kept leaves=16 survival=13.54% best=57.14% std=0.0%
+[DTPO] it=200/500 step=1999800 J_new=0.0080 kept leaves=16 survival=0.88% best=57.14% std=1.0%
+[DTPO] it=210/500 step=2099790 J_new=0.0070 kept leaves=16 survival=2.79% best=57.14% std=2.2%
+[DTPO] it=220/500 step=2199780 J_new=-0.0050 revert leaves=16 survival=6.58% best=57.14% std=0.4%
+[DTPO] it=230/500 step=2299770 J_new=-0.0131 revert leaves=16 survival=6.58% best=57.14% std=0.4%
+[DTPO] it=240/500 step=2399760 J_new=0.0021 kept leaves=16 survival=8.31% best=57.14% std=0.0%
+[DTPO] it=250/500 step=2499750 J_new=0.0070 kept leaves=16 survival=9.11% best=57.14% std=1.0%
+[DTPO] it=260/500 step=2599740 J_new=0.0102 kept leaves=16 survival=12.02% best=57.14% std=2.3%
+[DTPO] it=270/500 step=2699730 J_new=0.0068 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=280/500 step=2799720 J_new=0.0141 kept leaves=16 survival=8.77% best=57.14% std=1.4%
+[DTPO] it=290/500 step=2899710 J_new=0.0108 kept leaves=16 survival=8.78% best=57.14% std=0.0%
+[DTPO] it=300/500 step=2999700 J_new=0.0066 kept leaves=16 survival=8.76% best=57.14% std=0.0%
+[DTPO] it=310/500 step=3099690 J_new=-0.0008 revert leaves=16 survival=8.78% best=57.14% std=0.0%
+[DTPO] it=320/500 step=3199680 J_new=-0.0057 revert leaves=16 survival=8.77% best=57.14% std=0.0%
+[DTPO] it=330/500 step=3299670 J_new=0.0121 kept leaves=16 survival=9.51% best=57.14% std=1.6%
+[DTPO] it=340/500 step=3399660 J_new=0.0090 kept leaves=16 survival=8.32% best=57.14% std=0.0%
+[DTPO] it=350/500 step=3499650 J_new=0.0023 kept leaves=16 survival=13.43% best=57.14% std=0.3%
+[DTPO] it=360/500 step=3599640 J_new=0.0098 kept leaves=16 survival=11.81% best=57.14% std=1.8%
+[DTPO] it=370/500 step=3699630 J_new=0.0182 kept leaves=16 survival=8.60% best=57.14% std=0.0%
+[DTPO] it=380/500 step=3799620 J_new=0.0158 kept leaves=16 survival=12.34% best=57.14% std=2.1%
+[DTPO] it=390/500 step=3899610 J_new=0.0102 kept leaves=16 survival=8.90% best=57.14% std=0.1%
+[DTPO] it=400/500 step=3999600 J_new=0.0034 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=410/500 step=4099590 J_new=0.0309 kept leaves=16 survival=13.30% best=57.14% std=1.0%
+[DTPO] it=420/500 step=4199580 J_new=0.0150 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=430/500 step=4299570 J_new=0.0154 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=440/500 step=4399560 J_new=0.0164 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=450/500 step=4499550 J_new=0.0137 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=460/500 step=4599540 J_new=0.0046 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=470/500 step=4699530 J_new=0.0265 kept leaves=16 survival=8.78% best=57.14% std=0.0%
+[DTPO] it=480/500 step=4799520 J_new=0.0158 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=490/500 step=4899510 J_new=0.0195 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] it=500/500 step=4999500 J_new=0.0340 kept leaves=16 survival=13.53% best=57.14% std=0.0%
+[DTPO] stored 5 candidate trees for final selection (cheap survivals: ['57.1%', '52.9%', '45.9%', '44.4%', '13.5%']). Run dtpo_select.py --ckpt <ckpt> --episodes 100 to pick the honest best.
+[curve] dtpo_testing_7/bus14_t0.5_d0_seed100_N500/curve.png  final_best=57.1%  first_100_at_it=None  leaves=16
+[viz] dtpo_testing_7/bus14_t0.5_d0_seed100_N500/tree.dot  (depth=6 leaves=16 actions=50)
+[viz] dtpo_testing_7/bus14_t0.5_d0_seed100_N500/tree.svg
