@@ -81,7 +81,7 @@ reported result distils from them:
 
 The remaining checkpoints are available here, in a folder mirroring this repository's structure:
 
-    https://drive.google.com/file/d/1umMYjQjIqHf9r2qNF1TBN7723wZlO4LH/view?usp=sharing
+    https://drive.google.com/file/d/1Pb0b8U6JRertQdG9igteh-RTTkOoG417/view?usp=drive_link
 
 ## Provenance
 
