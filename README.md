@@ -1,6 +1,7 @@
 # Interpretable RL2Grid: Benchmarking Interpretable RL for Power Grid Operations
 
 MSc Advanced Computing, Imperial College London
+
 Supervisor: Dr. Francesco Leofante
 
 This GitHub repository accompanies the MSc thesis on Explainable Reinforcement Larning for Power Grid Operations. It is built upon the RL2Grid benchmark, which can be found at the following link: https://github.com/emarche/RL2Grid
@@ -80,7 +81,7 @@ reported result distils from them:
 
 The remaining checkpoints are available here, in a folder mirroring this repository's structure:
 
-    https://imperiallondon-my.sharepoint.com/:f:/g/personal/ssl125_ic_ac_uk/IgAryJdUAyF4Rqv3JtcbAtKvAduQvIQqQKM3VKeEy0Y11Kc?e=cr4P5t
+    https://drive.google.com/file/d/1umMYjQjIqHf9r2qNF1TBN7723wZlO4LH/view?usp=sharing
 
 ## Provenance
 
