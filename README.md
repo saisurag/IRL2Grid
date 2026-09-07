@@ -4,7 +4,7 @@ MSc Advanced Computing, Imperial College London
 
 Supervisor: Dr. Francesco Leofante
 
-This GitHub repository accompanies the MSc thesis on Explainable Reinforcement Larning for Power Grid Operations. It is built upon the RL2Grid benchmark, which can be found at the following link: https://github.com/emarche/RL2Grid
+This GitHub repository accompanies the MSc thesis on Explainable Reinforcement Learning for Power Grid Operations. It is built upon the RL2Grid benchmark, which can be found at the following link: https://github.com/emarche/RL2Grid
 
 ## Setup
 
@@ -53,8 +53,6 @@ By default grid2op downloads into ~/data_grid2op. To put it elsewhere, set "data
     July-Runs/      tests run during the month of July, during which defects were observed and fixed
     Final-Results/  the final tests run during July and August, which form the basis of the thesis
 
-It should be noted that not all tests have all been backtracked and added to this repository. Significant work was also spent on replicating MAVIPER (https://arxiv.org/abs/2205.12449) within MARL2Grid-TR (https://openreview.net/forum?id=mpAMH1OyMO), as well as initial tests during the months of April and May on post-hoc methods such as AGUA (https://dl.acm.org/doi/10.1145/3718958.3754341). These were not included due to dead code and lack of correlation with the final thesis. 
-
 
 ## Evaluating a checkpoint
 
@@ -90,3 +88,7 @@ Built on RL2Grid (https://github.com/emarche/RL2Grid) at commit `2812a6f`, clone
 Upstream ships dqn, lagr_ppo, ppo, sac and td3. Everything else is this project's work.
 
 Commit history is chronological and records the work as it happened, including the retractions.
+
+## Note
+
+Not all tests have all been backtracked and added to this repository. Significant work was also spent on replicating MAVIPER (https://arxiv.org/abs/2205.12449) within MARL2Grid-TR (https://openreview.net/forum?id=mpAMH1OyMO), as well as initial tests during the months of April and May on post-hoc methods such as AGUA (https://dl.acm.org/doi/10.1145/3718958.3754341). These were not included due to dead code and lack of correlation with the final thesis. 
