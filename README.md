@@ -49,7 +49,7 @@ By default grid2op downloads into ~/data_grid2op. To put it elsewhere, set "data
 
     April-Runs/     tests run during the month of April
     May-Runs/       tests run during the month of May
-    June-Runs/      tests run uring the month of July, focusing primarily on DTPO
+    June-Runs/      tests run during the month of July, focusing primarily on DTPO
     July-Runs/      tests run during the month of July, during which defects were observed and fixed
     Final-Results/  the final tests run during July and August, which form the basis of the thesis
 
