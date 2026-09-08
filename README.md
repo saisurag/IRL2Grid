@@ -9,13 +9,12 @@ This GitHub repository accompanies the MSc thesis on *Explainable Reinforcement 
 ## Contents
 
 - [Setup](#setup)
-- [Grid environmets](#grid-environments)
+- [Grid environments](#grid-environments)
 - [Repository layout](#repository-layout)
 - [Checkpoints](#checkpoints)
 - [Reproducibility](#reproducibility)
 - [Evaluation protocol](#evaluation-protocol)
 - [Provenance](#provenance)
-- [Additional notes](#additional-notes)
 - [Declaration](#declaration)
 
 ## Setup
@@ -57,7 +56,7 @@ The grids come directly from Grid2Op (https://grid2op.readthedocs.io/en/latest/)
     bus36-M    l2rpn_wcci_2020
     bus118-M   l2rpn_neurips_2020_track2_small
 
-By default grid2op downloads into ``~/data_grid2op`. To put it elsewhere, set `data_path` in `~/.grid2opconfig.json`. Do not let a multi-process run do the first download, as the workers race each other and this will corrupt the archive. Pull each dataset once in a single-process first, for:
+By default grid2op downloads into ``~/data_grid2op``. To put it elsewhere, set `data_path` in `~/.grid2opconfig.json`. Do not let a multi-process run do the first download, as the workers race each other and this will corrupt the archive. Pull each dataset once in a single-process first, for:
 
     python -c "import grid2op; grid2op.make('l2rpn_case14_sandbox')"
 
@@ -193,7 +192,7 @@ I acknowledge the use of Claude Code (Anthropic, https://claude.ai/code) as an a
 
 ## References
 
-[1] Marchesini E, Donnot B, Crozier C, Dytham I, Merz C, Schewe L, et al. RL2Grid: Benchmarking reinforcement learning in power grid operations. arXiv preprint arXiv:250323101. 2025.
+[1] Marchesini E, Donnot B, Crozier C, Dytham I, Merz C, Schewe L, et al. RL2Grid: Benchmarking reinforcement learning in power grid operations. arXiv preprint arXiv:2503.23101. 2025.
 
 [2] Marot A, Donnot B, Dulac-Arnold G, Kelly A, O’Sullivan A, Viebahn J, et al. Learning to run a power network challenge: a retrospective analysis. In: NeurIPS 2020 competition and demonstration track. PMLR; 2021.
 
@@ -209,4 +208,4 @@ I acknowledge the use of Claude Code (Anthropic, https://claude.ai/code) as an a
 
 [8] Ross S, Gordon G, Bagnell D. A reduction of imitation learning and structured prediction to no-regret online learning. In: Proceedings of the fourteenth international conference on artificial intelligence and statistics. JMLR Workshop and Conference Proceedings; 2011. p. 627-35.
 
-[9] Dutta R, Wang Q, Singh A, Kumarjiguda D, Xiaoli L, Jayavelu S. S-reinforce: A neuro-symbolic policy gradient approach for interpretable reinforcement learning. arXiv preprint arXiv:230507367. 2023. 
+[9] Dutta R, Wang Q, Singh A, Kumarjiguda D, Xiaoli L, Jayavelu S. S-reinforce: A neuro-symbolic policy gradient approach for interpretable reinforcement learning. arXiv preprint arXiv:2305.07367. 2023. 
