@@ -46,7 +46,7 @@ To not have any further issues with library clashes, you can also run the follow
     pip install "stable_baselines3==2.3.2" wandb pandas tqdm numba
     pip install --force-reinstall --no-deps "numpy==1.26.4" "gymnasium==0.29.1"
 
-Ensure that the action spaces is always unzipped before running any experiments, as a run will fail without their presence. In this repository, the unzipped folder has already been provided under `env/action_spaces/`. If the folder is accidentally deleted, `env/action_spaces.zip` has been provided, and can be unzipped using the `unzip` command.
+Ensure that the action spaces is always unzipped before running any experiments, as a run will fail without their presence. The zip file `env/action_spaces.zip` has been provided, and can be unzipped using the `unzip` command.
 
 ## Grid environments
 
