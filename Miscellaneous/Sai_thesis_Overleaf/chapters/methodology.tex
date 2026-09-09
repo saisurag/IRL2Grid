@@ -1,0 +1,105 @@
+\chapter{Methodology}
+\label{ch:Methodology}
+
+This chapter delves into the protocol, detailing the methodology that will be used to run experiments. The decision-making process and the choices made for the acquisition of the results will be explained, allowing for the development of a reproducible evaluation protocol for the scoring of interpretable grid controllers.
+
+\section{Task}
+
+For this research, the task will be limited to the topology action space, since decision trees are best suited to adapt to discrete actions. Hence, redispatch with continuous actions will not be taken into consideration. Additionally, the authors of RL2Grid \cite{marchesini2025rl2grid} state that easier levels of difficulty (which refers to the number of topological actions possible, with a higher `difficulty' referring to a greater number of action spaces) allow for better probability of ``addressing contingencies," leading to a higher survival rate. Since the RL2Grid paper provides a plethora of proof that size and scalability are challenges within the complex domain of power grid operations, the majority of testing will be restricted to the baseline algorithms of the topological grid at difficulty level 0. This means that for each of the environments tested, there are only 50 actions possible. These actions are acquired from the Gymnasium framework within Grid2Op \cite{marot2021learning}.
+
+It should be noted that although the number of actions being limited to 50 reduces the complexity of both the decision tree required as well as that of the environment, the true number of actions possible if the highest difficulty is chosen is 209 and 66,978 actions for bus14 and bus36-M respectively. Another aspect is that due to the limitation of the actions, only some substations are reached by these actions. For bus5, bus14, and bus36-M, although they have 5, 14, and 36 substations respectively, these actions limit the coverage to 4 (bus5 substations 0-3), 8 (bus14 substations 0, 1, 3, 4, 5, 8, 11, 12), and 3 (bus36-M substations 26, 27, 28) substations respectively. Hence, this could substantially impact survival rate, as most of the network cannot be accessed by these actions, and issues (if any) cannot be resolved. This will be further discussed in the Results section.
+
+\section{Environment}
+
+The Grid2Op environment, detailed in the Background section, functions through `chronics', which is essentially the equivalent name for time series. These are data that change the ``input parameter of a power flow'' from one time step to another. 20 chronics are present within bus5, whereas bus14 and bus36-M have 1004 and 2880 chronics respectively. Each time step lasts for 5 minutes. The maximum steps for the three environments being used are 2016 (one week of operation), 8064 (four weeks of operation), and 8062 respectively. Survival is calculated by dividing the number of steps that the grid remained operational by the grid's maximum episode duration, allowing for the survival rate to be comparable across grids even if the maximum number of steps possible in the grid differs. 
+
+\section{Protocol}
+
+The RL2Grid benchmark provides the evaluation of its reinforcement learning algorithms through its \texttt{env\_eval.py} file, which provides a single function \texttt{evaluate(self, glob\_step, model, eval\_ep)} that rolls only three random episodes from a bare-bones reset environment. A fixed scenario set is not utilised for this testing purpose, and neither is a training/validation/testing split taken into consideration for testing the algorithm. This causes extreme instability and fluctuation in the survival rate metric, leaving users unaware as to whether a strong policy has been trained. Since our improvement to DTPO requires enhancement to stability of survival rate growth, we can evaluate this through a new file \texttt{honest\_eval\_any.py}, which calls a new function \texttt{evaluate\_fixed(self, model, chronic\_ids, reset\_norm)}, that allows for reproducible scoring. To ensure that the teacher oracle and the `do-nothing' policy is also evaluated on the exact same chronics, \texttt{oracle\_honest\_eval.py} and \texttt{eval\_idle.py} are used respectively.
+
+PPO represents its policy as a neural network, where training allows for continual fine-tuning of parameters, converging towards a single artefact. On the other hand, DTPO instead represents the policy as a decision tree. This tree is relearnt every iteration rather than adjusted; this causes training to produce structurally different trees. The tree is evaluated every ten iterations, and the policy with the best deterministic performance is returned.     
+
+Taking budgets of both time and resources into account, the iterations of DTPO have been limited to 150. As stated in the previous chapter, the survival rate statistic available during training is not enough to simply determine the output. Therefore, this reading during training, which includes the observation normaliser metric, is used to select the best candidates in the trees chosen, instead of limiting the horizon to solely one tree. To ensure the best tree is selected, the top five trees are saved in the checkpoints whenever work with regard to DTPO is done. Five is chosen as a valid compromise between minimising time and resource utilisation, and maximising survival rate evaluated post-training. We do not wish to choose and report on the same episodes, essentially leading to training and testing overlap, which is why we strongly advocate that the reported results are produced on episodes that did not partake in the training process of the decision trees. 
+
+Time is stated to be a huge factor in the decision-making process of the methodology due to the CPU-bound design of the benchmark and framework. Ideally, the optimal conduction of experimentation is when consistency checks can be held across multiple random seeds. However, as computational feasibility needs to be considered, we will considerably limit the number of seeds that each configuration is tested at. Unless stated otherwise, the number of seeds tested will be 10. In the cases where it is stated otherwise, the number of seeds will be 5 due to lengthy training procedures. This will be referred to once again in the limitations section in the Results. As the initial grid condition and actions taken can have a trickle-down effect on the entire environment, results reported will highlight the best survival rate, but the average and median survival rate across all tests will also be reported for analysis purposes. 
+
+\subsection{Metrics}
+
+The survival score is a useful gauge to check progress during training, but we wish to incorporate this into the selection process when improving our decision tree. After all, the return might increase, but the survival may not. Since we wish to select the best decision tree that considers survival rate too, for the selection step of the algorithms, we will take into consideration the highest-survival candidates.
+
+It is vital that we observe the results over multiple episodes, since a consequence of calculating the survival score from chronics is that we randomly sample from the possible 'chronics'. This means that the survival rate of a policy becomes conditional on the chronics randomly chosen, leading to scenarios where the same policy can output differing survival rates based on the chronics chosen. The random sampling of the chronics by RL2Grid further exacerbates the instability in survival rate, especially as the scalability and size of environments increase. Even for deterministic policies where no action is taken (the do-nothing action), there will undeniably be variation in the survival score based on the chronic chosen. Since the choice of chronics impacts policy evaluation, two things must be taken into consideration. We can test whether the policy we have trained can generalise to a chronic that the policy has never seen before, ensuring that there is no overlap between training and testing. For this, we require a holdout set, to be able to check this generalisation. Additionally, there must be a clear distinction between the score used to choose the tree, and the sample of chronics used to evaluate the tree's performance. Although the original benchmark's survival score showcases how well an algorithm converges, shifting towards explaining reinforcement learning means that we have a fixed artefact that can be tested for evaluation.
+
+Due to these reasons, the scenarios are partitioned as follows:
+
+\begin{table}[H]
+\centering\small
+\begin{tabular}{llll}
+\toprule
+set & rule & used for & disjoint from \\
+\midrule
+$\mathcal{C}_{\text{train}}$  & $\mathrm{id} \bmod K \neq K-1$ & rollouts & the held pool \\
+$\mathcal{C}_{\text{gate}}$   & \texttt{gate\_chronic\_ids}$(E)$ & the survival gate & everything reported \\
+$\mathcal{C}_{\text{select}}$ & \texttt{fixed\_chronic\_ids}$(H)[0::2]$ & ranking candidates & $\mathcal{C}_{\text{report}}$ \\
+$\mathcal{C}_{\text{report}}$ & \texttt{fixed\_chronic\_ids}$(H)[1::2]$ & the reported score & every decision \\
+\bottomrule
+\end{tabular}
+\caption{The four scenario sets. $K$ = \texttt{--chronic-holdout}, $E$ =
+\texttt{--dtpo-eval-total}, $H$ = honest-eval total.}
+\label{tab:partition}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+grid & $K$ & training pool & $E$ ($\mathcal{C}_{\text{gate}}$) & $H$ & select / report \\
+\midrule
+bus5    & 2 &   10 / 20      & 10 & 10 & 5 / 5 \\
+bus14   & 4 &  753 / 1{,}004 & 40 & 80 & 40 / 40 \\
+bus36-M & 4 & 2{,}160 / 2{,}880 & 40 & 80 & 40 / 40 \\
+\bottomrule
+\end{tabular}
+\caption{Per-grid partition sizes. Ids depend only on pool size and total, so
+every method on a grid is scored on identical episodes.}
+\label{tab:partition-sizes}
+\end{table}
+
+% $\mathcal{C}_{\text{train}} \to \mathcal{C}_{\text{gate}} \subset
+% \mathcal{C}_{\text{train}}$, and $\mathcal{C}_{\text{select}} \mid
+% \mathcal{C}_{\text{report}}$ both inside the held pool and disjoint from each
+% other.
+
+$K$ = \texttt{--chronic-holdout} allows for the training environment to be filtered to ids where $\mathrm{id} \bmod K \neq K-1$, such that the held-out fraction is $\frac{1}{K}$. $K = 4$ was used on bus14 and bus36-M, giving a conventional 75/25 train/hold-out split. The resulting held-out pools exceed the evaluation budget of 80. On bus5, where there are only 20 chronics, which cannot support this ratio, we use $K = 2$. This means that the resulting held-out pool of 10 is fully used by the evaluation budget. The held-out pools for bus14 and bus36-M are much larger than the chosen value of 80 for evaluation purposes. It is accepted that a much stronger measurement will be obtained if the entire held-out pool is used for evaluation purposes; however, the evaluation budget was limited to 80 as this provided a trade-off between computational use and runtime. Therefore, 80 is set as the code default, and this will be further discussed in limitations, with regards to hyperparameter tuning for future work in this field.
+
+\section{Baseline Reference}
+
+As the baseline reference, two policies will be used, namely the ``do-nothing'' policy, where action 0, the ``do-nothing'' action, will be repeatedly called at each time step, as well as the strongest available trained teacher policy, referred to as the PPO oracle. Due to DTPO's compatibility with PPO, this will be used as the teacher oracle for all experiments. Although previous testing did showcase that, on occasion, DQN oracles were stronger than PPO, this was highly dependent on the seed chosen and the grid environment, and was not stable. For the three grid environments we will evaluate on, the decision was made to utilise PPO oracles due to their high survival rates. The oracle checkpoints of bus5 and bus14 were obtained directly from the authors of the RL2Grid paper \cite{marchesini2025rl2grid}. The PPO oracle for bus36-M was trained in-house. Both baseline policies are reported per seed, and each reference to them is paired per seed for configuration consistency. The teacher oracle is the primary reference, and the do-nothing policy is the secondary reference, since through this work, we aim to observe the trade-off between the performance of a model and the interpretability present. The goal is to maintain reasonable survival performance while ensuring that the tree stays compact enough to remain human-readable.
+
+For example, the RL2Grid paper \cite{marchesini2025rl2grid} reports that for bus14 at difficulty 0 in the topology setting, the do-nothing policy provides a survival rate of 0.18\%, and vanilla PPO showcases a survival rate of 74\%. On the other hand, our post-evaluation protocol reports an average of 19.69\% on the do-nothing policy, and the PPO oracle reports an average survival rate of 66.85\% across 10 seeds. This discrepancy between the reported values and our protocol could be due to the fact that the original evaluation of the teacher oracle is simply within training itself, and not on a held-out testing set after training has been completed.
+
+For consistency purposes and clarity in naming convention, it should be noted that GDTPO is the method, with its pseudocode algorithm defined in Algorithm~\ref{alg:gdtpo}. Within the coding scheme, \texttt{dtpo-full} is the method that implements this algorithm, and corresponding directories hold the same name.
+
+\section{Training}
+
+\textbf{Data collection.} This has been performed on Imperial College London's primary HPC facility, CX3. Training was performed on an Intel Icelake Xeon Platinum 8358 CPU node (64 cores). Multiple nodes were not available due to limited access to the HPC system. The visualisation and analysis of the results were performed on a local machine, with an AMD Ryzen 7500F 6-core CPU. As aforementioned, the survival rate $\in [0, 1]$ is reported, where a value of 1 denotes a survival rate of 100\%, which means that the grid operations have been successful for the entire episode length.
+
+\textbf{Metrics.} All figures in Chapter~\ref{ch:Results} will denote the survival rate in percentage (\%) on the held-out pool, with a 16-leaf budget for the decision tree, unless stated otherwise. Every ratio and delta will be computed per seed with respect to its counterpart baseline policy of either the do-nothing policy or the original teacher PPO oracle, before aggregation of the results. As a secondary metric, we will also briefly look into fidelity. Fidelity is calculated as the fraction of visited states at which the greedy action of the decision tree matches that of the teacher oracle. We also explore weighted fidelity, where each state is weighted by the margin between the top two actions ranked by the teacher, to understand the impact especially during critical actions where one action is highly favoured over others. It is calculated as follows:
+
+\begin{equation}
+\text{Weighted Fidelity} =
+\frac{
+\sum_{i=1}^{N}
+w(s_i)
+\mathbb{I}
+\left[
+\pi_{\text{tree}}(s_i)
+=
+\pi_{\text{oracle}}(s_i)
+\right]
+}{
+\sum_{i=1}^{N} w(s_i)
+}
+\end{equation}
+
+
+

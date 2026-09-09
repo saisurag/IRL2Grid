@@ -1,0 +1,90 @@
+\documentclass[12pt,twoside]{report}
+\usepackage{amssymb}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{svg}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage{url}
+\usepackage{doi}
+\usepackage{hyperref}
+
+\newcommand{\reporttitle}{Explainable Reinforcement Learning for Power Grid Operations}
+\newcommand{\reportauthor}{Sai Surag Lingampalli}
+\newcommand{\supervisor}{Dr. Francesco Leofante}
+\newcommand{\degreetype}{Advanced Computing}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% load some definitions and default packages
+\input{includes}
+
+% load some macros
+\input{notation}
+
+\date{September 2026}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+\begin{document}
+\raggedbottom
+
+% load title page
+\input{titlepage}
+
+% page numbering etc.
+\pagenumbering{roman}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+Reinforcement learning (RL) is a viable strategy to tackle the decision-making process in power grid operations, allowing for adaptive and dynamic control within complex environments. Topology optimisation is an attractive yet challenging task for such systems, where agents take discrete actions on the grid topology to handle overloads. Although this task is cost-effective, the policies generated are complex due to the exponential nature of configuration combinations. One of the key challenges that positions itself as a barrier to real-world deployment is the lack of explainability, limiting understanding of these black-box models. To ensure trust within these models, the solutions developed must have policies that are both strong and transparent. This work evaluates the applicability of existing state-of-the-art methods that yield intrinsically interpretably policies within topology optimisation. These methods transfer inadequately, preserving operational performance to a limited degree. To address this issue, this work proposes Gated Decision Tree Policy Optimisation (GDTPO), a method that implements four simple yet decisive modifications that build upon existing policy optimisation techniques to extract intrinsically interpretable decision trees within topology optimisation. The resulting method achieves promising performance, recovering on average 77.8\% of its PPO black-box teacher on the bus14 grid environment within a 16-leaf tree. By pushing the envelope and outlining the open challenges in applying RL within power grid systems, this work aims to highlight the importance of transparent artificial intelligence within the energy sector.
+
+\end{abstract}
+
+% \cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\abstractname}{Acknowledgements}
+\begin{abstract}
+
+I would like to sincerely thank and express my deepest gratitude to my supervisor Dr. Francesco Leofante for his invaluable guidance and relentless support. His insightful feedback and perspectives have allowed me to explore this new domain of explainable reinforcement learning. His patience and expertise truly allowed me to blossom and guided me towards extracting more out of myself and my work.
+
+I would also like to thank the staff at the Department of Computing at Imperial College London, who have made my academic and personal growth possible.
+
+I express my utmost gratitude and love to my family - my mom, my dad, and my sister - for continually believing in me and supporting me throughout my academic and personal growth. Last but not least, I would like to thank the friends I have made across my undergraduate and graduate journeys, who have inspired and encouraged me at every step of the way.
+
+\end{abstract}
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%--- table of contents
+\fancyhead[RE,LO]{\sffamily {Table of Contents}}
+\tableofcontents 
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[LO,RE]{\slshape \leftmark}
+
+\input{chapters/introduction}
+\input{chapters/background}
+\input{chapters/gdtpo}
+\input{chapters/methodology}
+\input{chapters/results}
+\input{chapters/lessonslearned}
+\input{chapters/conclusion}
+
+%% bibliography
+\bibliographystyle{vancouver}
+\bibliography{references}
+
+\input{chapters/declarations}
+
+\end{document}

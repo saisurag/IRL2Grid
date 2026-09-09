@@ -1,0 +1,87 @@
+\chapter{Gated Decision Tree Policy Optimisation}
+\label{ch:gdtpo}
+
+In this chapter, we will delve deep into the Decision Tree Policy Optimisation algorithm detailed in Alg.~\ref{alg:dtpo}, understanding its limitations, especially within the domain of power grid operations, and identifying its points of improvement. We will then present mechanisms to reduce these potential points of failure, enhancing and adapting the algorithm for use within the application of power grids, and in doing so, propose a novel online reinforcement learning algorithm that corrects these drawbacks.
+
+\section{Limitations of DTPO}
+
+\textbf{Single leaf initialisation.} Although this algorithm addresses being able to directly optimise decision trees, there exist various drawbacks and avenues of improvement that can yield more promising returns in terms of both reward and optimisation. DTPO begins its development of the decision tree from a singular leaf, which is time-consuming. Especially within the discrete topology action space of a power grid, it can be extremely difficult for a tree to discover useful splits and actions, increasing instability during the initial stages of training and tree growth. 
+
+\textbf{Sample inefficiency and noisy fits.} Furthermore, as identified by the authors \cite{vos2024optimizing}, DTPO suffers just like its policy gradient method counterparts in being unable to improve sample efficiency substantially. This issue is exacerbated by noisy fits of decision trees on training data, even with a larger batch size, within complex environments such as power grid operations. Using only a single batch does not help with tree fitting. To tackle this, the memorisation and replay of previous experience are hypothesised by the authors to improve the efficiency of the algorithm. 
+
+\textbf{Relearning a tree from scratch.} A further limitation that is also identified by the original authors is that DTPO relearns its tree from scratch at every iteration. This structural leap of processing a fresh tree every iteration means that we do not have continual improvements for the policy gradient step; rather, the behaviour is erratic and discontinuous, leading to further training instability. Especially when training a grid controller in such a complex environment, this can lead to the actions of the leaves changing every iteration; each iteration can generate a structurally different tree, and small improvements are not obtained.
+
+\textbf{Lack of acceptance on survival.} Although the objective is an expectation of advantage-weighted probability ratios collected from advantages provided by a learned critic, we care more about the survival rate of the policy within our environment. It is vital that we keep the tree alive for as long as possible. Since an accepted tree is able to collect the next batch of experience data, this can poison the data on which iterations are fitted, causing a destructive loop within training and impacting survival. 
+
+\section{Improvements to DTPO}
+
+\textbf{Improvement 1: Oracle warm starting.} To address the first limitation of growing trees from a single leaf, the policy can be initialised by distilling a trained oracle $O$ into a regression tree with a max leaf budget of $L$. The trained oracle is rolled greedily within the environment to record its action distribution and fit a tree on these soft targets. The utilisation of a trained teacher oracle as the starting point is inspired by the VIPER and DAgger methods, where the oracle is similarly greedily rolled, and its actor logits are recorded at each visited state. Since DTPO requires the probability vector, the soft targets are taken into consideration for GDTPO as well. The implementation of this improvement can be seen in line 1.
+
+\textbf{Improvement 2: Replay aggregation.} To address the second limitation of improving sample efficiency, batch replay aggregation has been implemented in line 5, as the use of the previous M batches of data will help increase the data available in the buffer, and also reduce the noise for fitting decision trees. Since we require a way to differentiate the most important data, the probability of the policy assigned to the action during the collection of the sample is recorded via the behavioural probability $\beta_t$ (line 4), thereby reducing the weight of the samples that the current tree would be unlikely to produce.
+
+Since $\beta_t$ is introduced, the formulae for the importance ratios $\rho_t$ and targets $Y_t$ still utilise the same structure as Alg.~\ref{alg:dtpo}, but are slightly modified to accommodate this change. The formulae for these are as follows, respectively:
+
+\begin{equation}
+\rho_t = \operatorname{clip}\!\left(\frac{\pi(a_t \mid s_t)}{\beta_t},\, 0,\, c\right)
+\label{eq:rho}
+\end{equation}
+
+\begin{equation}
+Y_t = \sigma\!\left(l_t + \eta\, \rho_t \hat{A}_t \left(e_{a_t} - \pi(s_t)\right)\right)
+\label{eq:targets}
+\end{equation}
+
+\textbf{Improvement 3: Decoupled structure refitting.} To address the third limitation of unstable training via continual refitting of trees, changes are implemented such that the structure is regrown only every $K_{\text{regrow}}$ iterations (as shown in line 7), and the splits are retained in other iterations. This ensures that the continuity of training and explanation is not lost at each iteration. Each visited leaf's value will keep the importance-weighted mean of that iteration's target, allowing for smaller continuous steps. Unvisited leaves will keep their previous values.
+
+\textbf{Improvement 4: Survival gate mechanism.} To address the fourth limitation of a lack of alignment between the surrogate and the survival rate, the decision to deploy a tree can be switched from the surrogate to the environment. This is via a gate mechanism that deterministically evaluates the tree over a fixed set of training scenarios. It would permit the collection of the next batch of data only if its survival rate is at least that of the current policy, with a tolerance $\delta$. For this project, $\delta$ (line 15) was set to 0, ensuring that the survival rate of the new policy does not decline. If the gate mechanism prompts a rejection, then the current policy is kept as is, and the replay buffer will be flushed, since there would be a mismatch between the data generated by the potentially new policy and the policy that is being used to fit the decision tree. If the policy is unchanged, it is not re-evaluated. A patience parameter $p$ is also incorporated into this improvement, to ensure that runs do not stall if there are consecutive rejections. Thus, we can stabilise training and ensure that there is no new policy that has a worse survival rate than the current policy, except after $p$ consecutive rejections, which prevents stalling.
+
+\section{GDTPO Algorithm}
+
+Implementing the improvements upon the original limitations, this work presents Gated Decision Tree Policy Optimisation, the pseudocode of which is showcased below in Alg.~\ref{alg:gdtpo}. The four modifications and improvements mentioned in this project refer to oracle warm starting, replay aggregation, decoupled structure refitting, and the survival gate mechanism.
+
+To address the four limitations stated above, GDTPO modifies DTPO at four points. Each modification is controlled by a single flag within the code, allowing for both the implementation of the pseudocode of the original DTPO algorithm within the context of power grid systems, as well as contributing to the ablation study in the Results section. With no oracle, $M = 1$, $K_{\text{regrow}} = 1$, and the gate disabled, Alg.~\ref{alg:gdtpo} reduces exactly to Alg.~\ref{alg:dtpo}; this is the DTPO baseline used throughout.
+
+
+% ============================================================
+
+\begin{algorithm}[H]
+\label{alg:gdtpo}
+\SetAlgoVlined
+\DontPrintSemicolon
+Initialise policy $\pi$ by distilling the oracle $O$ into a regression tree with at most $L$ leaves, or as a single uniform leaf (Alg.~\ref{alg:dtpo}, line 1) if no oracle is given\;
+Initialise replay buffer $D \leftarrow \emptyset$ over the last $M$ batches, $\pi_{\text{dep}} \leftarrow \emptyset$, $S_{\text{dep}} \leftarrow -\infty$\;
+\For{$i = 1, \dots, N$}{
+  Run $\pi$ for $t = 1 \dots T$ timesteps, collecting $s_t$, $a_t$, $r_t$ and $\beta_t = \pi(a_t \mid s_t)$\;
+  Compute GAE($\lambda$) advantages $\hat{A}_t$; add the batch to $D$; normalise over $D$\;
+  Compute ratios $\rho_t$ (Eq.~\ref{eq:rho}) and targets $Y_t$ (Eq.~\ref{eq:targets}) for all $t \in D$\;
+  \eIf{$K_{\text{regrow}}$ iterations have passed, or $\pi$ has no tree}{
+    Fit a new tree $\pi'$ on $(s_t, Y_t)$ with weights $\rho_t$ and at most $L$ leaves\;
+  }{
+    $\pi' \leftarrow \pi$; keep splits, and set each visited leaf to its $\rho$-weighted mean $Y_t$\;
+  }
+  Accept $\pi \leftarrow \pi'$ if it improves $L^{\text{DT}}_D$ (Eq.~\ref{eq:ldt_replay})\;
+  Update the value function on the newest batch for $E$ epochs, batch size $B$, using Adam\;
+  \If{$\pi \neq \pi_{\text{dep}}$}{
+    Evaluate a deterministic copy of $\pi$ on $\mathcal{C}_{\text{gate}}$ as $S$, and store $(\pi, S)$\;
+    \eIf{$S \geq S_{\text{dep}} - \delta$, or this is the $p$-th consecutive rejection}{
+      $\pi_{\text{dep}} \leftarrow \pi$, $S_{\text{dep}} \leftarrow \max(S_{\text{dep}}, S)$\;
+    }{
+      $\pi \leftarrow \pi_{\text{dep}}$, clear $D$\;
+    }
+  }
+}
+\KwReturn{the $K_{\text{keep}}$ candidates with highest $S$, for held-out selection}
+\caption{Gated Decision Tree Policy Optimisation (GDTPO)}
+\end{algorithm}
+
+The variables $\pi_{\text{dep}}$, $S$, and $S_{\text{dep}}$ refer to the deployed policy, survival rate of a candidate policy, and the highest survival rate attained by a deployed policy respectively. In line 11, the DTPO loss is taken over the replay buffer $D$, with the probability ratio measured against the behaviour policy that collected each sample and clipped at $c$:
+\begin{equation}
+L^{\text{DT}}_D(l) = \mathbb{E}_{t \in D}\!\left[ \operatorname{clip}\!\left(\frac{\sigma(l_t)_{a_t}}{\beta_t},\, 0,\, c\right) \hat{A}_t \right]
+\label{eq:ldt_replay}
+\end{equation}
+
+where $l_t = \log(\pi(s_t) + 10^{-8})$ as in Alg.~\ref{alg:dtpo}. Eq.~\ref{eq:targets} is the DTPO update $\sigma(l_t + \eta \nabla L^{\text{DT}}(l_t))$ with the advantage reweighted by the clipped importance ratio, $\hat{A}_t \rightarrow \rho_t \hat{A}_t$; samples from the newest batch have $\rho_t = 1$. With $M = 1$ the buffer holds only that batch, so $\beta_t = \pi(a_t \mid s_t)$, $\rho_t \equiv 1$, and Eq.~\ref{eq:ldt_replay} reduces to Eq.~\ref{eq:ldt}.
+
+
+There are two further differences between DTPO and GDTPO. The first is that DTPO's original algorithm returns the best deterministic policy seen during training. On the other hand, GDTPO stores every evaluated tree with its in-training score and returns the top $K_{\text{keep}}$ for a separate held-out selection step, since the in-training score is a cheap estimate on a small chronic set. This selection step is applied identically to every configuration in the ablation to ensure consistency across evaluation. Additionally, DTPO evaluates a deterministic copy of the policy once every 10 iterations, whereas GDTPO evaluates on every iteration (line 14) such that each candidate tree is scored before it is allowed to collect data. This change is implemented because the gate can only check trees that have been scored, and the data should not be poisoned by trees that are unscored.
+

@@ -1,0 +1,40 @@
+\chapter{Conclusion}
+\label{ch:Conclusion}
+
+% Conclusion - 2 pages
+
+In this thesis, we set out to investigate whether interpretable reinforcement learning methods can produce controllers that are not only transparent, but also operationally reliable in power grid environments, whilst maintaining high operational metrics. Drawing from existing interpretable methods, we designed a modified and improved algorithm that utilises decision tree policy optimisation, which we have coined as GDTPO. Through this work, we were able to produce intrinsically interpretable policies, yet were also able to identify that this domain holds many open research questions and requires further work in ensuring high operational reliability and stability. Several key findings emerged, which have shaped the lessons learned from this project.
+
+\section{Future Work}
+
+\subsection{Multi-Agent Topology Control}
+
+Current research within power grid operations seems to showcase that single-agent policies have stagnated, with current work tackling whether multi-agent policies can solve this complex domain \cite{marchesini2026marl2grid}. True transmission control is not centralised, with a multitude of grid operators handling portions of the grid, especially when these networks can be as vast as that of a country. A single agent is unable to scale as the size of the grid and the number of substations increases. Thus, there is current work within decentralised agents, each handling their own domain within the grid, in order to tackle the issue of scale.
+
+Even within multi-agent reinforcement learning, there must be substantial research put not only towards training strong teacher policies with stable checkpoints, but studies must be conducted in order to work towards global interpretability, instead of solely focusing on local interpretability of each agent on the grid. This research direction of working on local-to-global interpretability is the most prominent question that remains unanswered within this field of explainable multi-agent reinforcement learning within power grid operations.
+
+\subsection{Generalisation}
+
+Although we are confident of our improved algorithm's behaviour and performance, these improvements are still domain-specific. Additionally, the original DTPO algorithm was tested within typical reinforcement learning domains such as CartPole, where training policies is much less resource-demanding. To confirm the generalisation of our GDTPO algorithm across all domains of reinforcement learning, testing must be conducted within these domains, certifying it as a valid contribution to the reinforcement learning space.
+
+Due to the complexity of the research question and the environment itself, the work was intentionally limited to the lowest difficulty with a maximum of 50 actions, and our domain was limited to topological control. Theoretically, it is possible to explore redispatch control, where continuous actions are also possible. If the direction of developing decision trees is taken within redispatch, then the concept of discretising the action space must be explored.
+
+Moreover, resources used by current reinforcement learning methods within power grid operations seem to be strictly limited to CPU usage. Foregoing the use of GPUs for training and testing significantly impacts the progress of research and evaluation, and this is a vital aspect that must be tackled in order to vastly speed up and develop improvements within this field.
+
+\subsection{Post-Hoc Interpretability}
+
+Our work intentionally delved into interpretable models, instead of going in the more extensively researched direction of post-hoc methods such as feature importance or development of concept-based explainability frameworks. Post-hoc explainable policies are not intrinsically interpretable, but due to the current limitation of scalability within decision trees, especially as the number of actions and the grid size increases, both may be used alongside one another to complement each other. This remains an open challenge within the research community that requires further study. 
+
+Further studies can also be conducted using a human-in-the-loop approach to evaluate the methods against one another, as well as benchmark against subject matter experts and operators who have substantial experience in their domain. For this work, proxies like fidelity and number of leaves of the decision tree were used for evaluation purposes. Future work can observe application-based evaluation, which includes a human expert working within a real environment for comparison against the interpretable model.
+
+\section{Final Contributions}
+
+Through this work, we successfully gained a thorough insight into reinforcement learning strategies within power grid operations, understanding the various techniques within intrinsically interpretable models, as well as the trade-offs being balanced between attaining a high survival rate while ensuring transparency and interpretability of the policy. 
+We were able to confirm that current state-of-the-art methods for training interpretable reinforcement learning policies are able to inadequately preserve operational performance in power grid topology environments, limited in their survival performance to an upper bound of their black-box teacher oracle policies.
+
+Through the implementation of existing approaches like VIPER and DAgger, we have mapped the landscape of what is possible for intrinsically interpretable methods within explainable reinforcement learning methods for power grid operation. Through this work, we proposed GDTPO, a novel approach that builds upon and improves existing interpretable policy extraction methods through four major modifications. GDTPO is able to recover on average 77.8\% of its PPO black-box teacher within a 16-leaf tree on the bus14 environment, indicating that GDTPO is a simple yet effective approach. GDTPO's promising results highlight the importance of future research into scalable frameworks that are intrinsically interpretable.
+
+Future work within this domain seems to be vastly open-ended, with the struggles of scalability and generalisation of policies being observed, tied in part to the complexity of not only building intrinsically interpretable models, but also the complexity of the grid environments themselves. Nonetheless, we face an optimistic future within this domain. As power grid operations are extremely high-stakes, it is vital that we continue to understand the reasoning behind the decision-making process of a reinforcement learning model, rather than solely being critical of the action and its performance. It is vital that as researchers, we continue to ask the question of ``why?'' - and this must be raised and answered not only in the work that we do, but also answered by the autonomous models that we build to help shape our society. We look forward to seeing how these methods are improved upon, and are excited about the future work on novel online RL algorithms, that can both influence and speed up the work within power grids as well.
+
+
+

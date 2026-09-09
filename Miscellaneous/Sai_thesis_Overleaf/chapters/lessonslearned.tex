@@ -1,0 +1,44 @@
+\chapter{Lessons Learned}
+\label{ch:lessonslearned}
+
+In this chapter, we aim to accumulate all the lessons we have learned throughout this project. By focusing on the challenges that come with the technical problem of explainable reinforcement learning within power grid systems, we aim to highlight the key takeaways that one must grasp prior to conducting further research in this field. 
+
+\section{Scalability and Complexity}
+
+Current grid operators continue to modify substations and transmission lines manually, taking into consideration the behavioural history of the grids themselves. At the time of writing, there exists no optimal solution that can completely solve a grid system and still scale without degradation of performance and robustness. Therefore, it is vital that we continue to explore this direction, as scalability continues to be the core issue to improve the realism of policies. Many of the existing simulation environments, such as Grid2Op and RL2Grid, are built upon synthetic data. Work must be done to publicly and safely release grid data that is representative of true grid environments, without infringing upon the privacy of transmission companies and being mindful of international policies with regards to power grid systems. Thus, scalability and complexity remain to be critical challenges within power systems.
+
+\section{Idleness Can Dominate on Low Difficulty}
+
+% Based on current baselines on easy difficulty, doing nothing can be competitive
+
+Within smaller grids, such as the three tested within this project, denying the agent control of the environment and allowing the environment to continue without any external intervention seems to improve the performance of trained policies. This is most visible when the difficulty of the environment is low. This can create a bias for policies to continue performing the idle action to substantially boost their reward. Therefore, more data is required for power grid systems where abnormal changes to the grid are highlighted, such that policies can be truly evaluated for whether they showcase strong performance. Additionally, the inclusion of external sources such as VREs and batteries will continue to increase uncertainty and instability within grid networks. Even grids like bus36-M are extremely simple relative to national and global transmission systems, and are not truly reflective of the complexity that these grids can reach.
+
+\section{Time Constraints}
+
+% 
+
+% gpu accelerated environment simulation, parallelise thousands of grid environments simultaneously, use libraries like JAX, computationally heavy
+
+Environment simulations will continue to take time as long as they stay CPU-bound. It takes thousands of CPU wall time hours to explore this field of work and conduct meaningful experiments, just to push the envelope of current benchmarks. This is extremely computationally heavy, let alone time-consuming. Although RL methods rely on the CPU for environmental simulations due to their sequential behaviour, research will continue to take significant time if we stick to this precedent, especially given the complexity of power grid systems. To tackle this predicament, research must be conducted to incorporate GPU-accelerated environment simulation within existing benchmarks, such that training can parallelise hundreds and thousands of grid environments simultaneously. Libraries like JAX can be taken advantage of for bringing this into fruition.
+
+\section{Limited Intrinsic Research}
+
+% Intrinsic methods are extremely understudied
+
+Due to the issue of scalability, the entire domain of ante-hoc methods continues to stay within uncharted territory, understudied and neglected in favour of more blooming topics within RL, such as post-hoc methods and counterfactuals. Current work does delve into neuro-symbolic models, but intrinsically interpretable models that are both small and sparse remain an open question. This project delved into this domain to stay ambitious within intrinsically interpretable methods. Counterfactuals were considered as a contingency plan, but a pivot towards frameworks that incorporate it was not made as they typically assume centralised control and have non-cooperative agents, some of which have joint policies. This is more useful when exploring multi-agent RL, which was touched upon but not explored in depth for this project, once again due to computational and time constraints. Counterfactuals do provide structural explanations (such as which agents cooperated, and in what order actions took place), but do not possess causal attributions (such as highlighting which intervention truly mattered towards the performance of the policy). Given issues with overgeneralisation and the lack of a causal model, this too remains an open challenge. 
+
+% focus on post-hoc and counterfactuals
+
+\section{Black-Box Model Strength}
+
+% \section{Teacher Policy}
+
+Regardless of whether one explores post-hoc methods or intrinsically interpretable policies, single-agent or multi-agent, one conclusion that can be taken from this work is that the optimal outcome of student policies being able to match or exceed the performance of teacher oracles themselves is currently far-fetched. The teacher policies themselves have their own limitations, unable to reach strong survival rates as the grid complexity increases. 
+
+It is vital that current reinforcement learning research within power grid operations is focused upon training good black-box models that generalise well, especially when considering scalability and complexity of grids. The largest improvement in interpretable student policies is observed when the teacher oracle policy is strongest, as seen by the generalisation of all policies on bus5, compared to the variation in interpretable policies trained on bus14. Regardless of optimisation techniques, the student policy is unable to exceed the teacher oracle, the latter thereby establishing itself as the current upper bound. 
+
+Thus, the best performance currently will still be determined by black-box models, and we must strive towards improving these methods first, before aiming to explain how and why they work. Popular baselines and techniques like PPO and DQN have continued to revolutionise the reinforcement learning community for the last decade. Yet, the performance of these state-of-the-art methods within power grid systems showcases that there still exists a plethora of room for improvement to attain high, robust performance and survival within these grids. The performance of interpretable policies will ultimately be dictated by teacher quality.
+
+% state-of-the-art, popular baselines, still significant room for improvement in the performance of these methods
+
+%  Furthermore, retraining these teacher oracles was not possible, as training a black-box policy up to 45 million timesteps required over 4 weeks of continuous CPU wall time, which was not feasible given the time constraints of the project. Therefore, significant work is required in this field to further strengthen the teacher policy, before further research is conducted within explainable methods, especially if interpretable techniques are delved into.

@@ -1,0 +1,211 @@
+\chapter{Background}
+\label{ch:background}
+
+\SetKw{KwReturn}{Return}
+
+\section{Reinforcement Learning}
+
+Reinforcement learning is a subset of machine learning where an agent learns the best possible way of achieving its goal within an environment \cite{sutton1998reinforcement}. To mathematically define this within the context of power grids, we will take the same definition as the environment established by RL2Grid \cite{marchesini2025rl2grid}, which serves as the foundation for the evaluation of this project's final contributions. 
+
+This environment is represented as a Markov Decision Process (MDP), which is defined as a tuple $(\mathcal{S}, \mathcal{A}, P, R, \rho, \gamma)$. Here, $\mathcal{S}$ and $\mathcal{A}$ are the state and action space sets respectively, $P$ is the state transition probability distribution, $\rho$ is the initial uniform state distribution, $R$ is a reward function, and $\gamma$ is the discount factor \cite{marchesini2025rl2grid}. Due to the stochastic nature of MDPs, they obey the Markov property that the actions taken are completely dependent on the current state, with the past and future states being conditionally independent.
+
+In policy optimisation methods, the agent learns a parameterised policy $\pi_{\theta}(a_t \mid s_t)$, which is the probability of selecting action $a_t$ given state $s_t$ at a certain time step $t$. In value-based methods, the agent instead estimates value functions such as $V_{\pi}(s)$ or $Q_{\pi}(s,a)$, which represent the expected discounted return obtained by following policy $\pi$ from a given state or state-action pair. The objective is to learn a policy that maximises the expected discounted return:
+
+\begin{equation}
+    J(\pi) =
+    \mathbb{E}_{\pi}\left[
+    \sum_{t=0}^{\infty} \gamma^t R(s_t, a_t)
+    \right].
+    \label{eq:rl_objective}
+\end{equation}
+
+\subsection{Policy Gradient Methods}
+
+Policy gradient methods \cite{ghasemi2024comprehensive} directly optimise a parameterised policy by estimating the gradient of the expected return with respect to the policy parameters. Rather than learning only a value function, these methods update the policy $\pi_{\theta}$ in the direction that increases the likelihood of actions that lead to higher estimated advantage. Policy improvement is done over a batch of sampled trajectories \cite{ghasemi2024comprehensive}. 
+
+Policy gradient methods allow for the optimal policy to be found by prioritising actions that maximise the reward through parameter tuning. There exist various methods of computing this, one of which is Proximal Policy Optimisation (PPO). Due to the availability of PPO within the RL2Grid benchmark, the next sub-section will delve into this.
+
+\subsubsection{Proximal Policy Optimisation} 
+
+Proximal Policy Optimisation (PPO) is an on-policy actor-critic reinforcement learning algorithm that improves the stability of acquiring policy updates by optimising the parameters using stochastic gradient ascent \cite{schulman2017proximal}. Trajectories are collected using the current policy $\pi_\theta$, which is then compared against the old policy $\pi_{\theta_{\text{old}}}$. $\hat{A}_t$ is the estimated advantage function at a certain time step $t$, which is used to measure the improvement in the actions. To ensure that policy updates are minimal and therefore stable, the probability ratio $r_t(\theta)$ is clipped in the objective. 
+
+\begin{equation}
+L^{\text{CLIP}}(\theta) =
+\mathbb{E}_t
+\left[
+\min
+\left(
+r_t(\theta)\hat{A}_t,
+\text{clip}
+\left(
+r_t(\theta), 1-\epsilon, 1+\epsilon
+\right)
+\hat{A}_t
+\right)
+\right].
+\end{equation}
+
+Here, $r_t(\theta)$ is the probability ratio, which is shown below, and $\epsilon$ is a tunable hyperparameter. The value function parameters are simultaneously updated by minimising the value-loss function.
+
+\begin{equation}
+r_t(\theta) =
+\frac{\pi_\theta(a_t \mid s_t)}
+{\pi_{\theta_{\text{old}}}(a_t \mid s_t)} ,
+\end{equation}
+
+\subsection{Value-Based Methods}
+
+While policy gradient methods focus directly on the policy itself, value-based methods derive the expected rewards from the state-action pairs that are chosen, in order to understand the best possible action to take given a state \cite{yau2024interpretability}. A value function is first estimated, and then repeatedly updated in each iteration to converge to the optimal value function that reflects the rewards captured in observations. Some examples of value-based algorithms are Q-Learning, SARSA, and Deep Q-Network (DQN). Once again, due to the presence of DQN within the RL2Grid benchmark, this algorithm will be explained in further detail in the next sub-section.
+
+\subsubsection{Deep Q-Networks}
+
+Deep Q-Networks (DQN) is a subset of deep reinforcement learning, where classical Q-learning is extended using neural networks in order to approximate the action-value function \cite{mnih2013playing, van2016deep}. The Bellman equation serves as the foundation of the target Q-value, which is incorporated into the loss function that is trained via deep learning techniques. The squared temporal-difference error is minimised via gradient descent, and the formula \cite{ghasemi2024comprehensive} is as follows:
+
+\begin{equation}
+L(\theta) =
+\mathbb{E}
+\left[
+\left(
+y_t - Q(s_t,a_t;\theta)
+\right)^2
+\right] ,
+\end{equation}
+
+\begin{equation}
+y_t =
+r_t + \gamma \max_{a'} Q(s_{t+1},a';\theta^-),
+\end{equation}
+
+This algorithm is extremely useful for states where the actions are discrete, not continuous. By prioritising an $\epsilon$-greedy policy, the balance between exploration and exploitation is handled, where there is a probability $\epsilon$ for the agent to select a random action, and probability $1 - \epsilon$ to select the action with the highest predicted Q-value.
+
+DQN works due to the innovations of experience replay, target networks, and reward clipping. By breaking temporal correlations, ensuring that training does not occur on sequential states, the same experience can provide multiple levels of learning. Minibatch sampling is done during training to take advantage of this benefit, which is why past transitions are stored in a replay buffer.
+
+Additionally, a separate network is created for computing the targets. This is because the target Q-value changes every update, making optimisation unstable. By using a separate target network $Q(\cdot;\theta^-)$ to store a network's parameters, and copy the main network to the target network every couple of steps (a constant), we can maintain this stability. Furthermore, the rewards are also clipped to ensure that stability is maintained. This is essential in domains such as power grids, where excessively large changes can have a drastic impact on the network.
+
+\section{Explainable Reinforcement Learning}
+
+When the explainability of an RL agent's decisions is unclear, this has a negative impact on the safety and reliability of its use. If these agents lack transparency, grid operators cannot take decisions, and RL developers cannot debug or correct policies. This is especially the case when methodologies like neural networks are implemented within reinforcement learning frameworks for greater generalisation and overall improvement in performance. To tackle this, explainable reinforcement learning (XRL) allows users to gain insight into decisions made and actions taken, improving transparency in ensuring that a model's behaviour is not only verifiable and acceptable by experts, but also explainable as to why a particular action was selected in a given state.
+
+As per the detailed survey conducted within this domain \cite{milani2022survey}, existing work in this field can be classified under three categories, namely Feature Importance (FI), Learning Process and MDP (LPM), and Policy-Level (PL). As defined by this survey, Feature Importance takes into consideration the immediate context of the state that allows it to understand the action taken, whereas Policy-Level considers a longer horizon of the model. Learning Process and MDP, on the other hand, learn from past experiences in order to gain an understanding of the current state of the Markov Decision Process. 
+
+Explainable reinforcement learning can be tackled using two broad categories: intrinsic interpretability, and post-hoc explanations. Intrinsic interpretability, which is an ante-hoc method, aims to design agents that are interpretable by construction, and include all the information regarding their decision-making process prior to choosing the optimal action. On the other hand, post-hoc explanation methods attempt to explain and justify the behaviour of already-trained black-box agents. This work will primarily focus on exploring interpretable methods to delve into the domain of XRL within power grid operations.
+
+\subsection{Intrinsic Interpretability}
+
+While post-hoc methods develop an additional model that aims to explain pre-built models, they are not interlinked with the predictions themselves, leading to unreliable outputs. To improve upon the transparency when developing glass-box models, intrinsic interpretability is favoured. For these ante-hoc models, the policy has interpretability built in, and the model is able to explain its action prior to implementing it. There exists various different methods of making policies intrinsically interpretable. Previous work in this domain explored creating frameworks that generate symbolic policies to widen the scope of deep reinforcement learning \cite{zheng2024symbolic, landajuela2021discovering}, converting policies into decision trees \cite{topin2021iterative}, using graphs and finite state machines \cite{koul2018learning}, or logical expressions to develop both explainable and interpretable models. Recently, with the rise of large language models, their strengths have been adapted in various works to improve upon neuro-symbolic methods to provide textual explanations \cite{luo2024end}.
+
+It should be highlighted that interpretability and explainability are not synonyms, albeit they do go hand in hand; the former refers to whether a learned policy is transparent and human-readable, and its decision-making process can be understood. On the other hand, the latter refers to whether the model has the capability to justify why a specific decision has been made, and what key inputs were critical in the action being chosen for the environment. The term to describe the minimal conditions and most significant inputs and contributors that are the foundation behind a certain output, action, or decision, are known as the prime implicants \cite{willot2023prime}. 
+
+\subsection{Policy Distillation}
+
+Although approaches like DQN allow for high-performing agents, these require intensive training, a large number of hyperparameters, and extensive network sizes during computation, which causes a large overhead on resources. Additionally, due to the nature of neural networks, which act as black boxes, users are unable to understand the decision-making process behind the actions suggested by the agents. This complicates the interpretation of the results, and also makes the model's long-term goals and long-term impact difficult to identify. 
+
+Policy distillation \cite{rusu2015policy} addresses these two issues by establishing a new untrained network known as a student model $S$. The original model, referred to as the teacher model $T$, acts as the oracle policy in this architecture, whereby the student model is trained using state-action pairs generated by the teacher model. By imitating and approximating the actions of the expert policy, the student model learns to predict the action that the teacher model would have selected. This transfer of policies improves efficiency and speed with regard to decision-making as well as training.
+
+The teacher model can be established using either policy gradient methods or value gradient methods, such as PPO and DQN respectively. This is particularly helpful when aiming to transfer policies, as additional black-box models are not required to be trained. Rather, we are able to inspect the policy directly and understand which features of the environment influence the actions of the agent, improving interpretability, and gaining a deeper understanding of the optimal actions in the environment. Policy distillation provides an avenue into ensuring that model performance is optimised, while gaining the benefits of interpretability in the decision-making process. The student model can be of various types, including symbolic methods, rule-based models, or decision trees. Examples of approaches that are able to extract decision tree policies include Dataset Aggregation (DAgger) and Verifiable Reinforcement Learning via Policy Extraction (VIPER).
+
+Although the procedure is post-hoc, the product of policy distillation is intrinsic. It initially extracts its policy from a black-box teacher that has already been trained, yet the final student deployed has no black box involved. Policy distillation methods are therefore treated as intrinsically interpretable.
+
+\subsubsection{DAgger}
+
+Dataset Aggregation (DAgger) \cite{ross2011reduction} is an imitation learning algorithm that improves upon simple behavioural cloning techniques by tackling the flaw of distribution shift, where the learned policy visits different states than the expert, which causes error compounding due to a lack of training data. By allowing the student policy to iteratively continue interacting with the environment while obtaining the expert labels from the teacher model, the student is able to retrain on an aggregated dataset that allows it to learn from trajectories that it previously did not have training data on. This improves its ability to handle states that it previously would not have encountered if it were run purely on the original training dataset of the expert oracle. This approach is extremely useful in environments with large state spaces and actions possible, such as power grids, where small changes or potential errors can have cascading effects on the system, leading to unsafe operation conditions such as overloaded lines, or a complete breakdown of the system itself.
+
+\subsubsection{VIPER}
+
+Verifiable Reinforcement Learning via Policy Extraction (VIPER) \cite{bastani2018verifiable} is a policy extraction method that improves upon DAgger to utilise the Q-function of the teacher model, and incorporate this into extracting interpretable decision trees. Similar to DAgger, a teacher-student architecture is used to obtain labels for the states with the respective actions that must be taken. Once a dataset and policy are initialised, the policy iteratively samples trajectories from its current state, and similar to DAgger, aggregates these datapoints into its existing dataset. After resampling from this dataset, the states are prioritised based on their importance to the expert policy, and a decision tree is trained on these state-action pairs, returning the best policy that imitates the expert as closely as possible. 
+
+VIPER is a relevant approach for working towards explainable reinforcement learning methods, as it provides a way to approximate the decision-making process through decision trees, while maintaining the performance as closely as possible to the expert policy. Nonetheless, it has its drawbacks; equal performance is not easily attainable, especially in policies where the teacher's neural network is extremely complex. Although VIPER has shown to have equalled teacher performance in games like Atari Pong \cite{bastani2018verifiable}, these environments have a limited number of actions, and tasks have approximations. There still exists a research gap in understanding the complete potential of this approach in other complex domains, such as power grid operations. 
+
+\subsection{Directly Optimised Interpretable Policies}
+
+\subsubsection{S-REINFORCE}
+
+Although work in large neural networks has grown to predict actions in complex action spaces with high accuracy, there has been an emphasis within the research community to develop neuro-symbolic policies \cite{li2025symbolic, garnelo2016towards}, where human-readable mathematical expressions determine how a policy learns, improving transparency into a model. One approach is S-REINFORCE \cite{dutta2023s}, an intrinsically interpretable reinforcement learning algorithm which combines policy optimisation through neural networks with symbolic regression to learn an interpretable policy directly during training.
+
+In this algorithm, symbolic regression and reinforcement learning are integrated into an iterative training procedure. Based on the standard REINFORCE algorithm \cite{williams1992simple}, trajectories are generated within the environment, using discounted future rewards to update the policy for providing higher rewards. A neural network is used as the learning mechanism for mapping state to action probabilities. While the neural network trains on all the data across all trajectories collected, the symbolic component is introduced periodically, where the regressor aims to find a mathematical policy that approximates the neural network's policy. Genetic operators, such as crossover, mutation, and selection, are used for this approximation mechanism \cite{dutta2023s}. The trained symbolic policy may also be used during training through importance sampling, correcting the policy-gradient estimate through the likelihood ratio. This ratio is a comparison of similarity between the neural network's policy and the symbolic regressor's policy. It should be noted that this is only useful if the likelihood ratio is high, since large differences between both policies can lead to unstable learning and high variance.
+
+\subsubsection{DTPO}
+
+A decision tree policy is a Classification and Regression Tree (CART) that showcases a model through predictions that funnel through a tree. Current work with regard to decision trees bases itself on the greedy heuristics \cite{breiman1984classification} as well as the regression tree implementation provided by Scikit-learn \cite{pedregosa2011scikit}.
+
+Unlike neural networks, for example, decision trees cannot be trained by gradient descent, due to their discrete, non-differentiable structure. To combat this issue, Decision Tree Policy Optimisation (DTPO) \cite{vos2024optimizing} builds upon the techniques of PPO to incrementally improve the regression tree. By using the gradient information of the loss to update the targets rather than the parameters, DTPO allows for differentiability without making the tree differentiable itself, ensuring a single tree remains after each step without resorting to an ensemble, which would invariably impact interpretability. By computing what the policy should move towards via the probability vector, a fresh regression tree is fit after each iteration to bypass this problem. As transcribed from the published paper, the DTPO algorithm is shown below in Alg.~\ref{alg:dtpo}.
+
+
+\begin{algorithm}[H]
+\label{alg:dtpo}
+\SetAlgoLined
+\DontPrintSemicolon
+Initialise $\pi$ as a single leaf that takes any of the $n$ actions with equal probability $\pi(s) = (\frac{1}{n}, \frac{1}{n}, ..., \frac{1}{n}) \forall s$\;
+\For{$i = 1, 2, \dots, N$}{
+  Run policy $\pi$ in the environment for $t = 1...T$ timesteps collecting observations $s_t$, actions $a_t$, and rewards $r_t$\;
+  Compute GAE($\lambda$) advantages $\hat{A}_t$ using $\hat{A}_t = \delta_t + (\gamma\lambda)\delta_{t+1} + \dots + (\gamma\lambda)^{T-t-1}\delta_{T-1}$, where $\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)$. Normalise them to zero mean and unit variance\;
+  Define the log action probabilities at time t as $l_t \leftarrow \log(\pi_{i-1}(s_t) + 10^{-8})$\;
+  Fit a regression tree $\pi'$ on observations $s_t$ with targets $Y_t = \sigma(l_t + \eta \nabla L^{DT}(l_t))$\;
+  Replace $\pi$ by $\pi'$ if it improves the $L^{DT}$ loss\;
+  Once every 10 iterations: evaluate a deterministic copy of $\pi$\;
+  Optimise the value-function parameters with $L^{VALUE} \theta$ loss, for $E$ epochs with batches of size $B$ using Adam\;
+}
+
+\KwReturn the best deterministic policy encountered during optimisation\;
+\caption{DTPO \citep{vos2024optimizing}}
+\end{algorithm}
+
+In line 6, the decision tree loss as defined in logits is written as:
+\begin{equation}
+L^{\text{DT}}(l) = \mathbb{E}_t\!\left[ \frac{\sigma(l_t)_{a_t}}{\pi(a_t \mid s_t)} \hat{A}_t \right]
+\label{eq:ldt}
+\end{equation}
+where $\sigma$ is the softmax function $\sigma(\mathbf{x})_i = e^{x_i} / \sum_j e^{x_j}$ and $\hat{A}_t$ is the advantage estimate at time $t$.
+
+\subsection{Interpretability Metrics}
+
+There are countless properties that are used to measure the value of interpretability and explainability within the field of explainable reinforcement learning. Molnar's \cite{molnar2020interpretable} work on Interpretable Machine Learning delves deep into this. To summarise his work, the properties that can be used to measure explainable methods holistically are the model's expressive power, translucency, portability, and algorithmic complexity. These properties are also referenced in the works of Carvalho et al. \cite{carvalho2019machine} and Robnik et al. \cite{robnik2018perturbation}. \textit{Expressive power} refers to the architecture and structure of the model itself in order to convey its explanations. \textit{Translucency} refers to how dependent the model is on utilising its inputs and parameters to be able to come up with an explanation. If policies are intrinsically interpretable, translucency is high. \textit{Portability} refers to how versatile the method is, such that it can be applied to other domains. It should be noted that translucency and portability are inversely correlated; if an explainable model has high translucency, it has low portability, and vice versa. \textit{Algorithmic complexity}, as is self-explanatory, takes into consideration the mathematical efficiency of the algorithm used to implement the explainable method.
+
+If looking particularly at individual explanations themselves, the properties that play a role and must be considered and/or measured are accuracy, fidelity, consistency, stability, comprehensibility, certainty, degree of importance, novelty, and representativeness \cite{molnar2020interpretable}. Indubitably, we ideally want to develop a glass-box model that is able to retain the strengths of black-box models, such as minimising false positives and false negatives, while ensuring that the glass-box model is closely aligned with the predictions of the black-box model; this is where \textit{accuracy} and \textit{fidelity} go hand in hand. On top of this, as with any reinforcement learning model, we require low variance and repeatability to ensure high reliability of the model, which is the reason why \textit{consistency} and \textit{stability} are highlighted. \textit{Comprehensibility} refers to the human-readability aspect of the explanation, which is difficult to define or measure, as this is dependent on the context and domain in which the explainable model is being used. \textit{Representativeness} refers to the coverage of the explanation itself, and how much of the model it is able to explain. \textit{Certainty} and \textit{novelty} also go hand in hand, since it is extremely useful for a model to be able to provide its confidence metric on its own prediction of the optimal action and its explanation. If, during testing, a state or inputs unseen in training come up (high novelty), the metric for certainty is sure to drop, which provides insights for users of the policy to know how useful the explanation and action might be. In domains like power grid operations, due to the complexity of the environments, this is extremely useful for power grid operators. Degree of importance refers to the number of prime implicants in a decision when predicting the next action.
+
+\section{Simulation Framework}
+
+For the purpose of this work, the RL2Grid environment \cite{marchesini2025rl2grid} will be utilised as the benchmark reference for both assessment of feasibility as well as evaluation of the final contributions. 
+
+\subsection{Grid2Op}
+
+Grid2Op \cite{marot2021learning} is an open-source Python-based framework that provides a realistic simulation framework for sequential decision-making in electrical power grid systems. It was developed as part of the ``Learning to run a Power Network'' (L2RPN) challenge \cite{marot2021learning}. It not only provides a modular tool that allows for the simulation of power grid operations, but also facilitates the evaluation of various control strategies that enact realistic operating conditions within transmission grids. The fact that decisions are sequential means that at each timestep, the current state of the power grid is to be observed by an agent, which can take the necessary respective action. 
+
+A power network is created as part of an environment, having multiple elements that can be modelled as part of it, which include generators, loads, power lines, substations, shunts, and storage units. Based on observations of the environment, which can be anything from the exact time to the active power flow at a specific power line, an agent can be instructed to take a respective action. These actions are undoubtedly constrained, given the nature of power grids; due to issues such as overloading and thermal limits, flow is limited heavily, and the agent must ensure that cascading failures do not occur due to overloading of buses. Therefore, it is vital for the agent to not violate operational constraints. Additionally, depending on the type of event, failures can occur either in a deterministic and/or stochastic manner, which must be handled aptly by the agent.
+
+Grid2Op provides a rich observation space containing information about line loadings, outputs from generators, load demands, configurations and connectivity of networks, amongst other characteristics. The modularity and flexibility that this framework provides made it the foundation for the RL2Grid benchmarking framework.  
+
+\subsection{RL2Grid}
+
+RL2Grid \cite{marchesini2025rl2grid} is an open-source, Python-based benchmarking environment designed specifically to standardise the evaluation and testing of various reinforcement learning algorithms within power grid operations. Designed based on the power simulation framework of Réseau de Transport d'Électricité France (RTE France), RL2Grid aims to provide reproducible experimental environments for comparing different approaches.
+
+This benchmark consists of base grid environments of varying complexity, which is defined by the number of substations, lines, generators, and loads present in the system. It should be noted that all grids have a double bus system, where each component of the grid is connected to two other components. Table~\ref{tab:rl2grid_envs} shows a subset of the available environments that we are taking into consideration for our work. These do not include environments that are susceptible to stochastic events that cause disconnection within lines (opponents), nor do they include environments that have in-built batteries for supporting the power grid system. All these environments involve maintenance only, which is the deterministic disconnections of lines for set periods of time. Although the bus5 environment is not available through the original work, the author of RL2Grid \cite{marchesini2025rl2grid} was kind enough to share this environment with us for our research and work for this thesis. These environments allow for the evaluation of scalability and robustness of reinforcement learning algorithms.
+
+\begin{table}[h]
+\centering
+\caption{Partial list of environments within RL2Grid and their properties \cite{marchesini2025rl2grid}.}
+\label{tab:rl2grid_envs}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Environment} & \textit{No. of Substations} & \textit{No. of Lines} & \textit{No. of Generators} & \textit{No. of Loads} \\
+\midrule
+bus5         & 5  & 8  & 2  & 3 \\
+bus14        & 14  & 20  & 6  & 11 \\
+bus36-M      & 36  & 59  & 22 & 37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Agents are typically evaluated on the survival rate metric, which measures the normalised proportion of timesteps that a grid remains operational \cite{marchesini2025rl2grid}. A lower survival rate corresponds to a higher probability that the grid will collapse, whereas a higher survival rate denotes long-term stability in operation.
+
+As part of the benchmark, implementations of several reinforcement learning algorithms have already been provided. The algorithms intrinsically provided are DQN, PPO, Soft Actor-Critic (SAC), Lagrangian PPO (LAGR-PPO), and Twin Delayed Deep Deterministic Policy Gradients (TD3). As RL2Grid provides a controlled environment for testing various algorithms and methods, as well as a solid foundation for investigating explainability and interpretability, it is well suited for this work on researching explainable reinforcement learning. 
+
+\subsubsection{Topology Optimisation}
+
+Within RL2Grid, there exist two different types of tasks, namely topology optimisation and redispatch \cite{marchesini2025rl2grid}. While redispatch refers to continuous actions, topology optimisation consists of discrete actions, where agents can take decisions on lines or bus-component connections to handle overloads. Due to the combinatorial nature of the action spaces brought about by the number of potential switching configurations, this grows exponentially as the grid size increases. This raises the challenge for developing strong interpretable policies that are able to scale, making it suitable for this line of work. Although algorithms like PPO are able to learn effective policies with a high survival rate, there still exists the issue of scalability and a lack of interpretability and explainability, which serves as the knowledge gap that we aim to address and pursue.
+
+\section{Interpretability Evaluation}
+
+Most work requires a human-in-the-loop approach to not just evaluate frameworks and methods against one another, but to also benchmark against subject matter experts and operators who have substantial experience in their domain.
+
+As per the work of Doshi-Velez and Kim \cite{doshi2017towards}, their proposed taxonomy to evaluate interpretable models can be classified under three distinct methods: application-based, human-based, and function-based. An application-based evaluation includes a human expert working within a real environment for comparison against the interpretable model. A human-based approach for evaluation works best when the environment is challenging to recreate or replicate, whether this is due to the complexity of the environment, financial constraints, or other issues. Here, solely the quality of the explanation itself is evaluated instead of the agent's behaviour in the entire environment. The least expensive and most generic option is the function-based evaluation, where the model has already been evaluated and validated by a human. In such cases, `proxies' are used for evaluation purposes. For example, this could be the depth of a decision tree.

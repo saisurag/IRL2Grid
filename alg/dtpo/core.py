@@ -314,7 +314,8 @@ class DTPO:
                     break
 
         finally:
-            # Store top-K candidate trees for final selection, as in-training best is unreliable, the real best chosen latertopk = max(1, int(getattr(args, "dtpo_rerank_topk", 5)))
+            # Store top-K candidate trees for final selection, as in-training best is unreliable, the real best chosen later
+            topk = max(1, int(getattr(args, "dtpo_rerank_topk", 5)))
             ranked = sorted(candidates, key=lambda c: c[0], reverse=True)[:topk]
             cand_records = [{"tree": t, "iter": cit, "step": gstep, "cheap_survival": float(s)}
                             for (s, gstep, cit, t) in ranked]
